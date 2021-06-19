@@ -1,0 +1,6 @@
+framework module CCKit {
+  umbrella header "CCKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
