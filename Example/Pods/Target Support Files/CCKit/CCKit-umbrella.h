@@ -10,9 +10,12 @@
 #endif
 #endif
 
+#import "NSArray+CCSafe.h"
+#import "NSDictionary+CCSafe.h"
 #import "NSObject+CCDealloc.h"
-#import "NSObject+KVO.h"
-#import "NSObject+notification.h"
+#import "NSObject+CCKVO.h"
+#import "NSObject+CCNotification.h"
+#import "NSString+CCSafe.h"
 
 FOUNDATION_EXPORT double CCKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char CCKitVersionString[];

@@ -6,7 +6,7 @@
 //  Copyright © 2019年 lucc. All rights reserved.
 //
 
-#import "NSObject+KVO.h"
+#import "NSObject+CCKVO.h"
 #import <objc/runtime.h>
 #import "NSObject+CCDealloc.h"
 
@@ -61,7 +61,7 @@
 
 @end
 
-@implementation NSObject (KVO)
+@implementation NSObject (CCKVO)
 
 - (void)cc_addObserveKeyPath:(NSString *)keyPath changeBlock:(kvoBlock)changeBlock {
     [self _addObserverKeyPath:keyPath changeBlock:changeBlock deliverOnMainThread:NO];

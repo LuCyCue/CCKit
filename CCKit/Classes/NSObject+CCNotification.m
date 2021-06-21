@@ -6,11 +6,11 @@
 //  Copyright © 2019年 lucc. All rights reserved.
 //
 
-#import "NSObject+notification.h"
+#import "NSObject+CCNotification.h"
 #import "NSObject+CCDealloc.h"
 #import <objc/runtime.h>
 
-@implementation NSObject (notification)
+@implementation NSObject (CCNotification)
 
 - (void)cc_addNotificationObserveName:(NSString *)name selector:(SEL)selector object:(id)object {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:selector name:name object:object];

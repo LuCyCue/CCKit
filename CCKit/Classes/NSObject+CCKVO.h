@@ -12,9 +12,22 @@ typedef void(^kvoBlock)(id target, id newVal, id oldVal);
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSObject (KVO)
+@interface NSObject (CCKVO)
 
+/**
+ 添加kvo
+
+ @param keyPath 监听路径
+ @param changeBlock 回调
+ */
 - (void)cc_addObserveKeyPath:(NSString *)keyPath changeBlock:(kvoBlock)changeBlock;
+
+/**
+ 添加回调在主线程kvo
+
+ @param keyPath 监听路径
+ @param changeBlock 回调
+ */
 - (void)cc_addObserveOnMainThreadKeyPath:(NSString *)keyPath changeBlock:(kvoBlock)changeBlock;
 - (void)cc_removeObserveKeyPath:(NSString *)keyPath;
 - (void)cc_removeObserveAll;
