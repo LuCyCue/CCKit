@@ -1,16 +1,16 @@
 PODS:
-  - CCKit (0.0.1)
+  - LCCKit (0.0.1)
 
 DEPENDENCIES:
-  - CCKit (from `../`)
+  - LCCKit (from `../`)
 
 EXTERNAL SOURCES:
-  CCKit:
+  LCCKit:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CCKit: 7fbbab969d699cfd4a952e1a0ac43722211072e4
+  LCCKit: 2ac0a743db4611e22376a3e11b6f4e77c5082543
 
-PODFILE CHECKSUM: efdaa8fa1401bfcb515d3bb0b6ddf77d2ba0e27a
+PODFILE CHECKSUM: 8173988f32f5f97e8ad981d9ea9a2c39153c3f18
 
 COCOAPODS: 1.10.1

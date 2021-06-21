@@ -7,6 +7,7 @@
 //
 
 #import "CCViewController.h"
+#import "NSArray+CCSafe.h"
 
 @interface CCViewController ()
 
@@ -18,6 +19,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSMutableArray *mArray = [NSMutableArray array];
+    [mArray cc_safeAddObject:@(1)];
+    [mArray cc_safeAddObject:nil];
+    id x = [mArray cc_safeObjectAtIndex:3];
+    NSLog(@"%@",x);
 }
 
 - (void)didReceiveMemoryWarning

@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## CCKit
+## LCCKit
 
 Copyright (c) 2021 Lucyfa <lccjust123@163.com>
 

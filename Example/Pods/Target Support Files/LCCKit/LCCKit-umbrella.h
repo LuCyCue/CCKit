@@ -17,6 +17,6 @@
 #import "NSObject+CCNotification.h"
 #import "NSString+CCSafe.h"
 
-FOUNDATION_EXPORT double CCKitVersionNumber;
-FOUNDATION_EXPORT const unsigned char CCKitVersionString[];
+FOUNDATION_EXPORT double LCCKitVersionNumber;
+FOUNDATION_EXPORT const unsigned char LCCKitVersionString[];
 

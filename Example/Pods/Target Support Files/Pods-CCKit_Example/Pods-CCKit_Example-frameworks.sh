@@ -175,10 +175,10 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/CCKit/CCKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/LCCKit/LCCKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/CCKit/CCKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/LCCKit/LCCKit.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

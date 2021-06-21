@@ -324,11 +324,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CCKit_Example/Pods-CCKit_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CCKit/CCKit.framework",
+				"${BUILT_PRODUCTS_DIR}/LCCKit/LCCKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CCKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LCCKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

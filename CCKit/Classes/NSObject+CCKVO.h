@@ -29,7 +29,17 @@ NS_ASSUME_NONNULL_BEGIN
  @param changeBlock 回调
  */
 - (void)cc_addObserveOnMainThreadKeyPath:(NSString *)keyPath changeBlock:(kvoBlock)changeBlock;
+
+/**
+ 移除kvo
+
+ @param keyPath 监听路径
+ */
 - (void)cc_removeObserveKeyPath:(NSString *)keyPath;
+
+/**
+ 移除所有的kvo
+ */
 - (void)cc_removeObserveAll;
 
 @end

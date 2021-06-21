@@ -3,7 +3,8 @@ use_frameworks!
 platform :ios, '9.0'
 
 target 'CCKit_Example' do
-  pod 'CCKit', :path => '../'
+  pod 'LCCKit', :path => '../'
+#  pod 'LCCKit'
 
   target 'CCKit_Tests' do
     inherit! :search_paths
