@@ -64,7 +64,7 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71C5DFBD9735F6F26A86CF99 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		920313C80A6F935F5DB7EBA9 /* CCKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CCKit.podspec; path = ../CCKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		920313C80A6F935F5DB7EBA9 /* LCCKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LCCKit.podspec; path = ../LCCKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B7046E2551CC579A0425E58E /* Pods-CCKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-CCKit_Example/Pods-CCKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C764E800F61489CE758D4D9A /* Pods-CCKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-CCKit_Tests/Pods-CCKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,7 +178,7 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				920313C80A6F935F5DB7EBA9 /* CCKit.podspec */,
+				920313C80A6F935F5DB7EBA9 /* LCCKit.podspec */,
 				5DAFA64D887211D3116C026C /* README.md */,
 				71C5DFBD9735F6F26A86CF99 /* LICENSE */,
 			);

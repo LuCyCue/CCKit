@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'CCKit'
+  s.name             = 'LCCKit'
   s.version          = '0.0.1'
   s.summary          = 'Tools for iOS development'
 
