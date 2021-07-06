@@ -7,107 +7,111 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02C432E696508CFB393864E50A4ED5E4 /* NSString+CCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A85AB381E4C7CD219AB9D12E033CD4 /* NSString+CCSafe.m */; };
+		0797C1FFC7649BB07095B7EB3803F2B9 /* NSDictionary+CCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A9D1989D2D8EFCDF98B7EB7B7CCC930 /* NSDictionary+CCSafe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0BB3B63836FFD33596500CCABB7E13F7 /* NSObject+CCDealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5821597491635F0FF43FF8617E5E446D /* NSObject+CCDealloc.m */; };
 		0EBF4CEF6B2009844346F0943E663013 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		1CEC8238D983AF01911A8F383034B221 /* Pods-CCKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 905472030FC90A94224974B917C6C9F2 /* Pods-CCKit_Example-dummy.m */; };
-		2C56E1537A0D7E1C5A9BC52882053D29 /* NSString+CCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = A4814B74155BF5278220B5254CDE60E3 /* NSString+CCSafe.m */; };
+		1EA0D913D3BA1D16F73EB2C9B3273F4F /* LCCKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A08FFC935604A78D91E33AF1AD97E3 /* LCCKit-dummy.m */; };
 		382D88DE5D815E260980C4EC871EC187 /* Pods-CCKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2CCFD214812BCA5A2B5695D2A9E17C /* Pods-CCKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		411DF0536FB18B945982C886CDE00F32 /* LCCKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1297185016771BD83A656D1109470570 /* LCCKit-dummy.m */; };
-		50DAF0ADCC3FAD0A7704D8B7F120D989 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		5247B945B8A09F01D738CA48CAE4C768 /* NSDictionary+CCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = A155E84BA1603A9ABDCD31E065EBE147 /* NSDictionary+CCSafe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		587CBD9828EA47768AA7B6CEBF7D5F7C /* NSObject+CCDealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8733E0EBD80A97DDB9E57E0E1D858 /* NSObject+CCDealloc.m */; };
-		80A7CAB73B638E508BD4DD5A08F545E4 /* NSObject+CCKVO.h in Headers */ = {isa = PBXBuildFile; fileRef = 924C2DDED76405B3E253A1A6013E2348 /* NSObject+CCKVO.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		889D291D3D0FCF652656DB5657C2F273 /* NSString+CCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = A3472537B63AF77B0EC1BEC5EEE1CC95 /* NSString+CCSafe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		92A4AB51399A6C55E8C0C81A79590CF5 /* NSObject+CCNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = BC86ACA473A6FD6730E2BC9732D9EF9A /* NSObject+CCNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		92A991EF8BE5F9780AC66FFFEA891142 /* NSObject+CCNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7687C68E4399AF632560B47D421A6B4D /* NSObject+CCNotification.m */; };
-		9FC4669F0F6111C5FD1B3F8F96A71197 /* NSArray+CCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 216C858017981690E0D7573749B07CD0 /* NSArray+CCSafe.m */; };
+		5CA4ECA168AEDA6C4C415D42ADD599CD /* UIButton+CCLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = BA38871484CA388B21DF62B06A438EE6 /* UIButton+CCLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		634AA149C07884BF4E44F894035A706B /* NSObject+CCKVO.h in Headers */ = {isa = PBXBuildFile; fileRef = 615811F9DE05E8814E424C0744184562 /* NSObject+CCKVO.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7CD995C88A6ED69EE2CBA34F81B6D0B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		834979951A323689A48E30B1C4A2216F /* NSObject+CCDealloc.h in Headers */ = {isa = PBXBuildFile; fileRef = C673B8C4FFC3368A22C79A1C02EAD51C /* NSObject+CCDealloc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86E6B265D1D08300C6248114525B9FC8 /* NSArray+CCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = B6112C2AD8B03E6E693BFCBA91BBBCF8 /* NSArray+CCSafe.m */; };
+		87B67E191BB392D7740F278DE26F13BC /* LCCKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF99726C3ECB46A9D4048BFA05DC5C /* LCCKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89AA952F7F22244539F06E34839DB64F /* NSDictionary+CCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD770436DB3D854A319242D34ABFC51 /* NSDictionary+CCSafe.m */; };
+		96E9BFC19B780FDB30DB5B928A112DFD /* NSObject+CCNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A3A76BCE7C9EAD884CF29595F3483 /* NSObject+CCNotification.m */; };
+		9803DE2BC987BB80C538D151A32AF129 /* NSObject+CCNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 055182AFAFEB0D823E2EF9FEDA8B149A /* NSObject+CCNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9E8ADF71A39A6EBD05639D90954C9E37 /* NSString+CCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 57491DD4A2D6C908FFB7788154B825A1 /* NSString+CCSafe.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7C4CFDE8B73B2FF90234AFD1330B480 /* Pods-CCKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA4EC1B08999B40DD1D548C489B4B98 /* Pods-CCKit_Tests-dummy.m */; };
 		AAF2F30511250A3BE3EE4F70FB03DCE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		ACE1CE9D5EAD698B72A12AF35FCADE5A /* LCCKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C112D6BD40B6D228B2F8E1BD8849764C /* LCCKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B03FFB7BA7283E27567DD29A34E9F80C /* Pods-CCKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 328865ECF9FC9C8E8FE48EC2ED265A42 /* Pods-CCKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC007AE8E3A5F6C9D33570BCE8CD7B6D /* NSObject+CCDealloc.h in Headers */ = {isa = PBXBuildFile; fileRef = 511FC06C6125429DA32B3AEC404FB9E2 /* NSObject+CCDealloc.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9FEF1D647BAF783A539EBD05C6FF461 /* NSArray+CCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = EFBFBCB1722992DA103F0923DAABB34F /* NSArray+CCSafe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB48B605E893BFA410F27D6201199981 /* NSDictionary+CCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7B7E16C028C56DFB81D1C6B617C5BE /* NSDictionary+CCSafe.m */; };
-		F3579D8D2B68501BF7FE455DFA4EDF09 /* NSObject+CCKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC637B5F5320817917AC5988C72DC92 /* NSObject+CCKVO.m */; };
+		B404CE03FA544F9B2AC17DF8BFDD6693 /* NSObject+CCKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC62B1613A2B81228E7BFB781452B9B /* NSObject+CCKVO.m */; };
+		BBECFA3C5D729D8402A65FD286119605 /* NSArray+CCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 342A45440B1EB6DA3CDE706FD5D1F185 /* NSArray+CCSafe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E63410B806DECE4178317D6B1529DC95 /* UIButton+CCLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E8F6EE288FDE0BEA76F81DAAB43908 /* UIButton+CCLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		51C09644F90CFED6B4FB022A23A7CA86 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C98AA9E9C264E141E6DBE40AB5607A54;
-			remoteInfo = "Pods-CCKit_Example";
-		};
-		E70E5E491B7D3E39F34FA2F472B9E45A /* PBXContainerItemProxy */ = {
+		CBECADAF34F39C00482A94D37DA3DB2D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E8EEC5B297640E0D4706E2B8EB792E50;
 			remoteInfo = LCCKit;
 		};
+		EBD67C0B192C9EF7024DA14B797236B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C98AA9E9C264E141E6DBE40AB5607A54;
+			remoteInfo = "Pods-CCKit_Example";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		052FB3644929ABBFDEFC1FD32805FE08 /* Pods-CCKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CCKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		055182AFAFEB0D823E2EF9FEDA8B149A /* NSObject+CCNotification.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+CCNotification.h"; path = "CCKit/Classes/NSObject+CCNotification.h"; sourceTree = "<group>"; };
 		08FA60330B5F3C5D70251A58FEA0A57B /* Pods-CCKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CCKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		0AC8733E0EBD80A97DDB9E57E0E1D858 /* NSObject+CCDealloc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCDealloc.m"; path = "CCKit/Classes/NSObject+CCDealloc.m"; sourceTree = "<group>"; };
-		0B017433E1AA0F36437B083C27D5EC32 /* LCCKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LCCKit.modulemap; sourceTree = "<group>"; };
+		0A9D1989D2D8EFCDF98B7EB7B7CCC930 /* NSDictionary+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+CCSafe.h"; path = "CCKit/Classes/NSDictionary+CCSafe.h"; sourceTree = "<group>"; };
 		123E901C0586DA60C4D7F696D64815D3 /* Pods_CCKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CCKit_Example.framework; path = "Pods-CCKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1297185016771BD83A656D1109470570 /* LCCKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LCCKit-dummy.m"; sourceTree = "<group>"; };
-		15DB0B5209D9DE2970EE6C791EB0E6A2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		19BFBD0CD954A15B8B3E70052E8A1442 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		1C9A3A76BCE7C9EAD884CF29595F3483 /* NSObject+CCNotification.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCNotification.m"; path = "CCKit/Classes/NSObject+CCNotification.m"; sourceTree = "<group>"; };
 		1E08941017BFA883B81FD405E9FDF63F /* Pods-CCKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CCKit_Tests-Info.plist"; sourceTree = "<group>"; };
-		216C858017981690E0D7573749B07CD0 /* NSArray+CCSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+CCSafe.m"; path = "CCKit/Classes/NSArray+CCSafe.m"; sourceTree = "<group>"; };
 		25201D0AF925DF74BAE2754EADDDAFB4 /* Pods_CCKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CCKit_Tests.framework; path = "Pods-CCKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B7B7E16C028C56DFB81D1C6B617C5BE /* NSDictionary+CCSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+CCSafe.m"; path = "CCKit/Classes/NSDictionary+CCSafe.m"; sourceTree = "<group>"; };
+		2912CFF5C5EB4F25F8A81EF2F141E213 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		30190E27FB14169639952306B8DF94D8 /* Pods-CCKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CCKit_Tests.modulemap"; sourceTree = "<group>"; };
 		328865ECF9FC9C8E8FE48EC2ED265A42 /* Pods-CCKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CCKit_Tests-umbrella.h"; sourceTree = "<group>"; };
-		4AB386EA5661B46AAD841209D4EEA134 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		511FC06C6125429DA32B3AEC404FB9E2 /* NSObject+CCDealloc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+CCDealloc.h"; path = "CCKit/Classes/NSObject+CCDealloc.h"; sourceTree = "<group>"; };
+		342A45440B1EB6DA3CDE706FD5D1F185 /* NSArray+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+CCSafe.h"; path = "CCKit/Classes/NSArray+CCSafe.h"; sourceTree = "<group>"; };
+		4EC62B1613A2B81228E7BFB781452B9B /* NSObject+CCKVO.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCKVO.m"; path = "CCKit/Classes/NSObject+CCKVO.m"; sourceTree = "<group>"; };
+		50E8F6EE288FDE0BEA76F81DAAB43908 /* UIButton+CCLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+CCLayout.m"; path = "CCKit/Classes/UIButton+CCLayout.m"; sourceTree = "<group>"; };
 		556E0F84C726ACF5402AAEA236FC4BE2 /* LCCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LCCKit.framework; path = LCCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57491DD4A2D6C908FFB7788154B825A1 /* NSString+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+CCSafe.h"; path = "CCKit/Classes/NSString+CCSafe.h"; sourceTree = "<group>"; };
+		579230BB79E7D00D456787D67486FA99 /* LCCKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LCCKit-prefix.pch"; sourceTree = "<group>"; };
+		5821597491635F0FF43FF8617E5E446D /* NSObject+CCDealloc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCDealloc.m"; path = "CCKit/Classes/NSObject+CCDealloc.m"; sourceTree = "<group>"; };
+		615811F9DE05E8814E424C0744184562 /* NSObject+CCKVO.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+CCKVO.h"; path = "CCKit/Classes/NSObject+CCKVO.h"; sourceTree = "<group>"; };
 		6FA4EC1B08999B40DD1D548C489B4B98 /* Pods-CCKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CCKit_Tests-dummy.m"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		75E04FC7E97F3EA2DA3AFB26779BDE21 /* LCCKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LCCKit.debug.xcconfig; sourceTree = "<group>"; };
-		7687C68E4399AF632560B47D421A6B4D /* NSObject+CCNotification.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCNotification.m"; path = "CCKit/Classes/NSObject+CCNotification.m"; sourceTree = "<group>"; };
 		76B5276F34E6BD28C18587D9A2309AE8 /* Pods-CCKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CCKit_Example-frameworks.sh"; sourceTree = "<group>"; };
+		7C22064608C9534CEC89B12345C251D8 /* LCCKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LCCKit.debug.xcconfig; sourceTree = "<group>"; };
+		7F0CA9FDF70B48687228FBADCEB2805D /* LCCKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = LCCKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7F7F6E95CD4EE54EC4110B18873CADA0 /* Pods-CCKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CCKit_Example-Info.plist"; sourceTree = "<group>"; };
+		87A37069881C6C078AC33BADB1BD2E44 /* LCCKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LCCKit.release.xcconfig; sourceTree = "<group>"; };
 		8E456BA8625A33CEF76B2B40DFADA0BE /* Pods-CCKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CCKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		905472030FC90A94224974B917C6C9F2 /* Pods-CCKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CCKit_Example-dummy.m"; sourceTree = "<group>"; };
-		924C2DDED76405B3E253A1A6013E2348 /* NSObject+CCKVO.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+CCKVO.h"; path = "CCKit/Classes/NSObject+CCKVO.h"; sourceTree = "<group>"; };
 		955364FE8516EF6188EC7D7719C1043B /* Pods-CCKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CCKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		9C327B883D24186F875C8EE9DA1A03E9 /* Pods-CCKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CCKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A155E84BA1603A9ABDCD31E065EBE147 /* NSDictionary+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+CCSafe.h"; path = "CCKit/Classes/NSDictionary+CCSafe.h"; sourceTree = "<group>"; };
-		A3472537B63AF77B0EC1BEC5EEE1CC95 /* NSString+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+CCSafe.h"; path = "CCKit/Classes/NSString+CCSafe.h"; sourceTree = "<group>"; };
-		A4814B74155BF5278220B5254CDE60E3 /* NSString+CCSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+CCSafe.m"; path = "CCKit/Classes/NSString+CCSafe.m"; sourceTree = "<group>"; };
+		B6112C2AD8B03E6E693BFCBA91BBBCF8 /* NSArray+CCSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+CCSafe.m"; path = "CCKit/Classes/NSArray+CCSafe.m"; sourceTree = "<group>"; };
 		B68ADEB99DAABE2FB1BA2695BCBBBD6F /* Pods-CCKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CCKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		B7853DA5B07DD5F83834F9D3F2DA9ED8 /* LCCKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LCCKit.release.xcconfig; sourceTree = "<group>"; };
-		BC86ACA473A6FD6730E2BC9732D9EF9A /* NSObject+CCNotification.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+CCNotification.h"; path = "CCKit/Classes/NSObject+CCNotification.h"; sourceTree = "<group>"; };
-		C112D6BD40B6D228B2F8E1BD8849764C /* LCCKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LCCKit-umbrella.h"; sourceTree = "<group>"; };
+		BA38871484CA388B21DF62B06A438EE6 /* UIButton+CCLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+CCLayout.h"; path = "CCKit/Classes/UIButton+CCLayout.h"; sourceTree = "<group>"; };
+		C2A08FFC935604A78D91E33AF1AD97E3 /* LCCKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LCCKit-dummy.m"; sourceTree = "<group>"; };
 		C63FC6E87958A88C7F864EA2F55FEDE4 /* Pods-CCKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CCKit_Example.modulemap"; sourceTree = "<group>"; };
+		C673B8C4FFC3368A22C79A1C02EAD51C /* NSObject+CCDealloc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+CCDealloc.h"; path = "CCKit/Classes/NSObject+CCDealloc.h"; sourceTree = "<group>"; };
 		C76D788BF450633772D62A19BE500A67 /* Pods-CCKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CCKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		DDC637B5F5320817917AC5988C72DC92 /* NSObject+CCKVO.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCKVO.m"; path = "CCKit/Classes/NSObject+CCKVO.m"; sourceTree = "<group>"; };
-		E49D54A76732B0CE8ACFC026E6CEB481 /* LCCKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LCCKit-prefix.pch"; sourceTree = "<group>"; };
-		E52EAFDE887041CEAE9E76BFED72D060 /* LCCKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = LCCKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		E82769F02C45CCFFA498D8BD9BC89220 /* LCCKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LCCKit-Info.plist"; sourceTree = "<group>"; };
+		CC7DE9BB1708268524E4AF3A561DD344 /* LCCKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LCCKit-Info.plist"; sourceTree = "<group>"; };
+		CCD770436DB3D854A319242D34ABFC51 /* NSDictionary+CCSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+CCSafe.m"; path = "CCKit/Classes/NSDictionary+CCSafe.m"; sourceTree = "<group>"; };
+		D5A85AB381E4C7CD219AB9D12E033CD4 /* NSString+CCSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+CCSafe.m"; path = "CCKit/Classes/NSString+CCSafe.m"; sourceTree = "<group>"; };
+		DAB304AC4980CC4C970E4876C86D2FEB /* LCCKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LCCKit.modulemap; sourceTree = "<group>"; };
+		E5EF99726C3ECB46A9D4048BFA05DC5C /* LCCKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LCCKit-umbrella.h"; sourceTree = "<group>"; };
 		E8DE1F16DCC92D9EAA6BB9CA6AB7C698 /* Pods-CCKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CCKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		EFBFBCB1722992DA103F0923DAABB34F /* NSArray+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+CCSafe.h"; path = "CCKit/Classes/NSArray+CCSafe.h"; sourceTree = "<group>"; };
 		FF2CCFD214812BCA5A2B5695D2A9E17C /* Pods-CCKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CCKit_Example-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8DD548360F2D2AE142D8A950A7A99E55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				50DAF0ADCC3FAD0A7704D8B7F120D989 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C8EBDAFAA578F9D63C5EAFB1BDEB4957 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AAF2F30511250A3BE3EE4F70FB03DCE7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBA52A38AB23AE267EAD935943150A01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CD995C88A6ED69EE2CBA34F81B6D0B7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,35 +142,20 @@
 			path = "Target Support Files/Pods-CCKit_Tests";
 			sourceTree = "<group>";
 		};
-		1413E9BA17D47C7FA73F7C409A061E03 /* Support Files */ = {
+		355AD705086B32C94C52FC362475E5A8 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0B017433E1AA0F36437B083C27D5EC32 /* LCCKit.modulemap */,
-				1297185016771BD83A656D1109470570 /* LCCKit-dummy.m */,
-				E82769F02C45CCFFA498D8BD9BC89220 /* LCCKit-Info.plist */,
-				E49D54A76732B0CE8ACFC026E6CEB481 /* LCCKit-prefix.pch */,
-				C112D6BD40B6D228B2F8E1BD8849764C /* LCCKit-umbrella.h */,
-				75E04FC7E97F3EA2DA3AFB26779BDE21 /* LCCKit.debug.xcconfig */,
-				B7853DA5B07DD5F83834F9D3F2DA9ED8 /* LCCKit.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/LCCKit";
-			sourceTree = "<group>";
-		};
-		34F823000C141FDB3A33A58519F7B314 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B969E360CD008D4802AEBC2CD00B4163 /* LCCKit */,
+				E8343ED7B63D9AC31DD0F36EB9C9BDD5 /* LCCKit */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		44F30F7AD29AEB493F35DF51178B03A4 /* Pod */ = {
+		4F2EE5092261F541A69488E3F292B83F /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				E52EAFDE887041CEAE9E76BFED72D060 /* LCCKit.podspec */,
-				15DB0B5209D9DE2970EE6C791EB0E6A2 /* LICENSE */,
-				4AB386EA5661B46AAD841209D4EEA134 /* README.md */,
+				7F0CA9FDF70B48687228FBADCEB2805D /* LCCKit.podspec */,
+				2912CFF5C5EB4F25F8A81EF2F141E213 /* LICENSE */,
+				19BFBD0CD954A15B8B3E70052E8A1442 /* README.md */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
@@ -187,28 +176,6 @@
 				25201D0AF925DF74BAE2754EADDDAFB4 /* Pods_CCKit_Tests.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		B969E360CD008D4802AEBC2CD00B4163 /* LCCKit */ = {
-			isa = PBXGroup;
-			children = (
-				EFBFBCB1722992DA103F0923DAABB34F /* NSArray+CCSafe.h */,
-				216C858017981690E0D7573749B07CD0 /* NSArray+CCSafe.m */,
-				A155E84BA1603A9ABDCD31E065EBE147 /* NSDictionary+CCSafe.h */,
-				2B7B7E16C028C56DFB81D1C6B617C5BE /* NSDictionary+CCSafe.m */,
-				511FC06C6125429DA32B3AEC404FB9E2 /* NSObject+CCDealloc.h */,
-				0AC8733E0EBD80A97DDB9E57E0E1D858 /* NSObject+CCDealloc.m */,
-				924C2DDED76405B3E253A1A6013E2348 /* NSObject+CCKVO.h */,
-				DDC637B5F5320817917AC5988C72DC92 /* NSObject+CCKVO.m */,
-				BC86ACA473A6FD6730E2BC9732D9EF9A /* NSObject+CCNotification.h */,
-				7687C68E4399AF632560B47D421A6B4D /* NSObject+CCNotification.m */,
-				A3472537B63AF77B0EC1BEC5EEE1CC95 /* NSString+CCSafe.h */,
-				A4814B74155BF5278220B5254CDE60E3 /* NSString+CCSafe.m */,
-				44F30F7AD29AEB493F35DF51178B03A4 /* Pod */,
-				1413E9BA17D47C7FA73F7C409A061E03 /* Support Files */,
-			);
-			name = LCCKit;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		CEB4229DDE04B64D715BFFBB89BC3738 /* Pods-CCKit_Example */ = {
@@ -232,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				34F823000C141FDB3A33A58519F7B314 /* Development Pods */,
+				355AD705086B32C94C52FC362475E5A8 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				9B6CD6FE4988DEABD7292810AA92A92E /* Products */,
 				D942887C9A1FFE516ACB2CD863A9BECA /* Targets Support Files */,
@@ -256,28 +223,68 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		E8343ED7B63D9AC31DD0F36EB9C9BDD5 /* LCCKit */ = {
+			isa = PBXGroup;
+			children = (
+				342A45440B1EB6DA3CDE706FD5D1F185 /* NSArray+CCSafe.h */,
+				B6112C2AD8B03E6E693BFCBA91BBBCF8 /* NSArray+CCSafe.m */,
+				0A9D1989D2D8EFCDF98B7EB7B7CCC930 /* NSDictionary+CCSafe.h */,
+				CCD770436DB3D854A319242D34ABFC51 /* NSDictionary+CCSafe.m */,
+				C673B8C4FFC3368A22C79A1C02EAD51C /* NSObject+CCDealloc.h */,
+				5821597491635F0FF43FF8617E5E446D /* NSObject+CCDealloc.m */,
+				615811F9DE05E8814E424C0744184562 /* NSObject+CCKVO.h */,
+				4EC62B1613A2B81228E7BFB781452B9B /* NSObject+CCKVO.m */,
+				055182AFAFEB0D823E2EF9FEDA8B149A /* NSObject+CCNotification.h */,
+				1C9A3A76BCE7C9EAD884CF29595F3483 /* NSObject+CCNotification.m */,
+				57491DD4A2D6C908FFB7788154B825A1 /* NSString+CCSafe.h */,
+				D5A85AB381E4C7CD219AB9D12E033CD4 /* NSString+CCSafe.m */,
+				BA38871484CA388B21DF62B06A438EE6 /* UIButton+CCLayout.h */,
+				50E8F6EE288FDE0BEA76F81DAAB43908 /* UIButton+CCLayout.m */,
+				4F2EE5092261F541A69488E3F292B83F /* Pod */,
+				FBCF80BF36D70D1A6DC3372456AF1600 /* Support Files */,
+			);
+			name = LCCKit;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		FBCF80BF36D70D1A6DC3372456AF1600 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DAB304AC4980CC4C970E4876C86D2FEB /* LCCKit.modulemap */,
+				C2A08FFC935604A78D91E33AF1AD97E3 /* LCCKit-dummy.m */,
+				CC7DE9BB1708268524E4AF3A561DD344 /* LCCKit-Info.plist */,
+				579230BB79E7D00D456787D67486FA99 /* LCCKit-prefix.pch */,
+				E5EF99726C3ECB46A9D4048BFA05DC5C /* LCCKit-umbrella.h */,
+				7C22064608C9534CEC89B12345C251D8 /* LCCKit.debug.xcconfig */,
+				87A37069881C6C078AC33BADB1BD2E44 /* LCCKit.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/LCCKit";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		102A58129BDCF487D7D5C2E8664FDCE6 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ACE1CE9D5EAD698B72A12AF35FCADE5A /* LCCKit-umbrella.h in Headers */,
-				E9FEF1D647BAF783A539EBD05C6FF461 /* NSArray+CCSafe.h in Headers */,
-				5247B945B8A09F01D738CA48CAE4C768 /* NSDictionary+CCSafe.h in Headers */,
-				DC007AE8E3A5F6C9D33570BCE8CD7B6D /* NSObject+CCDealloc.h in Headers */,
-				80A7CAB73B638E508BD4DD5A08F545E4 /* NSObject+CCKVO.h in Headers */,
-				92A4AB51399A6C55E8C0C81A79590CF5 /* NSObject+CCNotification.h in Headers */,
-				889D291D3D0FCF652656DB5657C2F273 /* NSString+CCSafe.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2D462C843B25A434D791C47273563BA2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				382D88DE5D815E260980C4EC871EC187 /* Pods-CCKit_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		814E270870652274495FDE862E971E9A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87B67E191BB392D7740F278DE26F13BC /* LCCKit-umbrella.h in Headers */,
+				BBECFA3C5D729D8402A65FD286119605 /* NSArray+CCSafe.h in Headers */,
+				0797C1FFC7649BB07095B7EB3803F2B9 /* NSDictionary+CCSafe.h in Headers */,
+				834979951A323689A48E30B1C4A2216F /* NSObject+CCDealloc.h in Headers */,
+				634AA149C07884BF4E44F894035A706B /* NSObject+CCKVO.h in Headers */,
+				9803DE2BC987BB80C538D151A32AF129 /* NSObject+CCNotification.h in Headers */,
+				9E8ADF71A39A6EBD05639D90954C9E37 /* NSString+CCSafe.h in Headers */,
+				5CA4ECA168AEDA6C4C415D42ADD599CD /* UIButton+CCLayout.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +311,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				F97FE794A351E017D29F220E054BC552 /* PBXTargetDependency */,
+				F781CA2F4CCA23FC6AACD17D2EBB3B43 /* PBXTargetDependency */,
 			);
 			name = "Pods-CCKit_Tests";
 			productName = "Pods-CCKit_Tests";
@@ -323,7 +330,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				5C0C45C8D53EB23C06449D60D8322C00 /* PBXTargetDependency */,
+				2B929B4D13BBC98B361E78A98A69D98B /* PBXTargetDependency */,
 			);
 			name = "Pods-CCKit_Example";
 			productName = "Pods-CCKit_Example";
@@ -332,12 +339,12 @@
 		};
 		E8EEC5B297640E0D4706E2B8EB792E50 /* LCCKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4629D3995E2EAD1058E4AD8496297F0B /* Build configuration list for PBXNativeTarget "LCCKit" */;
+			buildConfigurationList = 028E754F98BD7E29BA34DF5E4FF648C4 /* Build configuration list for PBXNativeTarget "LCCKit" */;
 			buildPhases = (
-				102A58129BDCF487D7D5C2E8664FDCE6 /* Headers */,
-				32AEDE16E7367758CF2726D26BB3C296 /* Sources */,
-				8DD548360F2D2AE142D8A950A7A99E55 /* Frameworks */,
-				6F4E20775ADD1D31470844E4669F445C /* Resources */,
+				814E270870652274495FDE862E971E9A /* Headers */,
+				F214D169DB2CEA69B4D3A08CC1E5931E /* Sources */,
+				DBA52A38AB23AE267EAD935943150A01 /* Frameworks */,
+				5D2F5040B4E2AE3D7BAAA86B0D222579 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -385,7 +392,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6F4E20775ADD1D31470844E4669F445C /* Resources */ = {
+		5D2F5040B4E2AE3D7BAAA86B0D222579 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -402,25 +409,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		32AEDE16E7367758CF2726D26BB3C296 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				411DF0536FB18B945982C886CDE00F32 /* LCCKit-dummy.m in Sources */,
-				9FC4669F0F6111C5FD1B3F8F96A71197 /* NSArray+CCSafe.m in Sources */,
-				EB48B605E893BFA410F27D6201199981 /* NSDictionary+CCSafe.m in Sources */,
-				587CBD9828EA47768AA7B6CEBF7D5F7C /* NSObject+CCDealloc.m in Sources */,
-				F3579D8D2B68501BF7FE455DFA4EDF09 /* NSObject+CCKVO.m in Sources */,
-				92A991EF8BE5F9780AC66FFFEA891142 /* NSObject+CCNotification.m in Sources */,
-				2C56E1537A0D7E1C5A9BC52882053D29 /* NSString+CCSafe.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BEA917C46811BD315212B1D8D528ED09 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1CEC8238D983AF01911A8F383034B221 /* Pods-CCKit_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F214D169DB2CEA69B4D3A08CC1E5931E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EA0D913D3BA1D16F73EB2C9B3273F4F /* LCCKit-dummy.m in Sources */,
+				86E6B265D1D08300C6248114525B9FC8 /* NSArray+CCSafe.m in Sources */,
+				89AA952F7F22244539F06E34839DB64F /* NSDictionary+CCSafe.m in Sources */,
+				0BB3B63836FFD33596500CCABB7E13F7 /* NSObject+CCDealloc.m in Sources */,
+				B404CE03FA544F9B2AC17DF8BFDD6693 /* NSObject+CCKVO.m in Sources */,
+				96E9BFC19B780FDB30DB5B928A112DFD /* NSObject+CCNotification.m in Sources */,
+				02C432E696508CFB393864E50A4ED5E4 /* NSString+CCSafe.m in Sources */,
+				E63410B806DECE4178317D6B1529DC95 /* UIButton+CCLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,17 +443,17 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5C0C45C8D53EB23C06449D60D8322C00 /* PBXTargetDependency */ = {
+		2B929B4D13BBC98B361E78A98A69D98B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = LCCKit;
 			target = E8EEC5B297640E0D4706E2B8EB792E50 /* LCCKit */;
-			targetProxy = E70E5E491B7D3E39F34FA2F472B9E45A /* PBXContainerItemProxy */;
+			targetProxy = CBECADAF34F39C00482A94D37DA3DB2D /* PBXContainerItemProxy */;
 		};
-		F97FE794A351E017D29F220E054BC552 /* PBXTargetDependency */ = {
+		F781CA2F4CCA23FC6AACD17D2EBB3B43 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-CCKit_Example";
 			target = C98AA9E9C264E141E6DBE40AB5607A54 /* Pods-CCKit_Example */;
-			targetProxy = 51C09644F90CFED6B4FB022A23A7CA86 /* PBXContainerItemProxy */;
+			targetProxy = EBD67C0B192C9EF7024DA14B797236B2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -548,9 +556,9 @@
 			};
 			name = Debug;
 		};
-		3DE75245DFF09251E8B88D41D476788B /* Release */ = {
+		5EB2EB7926725D24025394CA8B85E83F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7853DA5B07DD5F83834F9D3F2DA9ED8 /* LCCKit.release.xcconfig */;
+			baseConfigurationReference = 7C22064608C9534CEC89B12345C251D8 /* LCCKit.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -573,11 +581,10 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		7712F7CE9E287B8D44F67E99C589E808 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -605,6 +612,37 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A2647FDC984CA4820754389C5AD046B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87A37069881C6C078AC33BADB1BD2E44 /* LCCKit.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LCCKit/LCCKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LCCKit/LCCKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LCCKit/LCCKit.modulemap";
+				PRODUCT_MODULE_NAME = LCCKit;
+				PRODUCT_NAME = LCCKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -707,36 +745,6 @@
 			};
 			name = Release;
 		};
-		CB0C668F155E7DDE43F0C5B6CDDCAD75 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75E04FC7E97F3EA2DA3AFB26779BDE21 /* LCCKit.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/LCCKit/LCCKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LCCKit/LCCKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LCCKit/LCCKit.modulemap";
-				PRODUCT_MODULE_NAME = LCCKit;
-				PRODUCT_NAME = LCCKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		F4768B2074EFF755FB6561F967EABC20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 052FB3644929ABBFDEFC1FD32805FE08 /* Pods-CCKit_Tests.debug.xcconfig */;
@@ -772,20 +780,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		028E754F98BD7E29BA34DF5E4FF648C4 /* Build configuration list for PBXNativeTarget "LCCKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EB2EB7926725D24025394CA8B85E83F /* Debug */,
+				A2647FDC984CA4820754389C5AD046B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		434FE0B6D3AF4FBA940CA53EFB1D4C8D /* Build configuration list for PBXNativeTarget "Pods-CCKit_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4768B2074EFF755FB6561F967EABC20 /* Debug */,
 				7712F7CE9E287B8D44F67E99C589E808 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4629D3995E2EAD1058E4AD8496297F0B /* Build configuration list for PBXNativeTarget "LCCKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CB0C668F155E7DDE43F0C5B6CDDCAD75 /* Debug */,
-				3DE75245DFF09251E8B88D41D476788B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

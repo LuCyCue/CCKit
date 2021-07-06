@@ -63,16 +63,16 @@
     [self setObject:object forKey:key];
 }
 
-- (void)zt_setIntValue:(int)value forKey:(id)aKey {
+- (void)cc_setIntValue:(int)value forKey:(id)aKey {
     [self cc_safeSetObject:[[NSNumber numberWithInt:value] stringValue] forKey:aKey];
 }
 
-- (void)zt_setDoubleValue:(double)value forKey:(id)aKey {
+- (void)cc_setDoubleValue:(double)value forKey:(id)aKey {
     [self cc_safeSetObject:[[NSNumber numberWithDouble:value] stringValue] forKey:aKey];
     
 }
 
-- (void)zt_safeRemoveObjectForKey:(id)key {
+- (void)cc_safeRemoveObjectForKey:(id)key {
     if (!key) {
         return;
     }

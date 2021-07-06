@@ -16,6 +16,7 @@
 #import "NSObject+CCKVO.h"
 #import "NSObject+CCNotification.h"
 #import "NSString+CCSafe.h"
+#import "UIButton+CCLayout.h"
 
 FOUNDATION_EXPORT double LCCKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char LCCKitVersionString[];

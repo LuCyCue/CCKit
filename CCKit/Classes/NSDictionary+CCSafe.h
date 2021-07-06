@@ -27,11 +27,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)cc_safeSetObject:(id)object forKey:(id)key;
 
-- (void)zt_setIntValue:(int)value forKey:(id)aKey;
+- (void)cc_setIntValue:(int)value forKey:(id)aKey;
 
-- (void)zt_setDoubleValue:(double)value forKey:(id)aKey;
+- (void)cc_setDoubleValue:(double)value forKey:(id)aKey;
 
-- (void)zt_safeRemoveObjectForKey:(id)key;
+- (void)cc_safeRemoveObjectForKey:(id)key;
 
 @end
 

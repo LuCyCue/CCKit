@@ -8,6 +8,7 @@
 
 #import "CCViewController.h"
 #import "NSArray+CCSafe.h"
+#import "UIButton+CCLayout.h"
 
 @interface CCViewController ()
 
@@ -19,11 +20,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSMutableArray *mArray = [NSMutableArray array];
-    [mArray cc_safeAddObject:@(1)];
-    [mArray cc_safeAddObject:nil];
-    id x = [mArray cc_safeObjectAtIndex:3];
-    NSLog(@"%@",x);
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage:[UIImage imageNamed:@"album_growth_publish_text"] forState:UIControlStateNormal];
+    [btn setTitle:@"Test" forState:UIControlStateNormal];
+    btn.frame = CGRectMake(100, 100, 100, 100);
+    [self.view addSubview:btn];
+    [btn cc_setEdgeInsetsStyle:CCButtonImageTitleStyleImageBottom imageTitleSpace:5];
+    btn.backgroundColor = UIColor.grayColor;
 }
 
 - (void)didReceiveMemoryWarning
