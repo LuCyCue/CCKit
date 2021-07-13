@@ -81,7 +81,7 @@
     SEL originSelector = NSSelectorFromString(@"dealloc");
     Method originMethod = class_getInstanceMethod(self, originSelector);
     void(*originImp)(id, SEL) = (typeof (originImp))method_getImplementation(originMethod);
-    void(^targetImpBlock)(id) = ^(NSObject *owner){
+    void(^targetImpBlock)(id) = ^(__unsafe_unretained NSObject *owner){
         [owner.deallocator invokeCallbacks];
         originImp(owner, originSelector);
     };

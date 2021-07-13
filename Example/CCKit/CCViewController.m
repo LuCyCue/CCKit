@@ -7,8 +7,7 @@
 //
 
 #import "CCViewController.h"
-#import "NSArray+CCSafe.h"
-#import "UIButton+CCLayout.h"
+#import "CCKit.h"
 
 @interface CCViewController ()
 
@@ -19,14 +18,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setImage:[UIImage imageNamed:@"album_growth_publish_text"] forState:UIControlStateNormal];
-    [btn setTitle:@"Test" forState:UIControlStateNormal];
-    btn.frame = CGRectMake(100, 100, 100, 100);
-    [self.view addSubview:btn];
-    [btn cc_setEdgeInsetsStyle:CCButtonImageTitleStyleImageBottom imageTitleSpace:5];
-    btn.backgroundColor = UIColor.grayColor;
+    [self testImage];
+}
+
+- (void)macroTest {
+    CCLog(@"%lf", SYSTEM_VERSION);
+    CCLog(@"%@", BUILD_VERSION);
+    CCLog(@"%@", PROJECT_NAME);
+    CCLog(@"%@", APP_NAME);
+}
+
+- (void)testImage {
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(50, 100, 100, 100)];
+    [self.view addSubview:imageView];
+    UIImage *image = [UIImage cc_qrImageWithContent:@"http://www.baidu.com" size:100];
+    imageView.image = image;
+    
+    UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(50, 210, 100, 100)];
+    [self.view addSubview:imageView1];
+    UIImage *image1 = [UIImage cc_qrImageWithContent:@"http://www.baidu.com" size:100 red:230 green:123 blue:100];
+    imageView1.image = image1;
+    
+    UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(50, 330, 100, 100)];
+    [self.view addSubview:imageView2];
+    UIImage *image2 = [UIImage cc_qrImageWithContent:@"http://www.baidu.com" logo:[UIImage imageNamed:@"icon1"] size:100 red:100 green:100 blue:100];
+    imageView2.image = image2;
 }
 
 - (void)didReceiveMemoryWarning
