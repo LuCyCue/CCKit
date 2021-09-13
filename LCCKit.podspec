@@ -29,6 +29,13 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'CCKit/Classes/**/*'
+  # 是否是静态库，如果是静态库，需要设置该选项，默认为动态库
+#  s.static_framework = true
+  
+  s.subspec 'CCNumberScrollView' do |ss|
+    ss.source_files = 'CCKit/Classes/CCNumberScrollView/*'
+#    ss.dependency 'Masonry'
+  end
   
   # s.resource_bundles = {
   #   'CCKit' => ['CCKit/Assets/*.png']

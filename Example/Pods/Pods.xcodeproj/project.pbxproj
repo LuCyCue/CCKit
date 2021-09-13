@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		02C432E696508CFB393864E50A4ED5E4 /* NSString+CCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A85AB381E4C7CD219AB9D12E033CD4 /* NSString+CCSafe.m */; };
+		04FE589626EB3B5A00D13316 /* CCNumberScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FE589426EB3B5A00D13316 /* CCNumberScrollView.h */; };
+		04FE589726EB3B5A00D13316 /* CCNumberScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FE589526EB3B5A00D13316 /* CCNumberScrollView.m */; };
+		04FE589F26EB3CEF00D13316 /* CCNumberScrollCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FE589D26EB3CEF00D13316 /* CCNumberScrollCell.h */; };
+		04FE58A026EB3CEF00D13316 /* CCNumberScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FE589E26EB3CEF00D13316 /* CCNumberScrollCell.m */; };
+		04FE58A626EB3F0F00D13316 /* CCNumberTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FE58A426EB3F0F00D13316 /* CCNumberTableView.h */; };
+		04FE58A726EB3F0F00D13316 /* CCNumberTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FE58A526EB3F0F00D13316 /* CCNumberTableView.m */; };
 		0797C1FFC7649BB07095B7EB3803F2B9 /* NSDictionary+CCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A9D1989D2D8EFCDF98B7EB7B7CCC930 /* NSDictionary+CCSafe.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0BB3B63836FFD33596500CCABB7E13F7 /* NSObject+CCDealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5821597491635F0FF43FF8617E5E446D /* NSObject+CCDealloc.m */; };
 		0EBF4CEF6B2009844346F0943E663013 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
@@ -50,22 +56,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04FE589426EB3B5A00D13316 /* CCNumberScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNumberScrollView.h; sourceTree = "<group>"; };
+		04FE589526EB3B5A00D13316 /* CCNumberScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNumberScrollView.m; sourceTree = "<group>"; };
+		04FE589D26EB3CEF00D13316 /* CCNumberScrollCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNumberScrollCell.h; sourceTree = "<group>"; };
+		04FE589E26EB3CEF00D13316 /* CCNumberScrollCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNumberScrollCell.m; sourceTree = "<group>"; };
+		04FE58A426EB3F0F00D13316 /* CCNumberTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNumberTableView.h; sourceTree = "<group>"; };
+		04FE58A526EB3F0F00D13316 /* CCNumberTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNumberTableView.m; sourceTree = "<group>"; };
 		052FB3644929ABBFDEFC1FD32805FE08 /* Pods-CCKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CCKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		055182AFAFEB0D823E2EF9FEDA8B149A /* NSObject+CCNotification.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+CCNotification.h"; path = "CCKit/Classes/NSObject+CCNotification.h"; sourceTree = "<group>"; };
 		08FA60330B5F3C5D70251A58FEA0A57B /* Pods-CCKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CCKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		0A9D1989D2D8EFCDF98B7EB7B7CCC930 /* NSDictionary+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+CCSafe.h"; path = "CCKit/Classes/NSDictionary+CCSafe.h"; sourceTree = "<group>"; };
-		123E901C0586DA60C4D7F696D64815D3 /* Pods_CCKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CCKit_Example.framework; path = "Pods-CCKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		19BFBD0CD954A15B8B3E70052E8A1442 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		123E901C0586DA60C4D7F696D64815D3 /* Pods_CCKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		19BFBD0CD954A15B8B3E70052E8A1442 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1C9A3A76BCE7C9EAD884CF29595F3483 /* NSObject+CCNotification.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCNotification.m"; path = "CCKit/Classes/NSObject+CCNotification.m"; sourceTree = "<group>"; };
 		1E08941017BFA883B81FD405E9FDF63F /* Pods-CCKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CCKit_Tests-Info.plist"; sourceTree = "<group>"; };
-		25201D0AF925DF74BAE2754EADDDAFB4 /* Pods_CCKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CCKit_Tests.framework; path = "Pods-CCKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2912CFF5C5EB4F25F8A81EF2F141E213 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		25201D0AF925DF74BAE2754EADDDAFB4 /* Pods_CCKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2912CFF5C5EB4F25F8A81EF2F141E213 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		30190E27FB14169639952306B8DF94D8 /* Pods-CCKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CCKit_Tests.modulemap"; sourceTree = "<group>"; };
 		328865ECF9FC9C8E8FE48EC2ED265A42 /* Pods-CCKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CCKit_Tests-umbrella.h"; sourceTree = "<group>"; };
 		342A45440B1EB6DA3CDE706FD5D1F185 /* NSArray+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+CCSafe.h"; path = "CCKit/Classes/NSArray+CCSafe.h"; sourceTree = "<group>"; };
 		4EC62B1613A2B81228E7BFB781452B9B /* NSObject+CCKVO.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCKVO.m"; path = "CCKit/Classes/NSObject+CCKVO.m"; sourceTree = "<group>"; };
 		50E8F6EE288FDE0BEA76F81DAAB43908 /* UIButton+CCLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+CCLayout.m"; path = "CCKit/Classes/UIButton+CCLayout.m"; sourceTree = "<group>"; };
-		556E0F84C726ACF5402AAEA236FC4BE2 /* LCCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LCCKit.framework; path = LCCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		556E0F84C726ACF5402AAEA236FC4BE2 /* LCCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LCCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57491DD4A2D6C908FFB7788154B825A1 /* NSString+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+CCSafe.h"; path = "CCKit/Classes/NSString+CCSafe.h"; sourceTree = "<group>"; };
 		579230BB79E7D00D456787D67486FA99 /* LCCKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LCCKit-prefix.pch"; sourceTree = "<group>"; };
 		5821597491635F0FF43FF8617E5E446D /* NSObject+CCDealloc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCDealloc.m"; path = "CCKit/Classes/NSObject+CCDealloc.m"; sourceTree = "<group>"; };
@@ -74,14 +86,14 @@
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		76B5276F34E6BD28C18587D9A2309AE8 /* Pods-CCKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CCKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		7C22064608C9534CEC89B12345C251D8 /* LCCKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LCCKit.debug.xcconfig; sourceTree = "<group>"; };
-		7F0CA9FDF70B48687228FBADCEB2805D /* LCCKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = LCCKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7F0CA9FDF70B48687228FBADCEB2805D /* LCCKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = LCCKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7F7F6E95CD4EE54EC4110B18873CADA0 /* Pods-CCKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CCKit_Example-Info.plist"; sourceTree = "<group>"; };
 		87A37069881C6C078AC33BADB1BD2E44 /* LCCKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LCCKit.release.xcconfig; sourceTree = "<group>"; };
 		8E456BA8625A33CEF76B2B40DFADA0BE /* Pods-CCKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CCKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		905472030FC90A94224974B917C6C9F2 /* Pods-CCKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CCKit_Example-dummy.m"; sourceTree = "<group>"; };
 		955364FE8516EF6188EC7D7719C1043B /* Pods-CCKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CCKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		9C327B883D24186F875C8EE9DA1A03E9 /* Pods-CCKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CCKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B6112C2AD8B03E6E693BFCBA91BBBCF8 /* NSArray+CCSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+CCSafe.m"; path = "CCKit/Classes/NSArray+CCSafe.m"; sourceTree = "<group>"; };
 		B68ADEB99DAABE2FB1BA2695BCBBBD6F /* Pods-CCKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CCKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		BA38871484CA388B21DF62B06A438EE6 /* UIButton+CCLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+CCLayout.h"; path = "CCKit/Classes/UIButton+CCLayout.h"; sourceTree = "<group>"; };
@@ -126,6 +138,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04FE589326EB37D600D13316 /* CCNumberScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				04FE589426EB3B5A00D13316 /* CCNumberScrollView.h */,
+				04FE589526EB3B5A00D13316 /* CCNumberScrollView.m */,
+				04FE589D26EB3CEF00D13316 /* CCNumberScrollCell.h */,
+				04FE589E26EB3CEF00D13316 /* CCNumberScrollCell.m */,
+				04FE58A426EB3F0F00D13316 /* CCNumberTableView.h */,
+				04FE58A526EB3F0F00D13316 /* CCNumberTableView.m */,
+			);
+			name = CCNumberScrollView;
+			path = CCKit/Classes/CCNumberScrollView;
+			sourceTree = "<group>";
+		};
 		0A81542522D08F611C9E4393176ACA09 /* Pods-CCKit_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +252,7 @@
 		E8343ED7B63D9AC31DD0F36EB9C9BDD5 /* LCCKit */ = {
 			isa = PBXGroup;
 			children = (
+				04FE589326EB37D600D13316 /* CCNumberScrollView */,
 				342A45440B1EB6DA3CDE706FD5D1F185 /* NSArray+CCSafe.h */,
 				B6112C2AD8B03E6E693BFCBA91BBBCF8 /* NSArray+CCSafe.m */,
 				0A9D1989D2D8EFCDF98B7EB7B7CCC930 /* NSDictionary+CCSafe.h */,
@@ -278,12 +305,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				87B67E191BB392D7740F278DE26F13BC /* LCCKit-umbrella.h in Headers */,
+				04FE58A626EB3F0F00D13316 /* CCNumberTableView.h in Headers */,
 				BBECFA3C5D729D8402A65FD286119605 /* NSArray+CCSafe.h in Headers */,
 				0797C1FFC7649BB07095B7EB3803F2B9 /* NSDictionary+CCSafe.h in Headers */,
 				834979951A323689A48E30B1C4A2216F /* NSObject+CCDealloc.h in Headers */,
+				04FE589626EB3B5A00D13316 /* CCNumberScrollView.h in Headers */,
 				634AA149C07884BF4E44F894035A706B /* NSObject+CCKVO.h in Headers */,
 				9803DE2BC987BB80C538D151A32AF129 /* NSObject+CCNotification.h in Headers */,
 				9E8ADF71A39A6EBD05639D90954C9E37 /* NSString+CCSafe.h in Headers */,
+				04FE589F26EB3CEF00D13316 /* CCNumberScrollCell.h in Headers */,
 				5CA4ECA168AEDA6C4C415D42ADD599CD /* UIButton+CCLayout.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +453,9 @@
 			files = (
 				1EA0D913D3BA1D16F73EB2C9B3273F4F /* LCCKit-dummy.m in Sources */,
 				86E6B265D1D08300C6248114525B9FC8 /* NSArray+CCSafe.m in Sources */,
+				04FE589726EB3B5A00D13316 /* CCNumberScrollView.m in Sources */,
+				04FE58A726EB3F0F00D13316 /* CCNumberTableView.m in Sources */,
+				04FE58A026EB3CEF00D13316 /* CCNumberScrollCell.m in Sources */,
 				89AA952F7F22244539F06E34839DB64F /* NSDictionary+CCSafe.m in Sources */,
 				0BB3B63836FFD33596500CCABB7E13F7 /* NSObject+CCDealloc.m in Sources */,
 				B404CE03FA544F9B2AC17DF8BFDD6693 /* NSObject+CCKVO.m in Sources */,
@@ -738,8 +771,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
