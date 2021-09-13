@@ -37,6 +37,10 @@ Pod::Spec.new do |s|
 #    ss.dependency 'Masonry'
   end
   
+  s.subspec 'CCChart' do |ss|
+    ss.source_files = 'CCKit/Classes/CCChart/*'
+  end
+  
   # s.resource_bundles = {
   #   'CCKit' => ['CCKit/Assets/*.png']
   # }

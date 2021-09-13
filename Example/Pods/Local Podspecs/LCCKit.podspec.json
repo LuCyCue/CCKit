@@ -18,5 +18,11 @@
   "platforms": {
     "ios": "9.0"
   },
-  "source_files": "CCKit/Classes/**/*"
+  "source_files": "CCKit/Classes/**/*",
+  "subspecs": [
+    {
+      "name": "CCNumberScrollView",
+      "source_files": "CCKit/Classes/CCNumberScrollView/*"
+    }
+  ]
 }

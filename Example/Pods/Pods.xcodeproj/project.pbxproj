@@ -7,155 +7,131 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02C432E696508CFB393864E50A4ED5E4 /* NSString+CCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A85AB381E4C7CD219AB9D12E033CD4 /* NSString+CCSafe.m */; };
-		04FE589626EB3B5A00D13316 /* CCNumberScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FE589426EB3B5A00D13316 /* CCNumberScrollView.h */; };
-		04FE589726EB3B5A00D13316 /* CCNumberScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FE589526EB3B5A00D13316 /* CCNumberScrollView.m */; };
-		04FE589F26EB3CEF00D13316 /* CCNumberScrollCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FE589D26EB3CEF00D13316 /* CCNumberScrollCell.h */; };
-		04FE58A026EB3CEF00D13316 /* CCNumberScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FE589E26EB3CEF00D13316 /* CCNumberScrollCell.m */; };
-		04FE58A626EB3F0F00D13316 /* CCNumberTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 04FE58A426EB3F0F00D13316 /* CCNumberTableView.h */; };
-		04FE58A726EB3F0F00D13316 /* CCNumberTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FE58A526EB3F0F00D13316 /* CCNumberTableView.m */; };
-		0797C1FFC7649BB07095B7EB3803F2B9 /* NSDictionary+CCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A9D1989D2D8EFCDF98B7EB7B7CCC930 /* NSDictionary+CCSafe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0BB3B63836FFD33596500CCABB7E13F7 /* NSObject+CCDealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5821597491635F0FF43FF8617E5E446D /* NSObject+CCDealloc.m */; };
-		01580C4E54381D5BE5BF2A7CDD65A1EF /* LCCKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C74736F9D433C124BEC9875EF75BEA6C /* LCCKit-dummy.m */; };
 		0EBF4CEF6B2009844346F0943E663013 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		106B6982DEF117B56A85B746A882D613 /* NSString+CCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = C55BE3AB53D041F33CB873F018C489D8 /* NSString+CCSafe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		144E85E571746F6DD41F092F78163185 /* CCNumberScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94272FCFB5FE3407902E2A1D4C709B57 /* CCNumberScrollView.m */; };
 		1CEC8238D983AF01911A8F383034B221 /* Pods-CCKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 905472030FC90A94224974B917C6C9F2 /* Pods-CCKit_Example-dummy.m */; };
-		20CE1073F7E307F840422C8A3E49861E /* NSArray+CCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = FC85949279400597BBF00AD41DB2BC4A /* NSArray+CCSafe.m */; };
-		223EC0F77C6187F7A72A93857458FB40 /* NSString+CCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 9215DF49443CDF5C0B5E31C731633EBF /* NSString+CCSafe.m */; };
-		2CC4BDC2F62BE68D30A3B084AE65367A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		2D0A35A9EBC2773A46218A8FE33276B6 /* CCCommonMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 18288BEFEFE422291A996DCD8E5E1AC2 /* CCCommonMacro.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		214C63BBDDE004BB2B7532EDA2066FFF /* CCKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 73109DA8F049FEE873A3D7EDFD1C46F7 /* CCKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24D864C562A3574FC081A0C335924A89 /* NSArray+CCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5342105F0EE3D2D9C5C7FEA8317C4 /* NSArray+CCSafe.m */; };
 		382D88DE5D815E260980C4EC871EC187 /* Pods-CCKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2CCFD214812BCA5A2B5695D2A9E17C /* Pods-CCKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A082E3B269DE1B50017E56E /* CCPieChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A082E39269DE1B50017E56E /* CCPieChartView.h */; };
-		3A082E3C269DE1B50017E56E /* CCPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A082E3A269DE1B50017E56E /* CCPieChartView.m */; };
-		3A082E3F269DE2000017E56E /* CCPieChartViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A082E3D269DE2000017E56E /* CCPieChartViewModel.h */; };
-		3A082E40269DE2000017E56E /* CCPieChartViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A082E3E269DE2000017E56E /* CCPieChartViewModel.m */; };
-		3DD36ADF1E5C26DD41E702A342C1CB5C /* NSArray+CCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E612976FE3AA7E22920F38228B26A41 /* NSArray+CCSafe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		44759C775AA7FE227CD662ED46216709 /* UIImage+CCAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = E81B954BCB5267B7CC6183C5D05CE833 /* UIImage+CCAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4CCE2E4C21FABAE1E5AA0F4AA28D19C0 /* UIButton+CCLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = F43E49ED0074457CCC1CF2D71CAD74AC /* UIButton+CCLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6908636B98AA3F9D1512BD8CD97D367E /* NSDictionary+CCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 089C605306455546A51A47A31B3919EE /* NSDictionary+CCSafe.m */; };
-		6BC2657B4E75E9461461745C937CAC90 /* UIButton+CCLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8976D3DB5883D9EDA6FB508B80B7FCE2 /* UIButton+CCLayout.m */; };
-		7FD488EEA506DEEB89DA536EF6EF3344 /* NSObject+CCNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 474BCFA749DA4043052B1E5C1074A88D /* NSObject+CCNotification.m */; };
-		89E7ADD2EF22D84CB07D96B2603369F1 /* NSObject+CCDealloc.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196CEDF6CE892AE45C0421AE8E1714B /* NSObject+CCDealloc.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		924A083989918A6CD08F6015E7323D35 /* NSObject+CCKVO.h in Headers */ = {isa = PBXBuildFile; fileRef = 94648E598E6B251C21F2742D9AA07C6E /* NSObject+CCKVO.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9767DDA07AB33BEB007C946CD5A155DF /* NSDictionary+CCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 12D9FFC6C43F14B1D68F6E16DEF6150B /* NSDictionary+CCSafe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A41CF92EC336CB03FBC1D93AE6EF0640 /* LCCKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 54CBDD8AD37AFFD7B965BAC01AE7DE42 /* LCCKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		436240395444050C76E6FA1E353B9F76 /* NSDictionary+CCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA3774F2AF6A9B52E61417DBB6A969A /* NSDictionary+CCSafe.m */; };
+		44F83C04CD3E44DDFEAC8F0DA53FED0F /* NSArray+CCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E1816CACD15FED1B37E5397257DE86 /* NSArray+CCSafe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		450E13487AB496FF43B88E93902C93AF /* UIButton+CCLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D03C7B7F9006AA9A5F9EBEBF41C46857 /* UIButton+CCLayout.m */; };
+		59BAABA0E8510A340697D525CAE2B001 /* UIImage+CCAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 08092A8C541305358D9A28B12DF46F47 /* UIImage+CCAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5AC49F3FDC7F955877249CABEBC16145 /* UIButton+CCLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = B55D1FF6D30AB5BAC4109DB698BC49E5 /* UIButton+CCLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D920A72B3136D56629FFACEE681A74C /* CCNumberScrollCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 871158B311E85FEC0DA4A74B3E05CD6B /* CCNumberScrollCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E698B8C1A943DC1E9C13B3AC0C5D58E /* NSDictionary+CCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DF0A5DD3EBB21E29EC4B3AB60E53A8 /* NSDictionary+CCSafe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D0492746EB77187BA8CC7DCE2D52774 /* NSObject+CCNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C20398EB289C5278D069C93CE531225 /* NSObject+CCNotification.m */; };
+		6F225DB707AC04542215771ED6C2784B /* CCPieChartViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0960259C16A0685E088C3995E75D0BC0 /* CCPieChartViewModel.m */; };
+		78CF7A1D919658A7313A29437D404D27 /* NSObject+CCKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF4175A0AB00CA62FD67CE66382A22B /* NSObject+CCKVO.m */; };
+		79F37120DC321E2043B57B672A21C463 /* CCPieChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B6719606DF9ADA935794ABC74503DBE /* CCPieChartView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		857F323075E4A4FF8D093ACABCDC775B /* NSObject+CCDealloc.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC28CCB26611030EAB7F9C8974F7AC6 /* NSObject+CCDealloc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89BF63170E67DB0F4940CB46146ED14F /* CCNumberScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BE3D8DACB8FB15F54CC4692B6AD2FFF /* CCNumberScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F7524E16CBE2CC89080DD8D10379422 /* CCPieChartViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = DB7BCAB586192412CEEFD887B49B127C /* CCPieChartViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A17E01BB27E00B822F493A83CD74DED6 /* CCNumberTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 52CC5FC5DB508AA467C45B4E711E29FB /* CCNumberTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7C4CFDE8B73B2FF90234AFD1330B480 /* Pods-CCKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA4EC1B08999B40DD1D548C489B4B98 /* Pods-CCKit_Tests-dummy.m */; };
 		AAF2F30511250A3BE3EE4F70FB03DCE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		AB7DD757B64A725DA772810097919467 /* NSString+CCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 274E3FB51A45B5F08F92026AC093DCE5 /* NSString+CCSafe.m */; };
 		B03FFB7BA7283E27567DD29A34E9F80C /* Pods-CCKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 328865ECF9FC9C8E8FE48EC2ED265A42 /* Pods-CCKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CAD804A0C1F2AB66102C164B7B627159 /* UIImage+CCAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B58E337BB2210EA24083618488FD3B8 /* UIImage+CCAdd.m */; };
-		DF460FD6B80C79FD7E26447DB1C0E4B1 /* NSObject+CCNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CC17A4C104694081D49A6413612F045 /* NSObject+CCNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E67EE5612CF9DEEE216E5235018DCE75 /* NSObject+CCKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEABF9ADFC20643609D2F991671F11A /* NSObject+CCKVO.m */; };
-		EB3D873955E8579174D3ABAC3323A698 /* CCKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A6A304334CCA675A9E83AEE6D8F6B911 /* CCKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EBE25072BBB07BA80BFE322829F66FE3 /* NSObject+CCDealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CB82BC099DB4E75A944D5F3A30CBD0 /* NSObject+CCDealloc.m */; };
-		F0EAAC7064D05943826981FCB0A09930 /* NSString+CCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BCD213509C44FA615FA8FFCB3D2048 /* NSString+CCSafe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B7FA06EA687F2457AF8DCC5670B7C6A3 /* CCPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2388E9D271E68B8B6AF5E66BEB98E56A /* CCPieChartView.m */; };
+		B996357995A72B1FAEA59FD53BD621ED /* NSObject+CCNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 821A3653D64B84D673494361B17D5684 /* NSObject+CCNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B9D364FA8474CE3B6194E00E2611E943 /* LCCKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 43B0399B31D8F1F6890A8C9B0A7E8D27 /* LCCKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF6F0E3110D8F5967EBBDBB9F16B76A1 /* UIImage+CCAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = AB22798EB06275F9F565B246E159F28F /* UIImage+CCAdd.m */; };
+		C3321E4FB9C9126C22D6B083C529EAE9 /* CCCommonMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D027594902FB4E1E0CA904ADCEAC4F2 /* CCCommonMacro.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9BB4A07EBDEE5FBAFFC70A5338E9183 /* LCCKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F2BB7ADB425CF4E9F6A69F14C5BE7AC6 /* LCCKit-dummy.m */; };
+		CCA75B7E5977ADCE6317E7FB57F61040 /* CCNumberScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6319C6DA9D9B9A32E3D82FEEC3A30321 /* CCNumberScrollCell.m */; };
+		D35F4BD1619ED5E45D87C313ACBA1E81 /* CCNumberTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6B68C95BEEE9A415315D9EDFFAC5B0 /* CCNumberTableView.m */; };
+		DF4294055C53989855979498CA2136C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		E05D65278DDEB1B393B56D564FAD2D45 /* NSObject+CCKVO.h in Headers */ = {isa = PBXBuildFile; fileRef = F18BC704614710AD6246264CCE8FAF0D /* NSObject+CCKVO.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E26FBFC7CD9E51456D40A38C803BBAD4 /* NSObject+CCDealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 39288C0352B70AE4BFBF0E31EA8B1763 /* NSObject+CCDealloc.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0214467FA4F45C707918BF4179DCC872 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C98AA9E9C264E141E6DBE40AB5607A54;
-			remoteInfo = "Pods-CCKit_Example";
-		};
-		48907B934D24CE40AD57457E04F12290 /* PBXContainerItemProxy */ = {
+		01CF061671A829ABFE561715A335EB29 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E8EEC5B297640E0D4706E2B8EB792E50;
 			remoteInfo = LCCKit;
 		};
+		340B843038198D25A09810ACE288246F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C98AA9E9C264E141E6DBE40AB5607A54;
+			remoteInfo = "Pods-CCKit_Example";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04FE589426EB3B5A00D13316 /* CCNumberScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNumberScrollView.h; sourceTree = "<group>"; };
-		04FE589526EB3B5A00D13316 /* CCNumberScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNumberScrollView.m; sourceTree = "<group>"; };
-		04FE589D26EB3CEF00D13316 /* CCNumberScrollCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNumberScrollCell.h; sourceTree = "<group>"; };
-		04FE589E26EB3CEF00D13316 /* CCNumberScrollCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNumberScrollCell.m; sourceTree = "<group>"; };
-		04FE58A426EB3F0F00D13316 /* CCNumberTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNumberTableView.h; sourceTree = "<group>"; };
-		04FE58A526EB3F0F00D13316 /* CCNumberTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNumberTableView.m; sourceTree = "<group>"; };
-		04BCD213509C44FA615FA8FFCB3D2048 /* NSString+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+CCSafe.h"; path = "CCKit/Classes/NSString+CCSafe.h"; sourceTree = "<group>"; };
 		052FB3644929ABBFDEFC1FD32805FE08 /* Pods-CCKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CCKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		089C605306455546A51A47A31B3919EE /* NSDictionary+CCSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+CCSafe.m"; path = "CCKit/Classes/NSDictionary+CCSafe.m"; sourceTree = "<group>"; };
+		08092A8C541305358D9A28B12DF46F47 /* UIImage+CCAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+CCAdd.h"; path = "CCKit/Classes/UIImage+CCAdd.h"; sourceTree = "<group>"; };
 		08FA60330B5F3C5D70251A58FEA0A57B /* Pods-CCKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CCKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		0A9D1989D2D8EFCDF98B7EB7B7CCC930 /* NSDictionary+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+CCSafe.h"; path = "CCKit/Classes/NSDictionary+CCSafe.h"; sourceTree = "<group>"; };
-		123E901C0586DA60C4D7F696D64815D3 /* Pods_CCKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		19BFBD0CD954A15B8B3E70052E8A1442 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		1C9A3A76BCE7C9EAD884CF29595F3483 /* NSObject+CCNotification.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCNotification.m"; path = "CCKit/Classes/NSObject+CCNotification.m"; sourceTree = "<group>"; };
+		09433D8C7C5AAC78428D2C7EF24F131D /* LCCKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LCCKit.release.xcconfig; sourceTree = "<group>"; };
+		0960259C16A0685E088C3995E75D0BC0 /* CCPieChartViewModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CCPieChartViewModel.m; sourceTree = "<group>"; };
+		123E901C0586DA60C4D7F696D64815D3 /* Pods_CCKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CCKit_Example.framework; path = "Pods-CCKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D027594902FB4E1E0CA904ADCEAC4F2 /* CCCommonMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CCCommonMacro.h; path = CCKit/Classes/CCCommonMacro.h; sourceTree = "<group>"; };
 		1E08941017BFA883B81FD405E9FDF63F /* Pods-CCKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CCKit_Tests-Info.plist"; sourceTree = "<group>"; };
-		25201D0AF925DF74BAE2754EADDDAFB4 /* Pods_CCKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2912CFF5C5EB4F25F8A81EF2F141E213 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		123E901C0586DA60C4D7F696D64815D3 /* Pods_CCKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		12D9FFC6C43F14B1D68F6E16DEF6150B /* NSDictionary+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+CCSafe.h"; path = "CCKit/Classes/NSDictionary+CCSafe.h"; sourceTree = "<group>"; };
-		18288BEFEFE422291A996DCD8E5E1AC2 /* CCCommonMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CCCommonMacro.h; path = CCKit/Classes/CCCommonMacro.h; sourceTree = "<group>"; };
-		1E08941017BFA883B81FD405E9FDF63F /* Pods-CCKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CCKit_Tests-Info.plist"; sourceTree = "<group>"; };
-		25201D0AF925DF74BAE2754EADDDAFB4 /* Pods_CCKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20096C9290F199BD4FD2A8F4877A90FC /* LCCKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = LCCKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		2388E9D271E68B8B6AF5E66BEB98E56A /* CCPieChartView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CCPieChartView.m; sourceTree = "<group>"; };
+		25201D0AF925DF74BAE2754EADDDAFB4 /* Pods_CCKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CCKit_Tests.framework; path = "Pods-CCKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		274E3FB51A45B5F08F92026AC093DCE5 /* NSString+CCSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+CCSafe.m"; path = "CCKit/Classes/NSString+CCSafe.m"; sourceTree = "<group>"; };
+		2BE3D8DACB8FB15F54CC4692B6AD2FFF /* CCNumberScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CCNumberScrollView.h; sourceTree = "<group>"; };
 		30190E27FB14169639952306B8DF94D8 /* Pods-CCKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CCKit_Tests.modulemap"; sourceTree = "<group>"; };
-		3196CEDF6CE892AE45C0421AE8E1714B /* NSObject+CCDealloc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+CCDealloc.h"; path = "CCKit/Classes/NSObject+CCDealloc.h"; sourceTree = "<group>"; };
+		315BF0E9758AC77ACA1995DDE9D4E374 /* LCCKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LCCKit.modulemap; sourceTree = "<group>"; };
 		328865ECF9FC9C8E8FE48EC2ED265A42 /* Pods-CCKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CCKit_Tests-umbrella.h"; sourceTree = "<group>"; };
-		342A45440B1EB6DA3CDE706FD5D1F185 /* NSArray+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+CCSafe.h"; path = "CCKit/Classes/NSArray+CCSafe.h"; sourceTree = "<group>"; };
-		4EC62B1613A2B81228E7BFB781452B9B /* NSObject+CCKVO.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCKVO.m"; path = "CCKit/Classes/NSObject+CCKVO.m"; sourceTree = "<group>"; };
-		50E8F6EE288FDE0BEA76F81DAAB43908 /* UIButton+CCLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+CCLayout.m"; path = "CCKit/Classes/UIButton+CCLayout.m"; sourceTree = "<group>"; };
-		556E0F84C726ACF5402AAEA236FC4BE2 /* LCCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LCCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		57491DD4A2D6C908FFB7788154B825A1 /* NSString+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+CCSafe.h"; path = "CCKit/Classes/NSString+CCSafe.h"; sourceTree = "<group>"; };
-		579230BB79E7D00D456787D67486FA99 /* LCCKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LCCKit-prefix.pch"; sourceTree = "<group>"; };
-		5821597491635F0FF43FF8617E5E446D /* NSObject+CCDealloc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCDealloc.m"; path = "CCKit/Classes/NSObject+CCDealloc.m"; sourceTree = "<group>"; };
-		615811F9DE05E8814E424C0744184562 /* NSObject+CCKVO.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+CCKVO.h"; path = "CCKit/Classes/NSObject+CCKVO.h"; sourceTree = "<group>"; };
+		39288C0352B70AE4BFBF0E31EA8B1763 /* NSObject+CCDealloc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCDealloc.m"; path = "CCKit/Classes/NSObject+CCDealloc.m"; sourceTree = "<group>"; };
+		3AC28CCB26611030EAB7F9C8974F7AC6 /* NSObject+CCDealloc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+CCDealloc.h"; path = "CCKit/Classes/NSObject+CCDealloc.h"; sourceTree = "<group>"; };
+		3BA3774F2AF6A9B52E61417DBB6A969A /* NSDictionary+CCSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+CCSafe.m"; path = "CCKit/Classes/NSDictionary+CCSafe.m"; sourceTree = "<group>"; };
+		43B0399B31D8F1F6890A8C9B0A7E8D27 /* LCCKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LCCKit-umbrella.h"; sourceTree = "<group>"; };
+		4AC5342105F0EE3D2D9C5C7FEA8317C4 /* NSArray+CCSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+CCSafe.m"; path = "CCKit/Classes/NSArray+CCSafe.m"; sourceTree = "<group>"; };
+		52CC5FC5DB508AA467C45B4E711E29FB /* CCNumberTableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CCNumberTableView.h; sourceTree = "<group>"; };
+		556E0F84C726ACF5402AAEA236FC4BE2 /* LCCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LCCKit.framework; path = LCCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6319C6DA9D9B9A32E3D82FEEC3A30321 /* CCNumberScrollCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CCNumberScrollCell.m; sourceTree = "<group>"; };
+		64DF0A5DD3EBB21E29EC4B3AB60E53A8 /* NSDictionary+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+CCSafe.h"; path = "CCKit/Classes/NSDictionary+CCSafe.h"; sourceTree = "<group>"; };
+		654A3A5E4BEA7559A8597973DFC1CBF3 /* LCCKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LCCKit.debug.xcconfig; sourceTree = "<group>"; };
+		6B6719606DF9ADA935794ABC74503DBE /* CCPieChartView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CCPieChartView.h; sourceTree = "<group>"; };
 		6FA4EC1B08999B40DD1D548C489B4B98 /* Pods-CCKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CCKit_Tests-dummy.m"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		73109DA8F049FEE873A3D7EDFD1C46F7 /* CCKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CCKit.h; path = CCKit/Classes/CCKit.h; sourceTree = "<group>"; };
 		76B5276F34E6BD28C18587D9A2309AE8 /* Pods-CCKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CCKit_Example-frameworks.sh"; sourceTree = "<group>"; };
-		7C22064608C9534CEC89B12345C251D8 /* LCCKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LCCKit.debug.xcconfig; sourceTree = "<group>"; };
-		7F0CA9FDF70B48687228FBADCEB2805D /* LCCKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = LCCKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		3A082E39269DE1B50017E56E /* CCPieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPieChartView.h; sourceTree = "<group>"; };
-		3A082E3A269DE1B50017E56E /* CCPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPieChartView.m; sourceTree = "<group>"; };
-		3A082E3D269DE2000017E56E /* CCPieChartViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCPieChartViewModel.h; sourceTree = "<group>"; };
-		3A082E3E269DE2000017E56E /* CCPieChartViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCPieChartViewModel.m; sourceTree = "<group>"; };
-		474BCFA749DA4043052B1E5C1074A88D /* NSObject+CCNotification.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCNotification.m"; path = "CCKit/Classes/NSObject+CCNotification.m"; sourceTree = "<group>"; };
-		4D598F821551A967C4B2088B3BDA5961 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		54CBDD8AD37AFFD7B965BAC01AE7DE42 /* LCCKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LCCKit-umbrella.h"; sourceTree = "<group>"; };
-		556E0F84C726ACF5402AAEA236FC4BE2 /* LCCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LCCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6FA4EC1B08999B40DD1D548C489B4B98 /* Pods-CCKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CCKit_Tests-dummy.m"; sourceTree = "<group>"; };
-		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		76B5276F34E6BD28C18587D9A2309AE8 /* Pods-CCKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CCKit_Example-frameworks.sh"; sourceTree = "<group>"; };
-		7CC17A4C104694081D49A6413612F045 /* NSObject+CCNotification.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+CCNotification.h"; path = "CCKit/Classes/NSObject+CCNotification.h"; sourceTree = "<group>"; };
+		7C20398EB289C5278D069C93CE531225 /* NSObject+CCNotification.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCNotification.m"; path = "CCKit/Classes/NSObject+CCNotification.m"; sourceTree = "<group>"; };
 		7F7F6E95CD4EE54EC4110B18873CADA0 /* Pods-CCKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CCKit_Example-Info.plist"; sourceTree = "<group>"; };
-		841CA41B558C92702C40F241FD9DECEF /* LCCKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LCCKit.modulemap; sourceTree = "<group>"; };
-		8976D3DB5883D9EDA6FB508B80B7FCE2 /* UIButton+CCLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+CCLayout.m"; path = "CCKit/Classes/UIButton+CCLayout.m"; sourceTree = "<group>"; };
-		8B58E337BB2210EA24083618488FD3B8 /* UIImage+CCAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CCAdd.m"; path = "CCKit/Classes/UIImage+CCAdd.m"; sourceTree = "<group>"; };
+		821A3653D64B84D673494361B17D5684 /* NSObject+CCNotification.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+CCNotification.h"; path = "CCKit/Classes/NSObject+CCNotification.h"; sourceTree = "<group>"; };
+		871158B311E85FEC0DA4A74B3E05CD6B /* CCNumberScrollCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CCNumberScrollCell.h; sourceTree = "<group>"; };
+		8A6B68C95BEEE9A415315D9EDFFAC5B0 /* CCNumberTableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CCNumberTableView.m; sourceTree = "<group>"; };
+		8AF4175A0AB00CA62FD67CE66382A22B /* NSObject+CCKVO.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCKVO.m"; path = "CCKit/Classes/NSObject+CCKVO.m"; sourceTree = "<group>"; };
 		8E456BA8625A33CEF76B2B40DFADA0BE /* Pods-CCKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CCKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		905472030FC90A94224974B917C6C9F2 /* Pods-CCKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CCKit_Example-dummy.m"; sourceTree = "<group>"; };
-		9215DF49443CDF5C0B5E31C731633EBF /* NSString+CCSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+CCSafe.m"; path = "CCKit/Classes/NSString+CCSafe.m"; sourceTree = "<group>"; };
-		94648E598E6B251C21F2742D9AA07C6E /* NSObject+CCKVO.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+CCKVO.h"; path = "CCKit/Classes/NSObject+CCKVO.h"; sourceTree = "<group>"; };
+		94272FCFB5FE3407902E2A1D4C709B57 /* CCNumberScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CCNumberScrollView.m; sourceTree = "<group>"; };
 		955364FE8516EF6188EC7D7719C1043B /* Pods-CCKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CCKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		971793D538794B6BA06E1384734E94C1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		9C327B883D24186F875C8EE9DA1A03E9 /* Pods-CCKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CCKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B6112C2AD8B03E6E693BFCBA91BBBCF8 /* NSArray+CCSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+CCSafe.m"; path = "CCKit/Classes/NSArray+CCSafe.m"; sourceTree = "<group>"; };
-		9E612976FE3AA7E22920F38228B26A41 /* NSArray+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+CCSafe.h"; path = "CCKit/Classes/NSArray+CCSafe.h"; sourceTree = "<group>"; };
-		A1384A9F57ABEA0F907A61E40C32CF0B /* LCCKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LCCKit.release.xcconfig; sourceTree = "<group>"; };
-		A6A304334CCA675A9E83AEE6D8F6B911 /* CCKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CCKit.h; path = CCKit/Classes/CCKit.h; sourceTree = "<group>"; };
-		AEEABF9ADFC20643609D2F991671F11A /* NSObject+CCKVO.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCKVO.m"; path = "CCKit/Classes/NSObject+CCKVO.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A584192252F50A16A63F3D1DD83B5CAC /* LCCKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LCCKit-Info.plist"; sourceTree = "<group>"; };
+		AB22798EB06275F9F565B246E159F28F /* UIImage+CCAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CCAdd.m"; path = "CCKit/Classes/UIImage+CCAdd.m"; sourceTree = "<group>"; };
+		B3D0306E2909427217571B0C5A40FCC2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		B55D1FF6D30AB5BAC4109DB698BC49E5 /* UIButton+CCLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+CCLayout.h"; path = "CCKit/Classes/UIButton+CCLayout.h"; sourceTree = "<group>"; };
 		B68ADEB99DAABE2FB1BA2695BCBBBD6F /* Pods-CCKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CCKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		C4F5FDDA015642D29FE374B2319227E5 /* LCCKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LCCKit-Info.plist"; sourceTree = "<group>"; };
+		C55BE3AB53D041F33CB873F018C489D8 /* NSString+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+CCSafe.h"; path = "CCKit/Classes/NSString+CCSafe.h"; sourceTree = "<group>"; };
 		C63FC6E87958A88C7F864EA2F55FEDE4 /* Pods-CCKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CCKit_Example.modulemap"; sourceTree = "<group>"; };
-		C74736F9D433C124BEC9875EF75BEA6C /* LCCKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LCCKit-dummy.m"; sourceTree = "<group>"; };
 		C76D788BF450633772D62A19BE500A67 /* Pods-CCKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CCKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D2CB82BC099DB4E75A944D5F3A30CBD0 /* NSObject+CCDealloc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CCDealloc.m"; path = "CCKit/Classes/NSObject+CCDealloc.m"; sourceTree = "<group>"; };
-		D631E8E11CB0C8F8C2DBFE5D7833A921 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		D6A62DEBDC3FF9802DA00849B955CE34 /* LCCKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LCCKit.debug.xcconfig; sourceTree = "<group>"; };
-		D9A1108C63083666D5B93C12555AA114 /* LCCKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = LCCKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		E81B954BCB5267B7CC6183C5D05CE833 /* UIImage+CCAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+CCAdd.h"; path = "CCKit/Classes/UIImage+CCAdd.h"; sourceTree = "<group>"; };
+		D03C7B7F9006AA9A5F9EBEBF41C46857 /* UIButton+CCLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+CCLayout.m"; path = "CCKit/Classes/UIButton+CCLayout.m"; sourceTree = "<group>"; };
+		DB7BCAB586192412CEEFD887B49B127C /* CCPieChartViewModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CCPieChartViewModel.h; sourceTree = "<group>"; };
+		E5E1816CACD15FED1B37E5397257DE86 /* NSArray+CCSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+CCSafe.h"; path = "CCKit/Classes/NSArray+CCSafe.h"; sourceTree = "<group>"; };
 		E8DE1F16DCC92D9EAA6BB9CA6AB7C698 /* Pods-CCKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CCKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		F43E49ED0074457CCC1CF2D71CAD74AC /* UIButton+CCLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+CCLayout.h"; path = "CCKit/Classes/UIButton+CCLayout.h"; sourceTree = "<group>"; };
-		FC85949279400597BBF00AD41DB2BC4A /* NSArray+CCSafe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+CCSafe.m"; path = "CCKit/Classes/NSArray+CCSafe.m"; sourceTree = "<group>"; };
-		FE895893E96B6F955BF0AB8A1619D308 /* LCCKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LCCKit-prefix.pch"; sourceTree = "<group>"; };
+		F18BC704614710AD6246264CCE8FAF0D /* NSObject+CCKVO.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+CCKVO.h"; path = "CCKit/Classes/NSObject+CCKVO.h"; sourceTree = "<group>"; };
+		F2BB7ADB425CF4E9F6A69F14C5BE7AC6 /* LCCKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LCCKit-dummy.m"; sourceTree = "<group>"; };
+		FBE73A18D0CB63D198764063C54E532E /* LCCKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LCCKit-prefix.pch"; sourceTree = "<group>"; };
 		FF2CCFD214812BCA5A2B5695D2A9E17C /* Pods-CCKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CCKit_Example-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2CEB1AC31A25A1F2A9ECC142489A0268 /* Frameworks */ = {
+		A33B0E6713DABD451B38E4381401ECAB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CC4BDC2F62BE68D30A3B084AE65367A /* Foundation.framework in Frameworks */,
+				DF4294055C53989855979498CA2136C2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,18 +154,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04FE589326EB37D600D13316 /* CCNumberScrollView */ = {
+		088E6ECDACE5C5A1D49221A2F36C8E6C /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				04FE589426EB3B5A00D13316 /* CCNumberScrollView.h */,
-				04FE589526EB3B5A00D13316 /* CCNumberScrollView.m */,
-				04FE589D26EB3CEF00D13316 /* CCNumberScrollCell.h */,
-				04FE589E26EB3CEF00D13316 /* CCNumberScrollCell.m */,
-				04FE58A426EB3F0F00D13316 /* CCNumberTableView.h */,
-				04FE58A526EB3F0F00D13316 /* CCNumberTableView.m */,
+				715B5FFABAC4F7C40F5E5BBF198B5C58 /* LCCKit */,
 			);
-			name = CCNumberScrollView;
-			path = CCKit/Classes/CCNumberScrollView;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		0A81542522D08F611C9E4393176ACA09 /* Pods-CCKit_Tests */ = {
@@ -208,31 +178,18 @@
 			path = "Target Support Files/Pods-CCKit_Tests";
 			sourceTree = "<group>";
 		};
-		279E8F84F045B7932BF1E9304D664822 /* Support Files */ = {
+		1CE4265A427067C10479CFA946FCB9EA /* CCNumberScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				841CA41B558C92702C40F241FD9DECEF /* LCCKit.modulemap */,
-				C74736F9D433C124BEC9875EF75BEA6C /* LCCKit-dummy.m */,
-				C4F5FDDA015642D29FE374B2319227E5 /* LCCKit-Info.plist */,
-				FE895893E96B6F955BF0AB8A1619D308 /* LCCKit-prefix.pch */,
-				54CBDD8AD37AFFD7B965BAC01AE7DE42 /* LCCKit-umbrella.h */,
-				D6A62DEBDC3FF9802DA00849B955CE34 /* LCCKit.debug.xcconfig */,
-				A1384A9F57ABEA0F907A61E40C32CF0B /* LCCKit.release.xcconfig */,
+				871158B311E85FEC0DA4A74B3E05CD6B /* CCNumberScrollCell.h */,
+				6319C6DA9D9B9A32E3D82FEEC3A30321 /* CCNumberScrollCell.m */,
+				2BE3D8DACB8FB15F54CC4692B6AD2FFF /* CCNumberScrollView.h */,
+				94272FCFB5FE3407902E2A1D4C709B57 /* CCNumberScrollView.m */,
+				52CC5FC5DB508AA467C45B4E711E29FB /* CCNumberTableView.h */,
+				8A6B68C95BEEE9A415315D9EDFFAC5B0 /* CCNumberTableView.m */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/LCCKit";
-			sourceTree = "<group>";
-		};
-		3A082E38269DE1B50017E56E /* CCChart */ = {
-			isa = PBXGroup;
-			children = (
-				3A082E39269DE1B50017E56E /* CCPieChartView.h */,
-				3A082E3A269DE1B50017E56E /* CCPieChartView.m */,
-				3A082E3D269DE2000017E56E /* CCPieChartViewModel.h */,
-				3A082E3E269DE2000017E56E /* CCPieChartViewModel.m */,
-			);
-			name = CCChart;
-			path = CCKit/Classes/CCChart;
+			name = CCNumberScrollView;
+			path = CCKit/Classes/CCNumberScrollView;
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -243,14 +200,46 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		64A0EA06927A2A643C9B783786C9E285 /* Pod */ = {
+		715B5FFABAC4F7C40F5E5BBF198B5C58 /* LCCKit */ = {
 			isa = PBXGroup;
 			children = (
-				D9A1108C63083666D5B93C12555AA114 /* LCCKit.podspec */,
-				D631E8E11CB0C8F8C2DBFE5D7833A921 /* LICENSE */,
-				4D598F821551A967C4B2088B3BDA5961 /* README.md */,
+				1D027594902FB4E1E0CA904ADCEAC4F2 /* CCCommonMacro.h */,
+				73109DA8F049FEE873A3D7EDFD1C46F7 /* CCKit.h */,
+				E5E1816CACD15FED1B37E5397257DE86 /* NSArray+CCSafe.h */,
+				4AC5342105F0EE3D2D9C5C7FEA8317C4 /* NSArray+CCSafe.m */,
+				64DF0A5DD3EBB21E29EC4B3AB60E53A8 /* NSDictionary+CCSafe.h */,
+				3BA3774F2AF6A9B52E61417DBB6A969A /* NSDictionary+CCSafe.m */,
+				3AC28CCB26611030EAB7F9C8974F7AC6 /* NSObject+CCDealloc.h */,
+				39288C0352B70AE4BFBF0E31EA8B1763 /* NSObject+CCDealloc.m */,
+				F18BC704614710AD6246264CCE8FAF0D /* NSObject+CCKVO.h */,
+				8AF4175A0AB00CA62FD67CE66382A22B /* NSObject+CCKVO.m */,
+				821A3653D64B84D673494361B17D5684 /* NSObject+CCNotification.h */,
+				7C20398EB289C5278D069C93CE531225 /* NSObject+CCNotification.m */,
+				C55BE3AB53D041F33CB873F018C489D8 /* NSString+CCSafe.h */,
+				274E3FB51A45B5F08F92026AC093DCE5 /* NSString+CCSafe.m */,
+				B55D1FF6D30AB5BAC4109DB698BC49E5 /* UIButton+CCLayout.h */,
+				D03C7B7F9006AA9A5F9EBEBF41C46857 /* UIButton+CCLayout.m */,
+				08092A8C541305358D9A28B12DF46F47 /* UIImage+CCAdd.h */,
+				AB22798EB06275F9F565B246E159F28F /* UIImage+CCAdd.m */,
+				74D29850F5562D937AEAD3AEB0A07626 /* CCChart */,
+				1CE4265A427067C10479CFA946FCB9EA /* CCNumberScrollView */,
+				F4E47DD9CEFC49602CC8FCF1577BC21E /* Pod */,
+				F2A0C514443DFCCC68F9FC686184A6E9 /* Support Files */,
 			);
-			name = Pod;
+			name = LCCKit;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		74D29850F5562D937AEAD3AEB0A07626 /* CCChart */ = {
+			isa = PBXGroup;
+			children = (
+				6B6719606DF9ADA935794ABC74503DBE /* CCPieChartView.h */,
+				2388E9D271E68B8B6AF5E66BEB98E56A /* CCPieChartView.m */,
+				DB7BCAB586192412CEEFD887B49B127C /* CCPieChartViewModel.h */,
+				0960259C16A0685E088C3995E75D0BC0 /* CCPieChartViewModel.m */,
+			);
+			name = CCChart;
+			path = CCKit/Classes/CCChart;
 			sourceTree = "<group>";
 		};
 		9B6CD6FE4988DEABD7292810AA92A92E /* Products */ = {
@@ -261,43 +250,6 @@
 				25201D0AF925DF74BAE2754EADDDAFB4 /* Pods_CCKit_Tests.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		A9CFFA7B1AFC9DA086C3E99189BE9337 /* LCCKit */ = {
-			isa = PBXGroup;
-			children = (
-				3A082E38269DE1B50017E56E /* CCChart */,
-				18288BEFEFE422291A996DCD8E5E1AC2 /* CCCommonMacro.h */,
-				A6A304334CCA675A9E83AEE6D8F6B911 /* CCKit.h */,
-				9E612976FE3AA7E22920F38228B26A41 /* NSArray+CCSafe.h */,
-				FC85949279400597BBF00AD41DB2BC4A /* NSArray+CCSafe.m */,
-				12D9FFC6C43F14B1D68F6E16DEF6150B /* NSDictionary+CCSafe.h */,
-				089C605306455546A51A47A31B3919EE /* NSDictionary+CCSafe.m */,
-				3196CEDF6CE892AE45C0421AE8E1714B /* NSObject+CCDealloc.h */,
-				D2CB82BC099DB4E75A944D5F3A30CBD0 /* NSObject+CCDealloc.m */,
-				94648E598E6B251C21F2742D9AA07C6E /* NSObject+CCKVO.h */,
-				AEEABF9ADFC20643609D2F991671F11A /* NSObject+CCKVO.m */,
-				7CC17A4C104694081D49A6413612F045 /* NSObject+CCNotification.h */,
-				474BCFA749DA4043052B1E5C1074A88D /* NSObject+CCNotification.m */,
-				04BCD213509C44FA615FA8FFCB3D2048 /* NSString+CCSafe.h */,
-				9215DF49443CDF5C0B5E31C731633EBF /* NSString+CCSafe.m */,
-				F43E49ED0074457CCC1CF2D71CAD74AC /* UIButton+CCLayout.h */,
-				8976D3DB5883D9EDA6FB508B80B7FCE2 /* UIButton+CCLayout.m */,
-				E81B954BCB5267B7CC6183C5D05CE833 /* UIImage+CCAdd.h */,
-				8B58E337BB2210EA24083618488FD3B8 /* UIImage+CCAdd.m */,
-				64A0EA06927A2A643C9B783786C9E285 /* Pod */,
-				279E8F84F045B7932BF1E9304D664822 /* Support Files */,
-			);
-			name = LCCKit;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		B5208CA2E71A095048D712E4563FA1C0 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A9CFFA7B1AFC9DA086C3E99189BE9337 /* LCCKit */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		CEB4229DDE04B64D715BFFBB89BC3738 /* Pods-CCKit_Example */ = {
@@ -321,7 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				B5208CA2E71A095048D712E4563FA1C0 /* Development Pods */,
+				088E6ECDACE5C5A1D49221A2F36C8E6C /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				9B6CD6FE4988DEABD7292810AA92A92E /* Products */,
 				D942887C9A1FFE516ACB2CD863A9BECA /* Targets Support Files */,
@@ -345,44 +297,29 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		E8343ED7B63D9AC31DD0F36EB9C9BDD5 /* LCCKit */ = {
+		F2A0C514443DFCCC68F9FC686184A6E9 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				04FE589326EB37D600D13316 /* CCNumberScrollView */,
-				342A45440B1EB6DA3CDE706FD5D1F185 /* NSArray+CCSafe.h */,
-				B6112C2AD8B03E6E693BFCBA91BBBCF8 /* NSArray+CCSafe.m */,
-				0A9D1989D2D8EFCDF98B7EB7B7CCC930 /* NSDictionary+CCSafe.h */,
-				CCD770436DB3D854A319242D34ABFC51 /* NSDictionary+CCSafe.m */,
-				C673B8C4FFC3368A22C79A1C02EAD51C /* NSObject+CCDealloc.h */,
-				5821597491635F0FF43FF8617E5E446D /* NSObject+CCDealloc.m */,
-				615811F9DE05E8814E424C0744184562 /* NSObject+CCKVO.h */,
-				4EC62B1613A2B81228E7BFB781452B9B /* NSObject+CCKVO.m */,
-				055182AFAFEB0D823E2EF9FEDA8B149A /* NSObject+CCNotification.h */,
-				1C9A3A76BCE7C9EAD884CF29595F3483 /* NSObject+CCNotification.m */,
-				57491DD4A2D6C908FFB7788154B825A1 /* NSString+CCSafe.h */,
-				D5A85AB381E4C7CD219AB9D12E033CD4 /* NSString+CCSafe.m */,
-				BA38871484CA388B21DF62B06A438EE6 /* UIButton+CCLayout.h */,
-				50E8F6EE288FDE0BEA76F81DAAB43908 /* UIButton+CCLayout.m */,
-				4F2EE5092261F541A69488E3F292B83F /* Pod */,
-				FBCF80BF36D70D1A6DC3372456AF1600 /* Support Files */,
-			);
-			name = LCCKit;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		FBCF80BF36D70D1A6DC3372456AF1600 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				DAB304AC4980CC4C970E4876C86D2FEB /* LCCKit.modulemap */,
-				C2A08FFC935604A78D91E33AF1AD97E3 /* LCCKit-dummy.m */,
-				CC7DE9BB1708268524E4AF3A561DD344 /* LCCKit-Info.plist */,
-				579230BB79E7D00D456787D67486FA99 /* LCCKit-prefix.pch */,
-				E5EF99726C3ECB46A9D4048BFA05DC5C /* LCCKit-umbrella.h */,
-				7C22064608C9534CEC89B12345C251D8 /* LCCKit.debug.xcconfig */,
-				87A37069881C6C078AC33BADB1BD2E44 /* LCCKit.release.xcconfig */,
+				315BF0E9758AC77ACA1995DDE9D4E374 /* LCCKit.modulemap */,
+				F2BB7ADB425CF4E9F6A69F14C5BE7AC6 /* LCCKit-dummy.m */,
+				A584192252F50A16A63F3D1DD83B5CAC /* LCCKit-Info.plist */,
+				FBE73A18D0CB63D198764063C54E532E /* LCCKit-prefix.pch */,
+				43B0399B31D8F1F6890A8C9B0A7E8D27 /* LCCKit-umbrella.h */,
+				654A3A5E4BEA7559A8597973DFC1CBF3 /* LCCKit.debug.xcconfig */,
+				09433D8C7C5AAC78428D2C7EF24F131D /* LCCKit.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/LCCKit";
+			sourceTree = "<group>";
+		};
+		F4E47DD9CEFC49602CC8FCF1577BC21E /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				20096C9290F199BD4FD2A8F4877A90FC /* LCCKit.podspec */,
+				971793D538794B6BA06E1384734E94C1 /* LICENSE */,
+				B3D0306E2909427217571B0C5A40FCC2 /* README.md */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,38 +337,30 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87B67E191BB392D7740F278DE26F13BC /* LCCKit-umbrella.h in Headers */,
-				04FE58A626EB3F0F00D13316 /* CCNumberTableView.h in Headers */,
-				BBECFA3C5D729D8402A65FD286119605 /* NSArray+CCSafe.h in Headers */,
-				0797C1FFC7649BB07095B7EB3803F2B9 /* NSDictionary+CCSafe.h in Headers */,
-				834979951A323689A48E30B1C4A2216F /* NSObject+CCDealloc.h in Headers */,
-				04FE589626EB3B5A00D13316 /* CCNumberScrollView.h in Headers */,
-				634AA149C07884BF4E44F894035A706B /* NSObject+CCKVO.h in Headers */,
-				9803DE2BC987BB80C538D151A32AF129 /* NSObject+CCNotification.h in Headers */,
-				9E8ADF71A39A6EBD05639D90954C9E37 /* NSString+CCSafe.h in Headers */,
-				04FE589F26EB3CEF00D13316 /* CCNumberScrollCell.h in Headers */,
-				5CA4ECA168AEDA6C4C415D42ADD599CD /* UIButton+CCLayout.h in Headers */,
 				B03FFB7BA7283E27567DD29A34E9F80C /* Pods-CCKit_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E05B9F10F40FD409F605430B00F52685 /* Headers */ = {
+		EF309BD346EF3535E1B3DBAA97C487AF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D0A35A9EBC2773A46218A8FE33276B6 /* CCCommonMacro.h in Headers */,
-				EB3D873955E8579174D3ABAC3323A698 /* CCKit.h in Headers */,
-				A41CF92EC336CB03FBC1D93AE6EF0640 /* LCCKit-umbrella.h in Headers */,
-				3DD36ADF1E5C26DD41E702A342C1CB5C /* NSArray+CCSafe.h in Headers */,
-				9767DDA07AB33BEB007C946CD5A155DF /* NSDictionary+CCSafe.h in Headers */,
-				89E7ADD2EF22D84CB07D96B2603369F1 /* NSObject+CCDealloc.h in Headers */,
-				924A083989918A6CD08F6015E7323D35 /* NSObject+CCKVO.h in Headers */,
-				DF460FD6B80C79FD7E26447DB1C0E4B1 /* NSObject+CCNotification.h in Headers */,
-				F0EAAC7064D05943826981FCB0A09930 /* NSString+CCSafe.h in Headers */,
-				4CCE2E4C21FABAE1E5AA0F4AA28D19C0 /* UIButton+CCLayout.h in Headers */,
-				44759C775AA7FE227CD662ED46216709 /* UIImage+CCAdd.h in Headers */,
-				3A082E3F269DE2000017E56E /* CCPieChartViewModel.h in Headers */,
-				3A082E3B269DE1B50017E56E /* CCPieChartView.h in Headers */,
+				C3321E4FB9C9126C22D6B083C529EAE9 /* CCCommonMacro.h in Headers */,
+				214C63BBDDE004BB2B7532EDA2066FFF /* CCKit.h in Headers */,
+				5D920A72B3136D56629FFACEE681A74C /* CCNumberScrollCell.h in Headers */,
+				89BF63170E67DB0F4940CB46146ED14F /* CCNumberScrollView.h in Headers */,
+				A17E01BB27E00B822F493A83CD74DED6 /* CCNumberTableView.h in Headers */,
+				79F37120DC321E2043B57B672A21C463 /* CCPieChartView.h in Headers */,
+				8F7524E16CBE2CC89080DD8D10379422 /* CCPieChartViewModel.h in Headers */,
+				B9D364FA8474CE3B6194E00E2611E943 /* LCCKit-umbrella.h in Headers */,
+				44F83C04CD3E44DDFEAC8F0DA53FED0F /* NSArray+CCSafe.h in Headers */,
+				5E698B8C1A943DC1E9C13B3AC0C5D58E /* NSDictionary+CCSafe.h in Headers */,
+				857F323075E4A4FF8D093ACABCDC775B /* NSObject+CCDealloc.h in Headers */,
+				E05D65278DDEB1B393B56D564FAD2D45 /* NSObject+CCKVO.h in Headers */,
+				B996357995A72B1FAEA59FD53BD621ED /* NSObject+CCNotification.h in Headers */,
+				106B6982DEF117B56A85B746A882D613 /* NSString+CCSafe.h in Headers */,
+				5AC49F3FDC7F955877249CABEBC16145 /* UIButton+CCLayout.h in Headers */,
+				59BAABA0E8510A340697D525CAE2B001 /* UIImage+CCAdd.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +379,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				4FAB22C441B6A3BA8DC3B1EFBDF20509 /* PBXTargetDependency */,
+				31D02D4F106F94446BE2351E6679005B /* PBXTargetDependency */,
 			);
 			name = "Pods-CCKit_Tests";
 			productName = "Pods-CCKit_Tests";
@@ -469,7 +398,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				2346C00F8F9B4F0E953D1435FB8D55D7 /* PBXTargetDependency */,
+				562B51BBD48B2776C5F28C95B74F27A9 /* PBXTargetDependency */,
 			);
 			name = "Pods-CCKit_Example";
 			productName = "Pods-CCKit_Example";
@@ -478,12 +407,12 @@
 		};
 		E8EEC5B297640E0D4706E2B8EB792E50 /* LCCKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58D7C056E468A1CBE37D245F59C88590 /* Build configuration list for PBXNativeTarget "LCCKit" */;
+			buildConfigurationList = 9EED6025AA3ACFBEAF493A9789A2FBAB /* Build configuration list for PBXNativeTarget "LCCKit" */;
 			buildPhases = (
-				E05B9F10F40FD409F605430B00F52685 /* Headers */,
-				814693E14920A08DEA795595B8307609 /* Sources */,
-				2CEB1AC31A25A1F2A9ECC142489A0268 /* Frameworks */,
-				2C2AC47334F1012092339BDDA73A56DC /* Resources */,
+				EF309BD346EF3535E1B3DBAA97C487AF /* Headers */,
+				BB070F644786C82BD3D1E9DB4C6A0ADE /* Sources */,
+				A33B0E6713DABD451B38E4381401ECAB /* Frameworks */,
+				C8A4D5DD840A9131A166E6FC0D02CABF /* Resources */,
 			);
 			buildRules = (
 			);
@@ -531,14 +460,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2C2AC47334F1012092339BDDA73A56DC /* Resources */ = {
+		8B8A4F3F23CCF112D5C91730694282D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B8A4F3F23CCF112D5C91730694282D2 /* Resources */ = {
+		C8A4D5DD840A9131A166E6FC0D02CABF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -548,21 +477,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		814693E14920A08DEA795595B8307609 /* Sources */ = {
+		BB070F644786C82BD3D1E9DB4C6A0ADE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01580C4E54381D5BE5BF2A7CDD65A1EF /* LCCKit-dummy.m in Sources */,
-				20CE1073F7E307F840422C8A3E49861E /* NSArray+CCSafe.m in Sources */,
-				3A082E40269DE2000017E56E /* CCPieChartViewModel.m in Sources */,
-				6908636B98AA3F9D1512BD8CD97D367E /* NSDictionary+CCSafe.m in Sources */,
-				EBE25072BBB07BA80BFE322829F66FE3 /* NSObject+CCDealloc.m in Sources */,
-				E67EE5612CF9DEEE216E5235018DCE75 /* NSObject+CCKVO.m in Sources */,
-				7FD488EEA506DEEB89DA536EF6EF3344 /* NSObject+CCNotification.m in Sources */,
-				223EC0F77C6187F7A72A93857458FB40 /* NSString+CCSafe.m in Sources */,
-				6BC2657B4E75E9461461745C937CAC90 /* UIButton+CCLayout.m in Sources */,
-				3A082E3C269DE1B50017E56E /* CCPieChartView.m in Sources */,
-				CAD804A0C1F2AB66102C164B7B627159 /* UIImage+CCAdd.m in Sources */,
+				CCA75B7E5977ADCE6317E7FB57F61040 /* CCNumberScrollCell.m in Sources */,
+				144E85E571746F6DD41F092F78163185 /* CCNumberScrollView.m in Sources */,
+				D35F4BD1619ED5E45D87C313ACBA1E81 /* CCNumberTableView.m in Sources */,
+				B7FA06EA687F2457AF8DCC5670B7C6A3 /* CCPieChartView.m in Sources */,
+				6F225DB707AC04542215771ED6C2784B /* CCPieChartViewModel.m in Sources */,
+				C9BB4A07EBDEE5FBAFFC70A5338E9183 /* LCCKit-dummy.m in Sources */,
+				24D864C562A3574FC081A0C335924A89 /* NSArray+CCSafe.m in Sources */,
+				436240395444050C76E6FA1E353B9F76 /* NSDictionary+CCSafe.m in Sources */,
+				E26FBFC7CD9E51456D40A38C803BBAD4 /* NSObject+CCDealloc.m in Sources */,
+				78CF7A1D919658A7313A29437D404D27 /* NSObject+CCKVO.m in Sources */,
+				6D0492746EB77187BA8CC7DCE2D52774 /* NSObject+CCNotification.m in Sources */,
+				AB7DD757B64A725DA772810097919467 /* NSString+CCSafe.m in Sources */,
+				450E13487AB496FF43B88E93902C93AF /* UIButton+CCLayout.m in Sources */,
+				BF6F0E3110D8F5967EBBDBB9F16B76A1 /* UIImage+CCAdd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,17 +502,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EA0D913D3BA1D16F73EB2C9B3273F4F /* LCCKit-dummy.m in Sources */,
-				86E6B265D1D08300C6248114525B9FC8 /* NSArray+CCSafe.m in Sources */,
-				04FE589726EB3B5A00D13316 /* CCNumberScrollView.m in Sources */,
-				04FE58A726EB3F0F00D13316 /* CCNumberTableView.m in Sources */,
-				04FE58A026EB3CEF00D13316 /* CCNumberScrollCell.m in Sources */,
-				89AA952F7F22244539F06E34839DB64F /* NSDictionary+CCSafe.m in Sources */,
-				0BB3B63836FFD33596500CCABB7E13F7 /* NSObject+CCDealloc.m in Sources */,
-				B404CE03FA544F9B2AC17DF8BFDD6693 /* NSObject+CCKVO.m in Sources */,
-				96E9BFC19B780FDB30DB5B928A112DFD /* NSObject+CCNotification.m in Sources */,
-				02C432E696508CFB393864E50A4ED5E4 /* NSString+CCSafe.m in Sources */,
-				E63410B806DECE4178317D6B1529DC95 /* UIButton+CCLayout.m in Sources */,
 				1CEC8238D983AF01911A8F383034B221 /* Pods-CCKit_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,21 +517,52 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2346C00F8F9B4F0E953D1435FB8D55D7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = LCCKit;
-			target = E8EEC5B297640E0D4706E2B8EB792E50 /* LCCKit */;
-			targetProxy = 48907B934D24CE40AD57457E04F12290 /* PBXContainerItemProxy */;
-		};
-		4FAB22C441B6A3BA8DC3B1EFBDF20509 /* PBXTargetDependency */ = {
+		31D02D4F106F94446BE2351E6679005B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-CCKit_Example";
 			target = C98AA9E9C264E141E6DBE40AB5607A54 /* Pods-CCKit_Example */;
-			targetProxy = 0214467FA4F45C707918BF4179DCC872 /* PBXContainerItemProxy */;
+			targetProxy = 340B843038198D25A09810ACE288246F /* PBXContainerItemProxy */;
+		};
+		562B51BBD48B2776C5F28C95B74F27A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LCCKit;
+			target = E8EEC5B297640E0D4706E2B8EB792E50 /* LCCKit */;
+			targetProxy = 01CF061671A829ABFE561715A335EB29 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		12121E3987D79FAE700F1694D44C4DFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09433D8C7C5AAC78428D2C7EF24F131D /* LCCKit.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LCCKit/LCCKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LCCKit/LCCKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LCCKit/LCCKit.modulemap";
+				PRODUCT_MODULE_NAME = LCCKit;
+				PRODUCT_NAME = LCCKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -709,6 +661,36 @@
 			};
 			name = Debug;
 		};
+		6E98CD1F981DC2A663F47917E542A1BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 654A3A5E4BEA7559A8597973DFC1CBF3 /* LCCKit.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LCCKit/LCCKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LCCKit/LCCKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LCCKit/LCCKit.modulemap";
+				PRODUCT_MODULE_NAME = LCCKit;
+				PRODUCT_NAME = LCCKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		7712F7CE9E287B8D44F67E99C589E808 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E8DE1F16DCC92D9EAA6BB9CA6AB7C698 /* Pods-CCKit_Tests.release.xcconfig */;
@@ -742,36 +724,6 @@
 			};
 			name = Release;
 		};
-		9FD45E20558987C892368869FB6BD2FE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6A62DEBDC3FF9802DA00849B955CE34 /* LCCKit.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/LCCKit/LCCKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LCCKit/LCCKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LCCKit/LCCKit.modulemap";
-				PRODUCT_MODULE_NAME = LCCKit;
-				PRODUCT_NAME = LCCKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		A5F3CBD431831DA0572BA936B8ABD138 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8E456BA8625A33CEF76B2B40DFADA0BE /* Pods-CCKit_Example.release.xcconfig */;
@@ -798,37 +750,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		A9B2067A9FC1FB88935578E0FC94D24C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1384A9F57ABEA0F907A61E40C32CF0B /* LCCKit.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/LCCKit/LCCKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LCCKit/LCCKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LCCKit/LCCKit.modulemap";
-				PRODUCT_MODULE_NAME = LCCKit;
-				PRODUCT_NAME = LCCKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -891,7 +812,8 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -950,11 +872,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58D7C056E468A1CBE37D245F59C88590 /* Build configuration list for PBXNativeTarget "LCCKit" */ = {
+		9EED6025AA3ACFBEAF493A9789A2FBAB /* Build configuration list for PBXNativeTarget "LCCKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9FD45E20558987C892368869FB6BD2FE /* Debug */,
-				A9B2067A9FC1FB88935578E0FC94D24C /* Release */,
+				6E98CD1F981DC2A663F47917E542A1BF /* Debug */,
+				12121E3987D79FAE700F1694D44C4DFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
