@@ -16,6 +16,8 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.contentView.backgroundColor = UIColor.clearColor;
+        self.backgroundColor = UIColor.clearColor;
         [self.contentView addSubview:self.numberLabel];
     }
     return self;
@@ -39,6 +41,7 @@
         _numberLabel = [[UILabel alloc] init];
         _numberLabel.font = [UIFont systemFontOfSize:14];
         _numberLabel.textColor = UIColor.blackColor;
+        _numberLabel.backgroundColor = UIColor.clearColor;
         _numberLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _numberLabel;

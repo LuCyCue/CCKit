@@ -16,6 +16,7 @@
 #import "CCKit.h"
 #import "CCNumberScrollCell.h"
 #import "CCNumberScrollView.h"
+#import "CCNumberScrollViewConfig.h"
 #import "CCNumberTableView.h"
 #import "NSArray+CCSafe.h"
 #import "NSDictionary+CCSafe.h"
@@ -25,8 +26,11 @@
 #import "NSString+CCSafe.h"
 #import "UIButton+CCLayout.h"
 #import "UIImage+CCAdd.h"
+#import "CCPieChartView.h"
+#import "CCPieChartViewModel.h"
 #import "CCNumberScrollCell.h"
 #import "CCNumberScrollView.h"
+#import "CCNumberScrollViewConfig.h"
 #import "CCNumberTableView.h"
 
 FOUNDATION_EXPORT double LCCKitVersionNumber;

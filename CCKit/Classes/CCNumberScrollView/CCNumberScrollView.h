@@ -6,18 +6,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CCNumberScrollViewConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CCNumberScrollView : UIView
-//字体
-@property (nonatomic, strong) UIFont *font;
-//文字颜色
-@property (nonatomic, strong) UIColor *textColor;
-//动画时长
-@property (nonatomic, assign) CGFloat animationDuration;
+//基本配置
+@property (nonatomic, strong) CCNumberScrollViewConfig *config;
 //展示数值
 @property (nonatomic, assign) NSInteger num;
+
+- (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
+
+/// 初始化
+- (instancetype)initWithFrame:(CGRect)frame config:(CCNumberScrollViewConfig *)config;
 
 @end
 

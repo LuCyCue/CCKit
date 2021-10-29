@@ -23,6 +23,10 @@
     {
       "name": "CCNumberScrollView",
       "source_files": "CCKit/Classes/CCNumberScrollView/*"
+    },
+    {
+      "name": "CCChart",
+      "source_files": "CCKit/Classes/CCChart/*"
     }
   ]
 }

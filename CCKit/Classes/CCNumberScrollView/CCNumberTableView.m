@@ -2,7 +2,7 @@
 //  CCNumberTableView.m
 //  LCCKit
 //
-//  Created by HuanZheng on 2021/9/10.
+//  Created by lucc on 2021/9/10.
 //
 
 #import "CCNumberTableView.h"
@@ -17,6 +17,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = UIColor.clearColor;
         [self addSubview:self.tableView];
     }
     return self;
@@ -24,10 +25,13 @@
 
 - (void)scrollToIndex:(NSUInteger)index {
     CGFloat offsetY = index * CGRectGetHeight(self.bounds);
-    [UIView animateWithDuration:0.3 animations:^{
-        self.tableView.contentOffset = CGPointMake(0, offsetY);
+    [UIView animateWithDuration:self.animationDuration animations:^{
+        self.tableView.contentOffset = CGPointMake(0, offsetY-0.5);
     }];
-    
+}
+
+- (void)reloadData {
+    [self.tableView reloadData];
 }
 
 - (void)layoutSubviews {
@@ -42,6 +46,10 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.showsVerticalScrollIndicator = NO;
+        _tableView.allowsSelection = NO;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.backgroundColor = UIColor.clearColor;
         [_tableView registerClass:[CCNumberScrollCell class] forCellReuseIdentifier:NSStringFromClass(CCNumberScrollCell.class)];
     }
     return _tableView;
@@ -51,6 +59,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataSource.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return CGRectGetHeight(self.bounds);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

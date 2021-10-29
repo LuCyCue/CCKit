@@ -1,6 +1,8 @@
 PODS:
   - LCCKit (0.0.1):
+    - LCCKit/CCChart (= 0.0.1)
     - LCCKit/CCNumberScrollView (= 0.0.1)
+  - LCCKit/CCChart (0.0.1)
   - LCCKit/CCNumberScrollView (0.0.1)
 
 DEPENDENCIES:
@@ -11,7 +13,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LCCKit: 39cb907c8a3cbe6fdc97420fd8878f802445f83a
+  LCCKit: e34b67af2e3c9612ea8fab4c6ac48757cb9acffb
 
 PODFILE CHECKSUM: 8173988f32f5f97e8ad981d9ea9a2c39153c3f18
 
