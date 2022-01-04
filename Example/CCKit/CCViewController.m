@@ -9,6 +9,8 @@
 #import "CCViewController.h"
 #import "CCKit.h"
 #import "CCNumberScrollView.h"
+#import "CCNavigationController.h"
+#import "CCTestViewController.h"
 
 @interface CCViewController ()
 @property (nonatomic, strong) CCNumberScrollView *numberScrollView;
@@ -19,7 +21,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self numberScrollViewTest];
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CCTestViewController *ctl = [[CCTestViewController alloc] init];
+        ctl.view.backgroundColor = UIColor.redColor;
+        CCNavigationController *nav = [[CCNavigationController alloc] initWithRootViewController:ctl];
+//        nav.popDirection = CCNavigationTransitionDirectionBottom;
+//        nav.pushDirection = CCNavigationTransitionDirectionTop;
+//        nav.useCustomAnimation = YES;
+        nav.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:nav animated:YES completion:nil];
+    });
+
 }
 
 - (void)macroTest {

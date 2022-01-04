@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param image 图片
 - (void)cc_addLongBgWithImage:(UIImage *)image;
 /// 清除添加的背景
-- (void)cc_removeLongBg
+- (void)cc_removeLongBg;
 
 @end
 

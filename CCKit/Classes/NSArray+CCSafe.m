@@ -53,7 +53,7 @@
 }
 
 - (void)cc_safeInsertObject:(id)anObject atIndex:(NSUInteger)index {
-    if (!anObject || index < 0 || index >= self.count) {
+    if (!anObject || index < 0 || index > self.count) {
         return;
     }
     [self insertObject:anObject atIndex:index];

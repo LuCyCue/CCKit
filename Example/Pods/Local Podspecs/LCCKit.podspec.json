@@ -27,6 +27,10 @@
     {
       "name": "CCChart",
       "source_files": "CCKit/Classes/CCChart/*"
+    },
+    {
+      "name": "CCNavigationController",
+      "source_files": "CCKit/Classes/CCNavigationController/*"
     }
   ]
 }
