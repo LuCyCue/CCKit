@@ -31,6 +31,10 @@
     {
       "name": "CCNavigationController",
       "source_files": "CCKit/Classes/CCNavigationController/*"
+    },
+    {
+      "name": "CCLetterIndexView",
+      "source_files": "CCKit/Classes/CCLetterIndexView/*"
     }
   ]
 }
