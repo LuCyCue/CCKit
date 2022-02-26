@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0461C8762754BF7000FDA509 /* CCTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0461C8752754BF7000FDA509 /* CCTestViewController.m */; };
+		04CBC6BF27C66D2D00F08879 /* CCLetterIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBC6BD27C66D2D00F08879 /* CCLetterIndexViewController.m */; };
 		41FD9FA4BF7C680CCAE59812 /* Pods_CCKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49786B260D052FE1C5FBAD58 /* Pods_CCKit_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -41,6 +42,8 @@
 		03496176EDB4ECD2EDE470A9 /* Pods-CCKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCKit_Example.release.xcconfig"; path = "Target Support Files/Pods-CCKit_Example/Pods-CCKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		0461C8742754BF7000FDA509 /* CCTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTestViewController.h; sourceTree = "<group>"; };
 		0461C8752754BF7000FDA509 /* CCTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTestViewController.m; sourceTree = "<group>"; };
+		04CBC6BD27C66D2D00F08879 /* CCLetterIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLetterIndexViewController.m; sourceTree = "<group>"; };
+		04CBC6BE27C66D2D00F08879 /* CCLetterIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLetterIndexViewController.h; sourceTree = "<group>"; };
 		49786B260D052FE1C5FBAD58 /* Pods_CCKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57633E5CF26993DCFB4C3C1A /* Pods-CCKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CCKit_Tests/Pods-CCKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5BF50F423930A9F88E3BBFDA /* Pods_CCKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04CBC6BC27C66D2D00F08879 /* CCLetterIndexViewExample */ = {
+			isa = PBXGroup;
+			children = (
+				04CBC6BD27C66D2D00F08879 /* CCLetterIndexViewController.m */,
+				04CBC6BE27C66D2D00F08879 /* CCLetterIndexViewController.h */,
+			);
+			path = CCLetterIndexViewExample;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +147,7 @@
 		6003F593195388D20070C39A /* Example for CCKit */ = {
 			isa = PBXGroup;
 			children = (
+				04CBC6BC27C66D2D00F08879 /* CCLetterIndexViewExample */,
 				6003F59C195388D20070C39A /* CCAppDelegate.h */,
 				6003F59D195388D20070C39A /* CCAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -376,6 +389,7 @@
 				6003F59E195388D20070C39A /* CCAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* CCViewController.m in Sources */,
 				0461C8762754BF7000FDA509 /* CCTestViewController.m in Sources */,
+				04CBC6BF27C66D2D00F08879 /* CCLetterIndexViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

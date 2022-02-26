@@ -11,6 +11,7 @@
 #import "CCNumberScrollView.h"
 #import "CCNavigationController.h"
 #import "CCTestViewController.h"
+#import "CCLetterIndexViewController.h"
 
 @interface CCViewController ()
 @property (nonatomic, strong) CCNumberScrollView *numberScrollView;
@@ -22,17 +23,7 @@
 {
     [super viewDidLoad];
     self.modalPresentationStyle = UIModalPresentationFullScreen;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        CCTestViewController *ctl = [[CCTestViewController alloc] init];
-        ctl.view.backgroundColor = UIColor.redColor;
-        CCNavigationController *nav = [[CCNavigationController alloc] initWithRootViewController:ctl];
-//        nav.popDirection = CCNavigationTransitionDirectionBottom;
-//        nav.pushDirection = CCNavigationTransitionDirectionTop;
-//        nav.useCustomAnimation = YES;
-        nav.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:nav animated:YES completion:nil];
-    });
-
+    [self jump2LetterIndexTest];
 }
 
 - (void)macroTest {
@@ -77,6 +68,14 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.numberScrollView.num = num;
         [self changeNum:num-8];
+    });
+}
+
+- (void)jump2LetterIndexTest {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CCLetterIndexViewController *ctl = [CCLetterIndexViewController new];
+        ctl.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:ctl animated:YES completion:nil];
     });
 }
 

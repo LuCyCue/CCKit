@@ -49,6 +49,14 @@ Pod::Spec.new do |s|
     ss.source_files = 'CCKit/Classes/CCLetterIndexView/*'
   end
   
+  s.subspec 'CCSafe' do |ss|
+    ss.source_files = 'CCKit/Classes/CCSafe/*'
+  end
+  
+  s.subspec 'CCCategories' do |ss|
+    ss.source_files = 'CCKit/Classes/CCCategories/*'
+  end
+  
   # s.resource_bundles = {
   #   'CCKit' => ['CCKit/Assets/*.png']
   # }

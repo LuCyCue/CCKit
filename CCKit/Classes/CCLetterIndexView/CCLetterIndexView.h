@@ -1,8 +1,7 @@
 //
-//  GCLetterIndexView.h
-//  GCIM-GCIM
+//  CCLetterIndexView.h
 //
-//  Created by HuanZheng on 2022/1/18.
+//  Created by Lucc on 2022/1/18.
 //
 // 首字母索引控件
 
@@ -11,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** 代理方法 */
-@protocol GCLetterIndexViewDelegate <NSObject>
+@protocol CCLetterIndexViewDelegate <NSObject>
 
 @required
 /** 当前选中下标 */
@@ -22,18 +21,18 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /** 数据源方法 */
-@protocol  GCLetterIndexViewDataSource <NSObject>
+@protocol  CCLetterIndexViewDataSource <NSObject>
 
 /** 组标题数组 */
 - (NSArray<NSString *> *_Nullable)sectionIndexTitles;
 
 @end
 
-@interface GCLetterIndexView : UIControl
+@interface CCLetterIndexView : UIControl
 //代理
-@property (nonatomic, weak, nullable) id<GCLetterIndexViewDelegate> delegate;
+@property (nonatomic, weak, nullable) id<CCLetterIndexViewDelegate> delegate;
 //数据源
-@property (nonatomic, weak, nullable) id<GCLetterIndexViewDataSource> dataSource;
+@property (nonatomic, weak, nullable) id<CCLetterIndexViewDataSource> dataSource;
 
 @property (nonatomic, assign) CGFloat titleFontSize;                                    /**< 字体大小 */
 @property (nonatomic, strong, nullable) UIColor * titleColor;                           /**< 字体颜色 */

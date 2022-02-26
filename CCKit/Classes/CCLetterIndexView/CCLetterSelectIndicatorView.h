@@ -1,8 +1,7 @@
 //
-//  GCLetterSelectIndicatorView.h
-//  GCIM-GCIM
+//  CCLetterSelectIndicatorView.h
 //
-//  Created by HuanZheng on 2022/1/18.
+//  Created by Lucc on 2022/1/18.
 //
 // 索引被选中时显示的view
 
@@ -10,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GCLetterSelectIndicatorView : UIView
+@interface CCLetterSelectIndicatorView : UIView
 
 /// 设置坐标和文本
 /// @param origin 坐标

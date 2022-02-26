@@ -35,6 +35,14 @@
     {
       "name": "CCLetterIndexView",
       "source_files": "CCKit/Classes/CCLetterIndexView/*"
+    },
+    {
+      "name": "CCSafe",
+      "source_files": "CCKit/Classes/CCSafe/*"
+    },
+    {
+      "name": "CCCategories",
+      "source_files": "CCKit/Classes/CCCategories/*"
     }
   ]
 }

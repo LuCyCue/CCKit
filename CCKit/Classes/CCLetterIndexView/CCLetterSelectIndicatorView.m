@@ -1,22 +1,20 @@
 //
-//  GCLetterSelectIndicatorView.m
-//  GCIM-GCIM
+//  CCLetterSelectIndicatorView.m
 //
-//  Created by HuanZheng on 2022/1/18.
+//  Created by Lucc on 2022/1/18.
 //
 
-#import "GCLetterSelectIndicatorView.h"
-#import <GCPublic/GCIMModuleService.h>
+#import "CCLetterSelectIndicatorView.h"
 
 
-@interface GCLetterSelectIndicatorView ()
+@interface CCLetterSelectIndicatorView ()
 //底图
 @property (nonatomic, strong) UIImageView *indicatorView;
 //字母
 @property (nonatomic, strong) UILabel *titleLabel;
 @end
 
-@implementation GCLetterSelectIndicatorView
+@implementation CCLetterSelectIndicatorView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -47,7 +45,7 @@
 - (UIImageView *)indicatorView {
     if (!_indicatorView) {
         _indicatorView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-        _indicatorView.image = [GCIMModuleService imageNamed:@"friend_letter_indicator"];
+//        _indicatorView.image = [GCIMModuleService imageNamed:@"friend_letter_indicator"];
         _indicatorView.transform = CGAffineTransformRotate(_indicatorView.transform, -90*M_PI / 180.0);
     }
     return _indicatorView;

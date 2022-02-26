@@ -1,18 +1,15 @@
 //
-//  GCLetterIndexView.m
-//  GCIM-GCIM
+//  CCLetterIndexView.m
 //
-//  Created by HuanZheng on 2022/1/18.
+//  Created by Lucc on 2022/1/18.
 //
 
-#import "GCLetterIndexView.h"
-#import <GCPublic/GCIMModuleService.h>
-#import "GCLetterSelectIndicatorView.h"
-#import <GCPublic/GCPublic.h>
+#import "CCLetterIndexView.h"
+#import "CCLetterSelectIndicatorView.h"
 
 API_AVAILABLE(ios(10.0))
-@interface GCLetterIndexView ()
-@property (nonatomic, strong) GCLetterSelectIndicatorView *indicatorView;
+@interface CCLetterIndexView ()
+@property (nonatomic, strong) CCLetterSelectIndicatorView *indicatorView;
 @property (nonatomic, copy) NSArray<NSString *> *indexItems;                        /**< 组标题数组 */
 @property (nonatomic, strong) NSMutableArray<UILabel *> *itemsViewArray;            /**< 标题视图数组 */
 @property (nonatomic, assign) NSInteger selectedIndex;                              /**< 当前选中下标 */
@@ -29,7 +26,7 @@ API_AVAILABLE(ios(10.0))
 @property (nonatomic, strong) UIImpactFeedbackGenerator *generator;                 /**< 震动反馈  */
 @end
 
-@implementation GCLetterIndexView
+@implementation CCLetterIndexView
 
 - (void)dealloc {
     self.generator = nil;
@@ -42,14 +39,10 @@ API_AVAILABLE(ios(10.0))
     //获取标题组
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(sectionIndexTitles)]) {
         self.indexItems = [self.dataSource sectionIndexTitles];
-//        if (self.indexItems.count == 0) {
-//            return;
-//        }
     }
     else {
         return;
     }
-    //    [self addObserver:self forKeyPath:@"selectedIndex" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     //初始化属性设置
     [self attributeSettings];
     //初始化title
@@ -121,7 +114,7 @@ API_AVAILABLE(ios(10.0))
     self.minY = (CGRectGetHeight(self.frame) - totalHeight)/2.0;
     CGFloat startY = self.minY  + self.titleSpace;
     //以 'W' 字母为标准作为其他字母的标准宽高
-    self.itemMaxSize = [@"W" boundingRectWithSize:CGSizeMake(Screen_W, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:self.titleFontSize]} context:nil].size;
+    self.itemMaxSize = [@"W" boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:self.titleFontSize]} context:nil].size;
     //标题视图布局
     for (int i=0; i<self.indexItems.count; i++) {
         NSString *title = self.indexItems[i];
@@ -289,10 +282,10 @@ API_AVAILABLE(ios(10.0))
             if (isLetter) {
                 //只有手势滑动，才会触发指示器视图
                 if (!self.indicatorView) {
-                    self.indicatorView = [[GCLetterSelectIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+                    self.indicatorView = [[CCLetterSelectIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
                 }
                 self.indicatorView.alpha = 1.0f;
-                [self.indicatorView setOrigin:CGPointMake(Screen_W - self.marginRight - self.titleFontSize - 10 - self.indicatorMarginRight, newItemLabel.center.y + self.frame.origin.y) title:newItemLabel.text];
+                [self.indicatorView setOrigin:CGPointMake([UIScreen mainScreen].bounds.size.width - self.marginRight - self.titleFontSize - 10 - self.indicatorMarginRight, newItemLabel.center.y + self.frame.origin.y) title:newItemLabel.text];
                 //将指示器视图添加到scrollView的父视图上
                 if (self.delegate && [self.delegate respondsToSelector:@selector(addIndicatorView:)]) {
                     [self.delegate addIndicatorView:self.indicatorView];
@@ -300,7 +293,6 @@ API_AVAILABLE(ios(10.0))
             }
             
         }
-        
     }
     
     _selectedIndex = selectedIndex;
