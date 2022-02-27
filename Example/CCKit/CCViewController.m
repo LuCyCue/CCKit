@@ -12,6 +12,7 @@
 #import "CCNavigationController.h"
 #import "CCTestViewController.h"
 #import "CCLetterIndexViewController.h"
+#import "CCChartViewController.h"
 
 @interface CCViewController ()
 @property (nonatomic, strong) CCNumberScrollView *numberScrollView;
@@ -22,8 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self jump2LetterIndexTest];
+    [self jump2ChatController];
 }
 
 - (void)macroTest {
@@ -74,6 +74,14 @@
 - (void)jump2LetterIndexTest {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         CCLetterIndexViewController *ctl = [CCLetterIndexViewController new];
+        ctl.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:ctl animated:YES completion:nil];
+    });
+}
+
+- (void)jump2ChatController {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CCChartViewController *ctl = [[CCChartViewController alloc] init];
         ctl.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:ctl animated:YES completion:nil];
     });

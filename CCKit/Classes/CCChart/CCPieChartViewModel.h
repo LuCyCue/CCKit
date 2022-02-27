@@ -26,27 +26,37 @@ NS_ASSUME_NONNULL_BEGIN
 //颜色
 @property (nonatomic, strong) UIColor *color;
 //数值
-@property (nonatomic, strong) NSNumber *dataNumber;
+@property (nonatomic, assign) NSUInteger dataNum;
 
-- (instancetype)initWithNumber:(NSNumber *)number color:(UIColor *)color;
+- (instancetype)initWithNum:(NSUInteger)dataNum color:(UIColor *)color;
 
 @end
 
 @interface CCPieChartViewModel : NSObject
-
+//数据源
 @property (nonatomic, copy) NSArray<CCPieChartItem *> *dataItems;
-@property (nonatomic, copy) NSString *numTitle;
-@property (nonatomic, copy) NSString *detail;
 //是否通过加载动画绘制
 @property (nonatomic, assign) BOOL enableAnimation;
+//内部空心圆所占比率（0-1）
 @property (nonatomic, assign) CGFloat innerRadius;
-@property (nonatomic, strong) UIColor *numberFontColor;
-@property (nonatomic, strong) UIColor *detailFontColor;
-@property (nonatomic, assign) CGFloat numberFontSize;
-@property (nonatomic, assign) CGFloat detailFontSize;
-/// 数字舍位类型
+//中间统计数据文本
+@property (nonatomic, copy) NSString *numTitle;
+//中间描述文本
+@property (nonatomic, copy) NSString *detail;
+//中间统计数据颜色
+@property (nonatomic, strong) UIColor *numberTextColor;
+//中间描述数据颜色
+@property (nonatomic, strong) UIColor *detailTextColor;
+//中间统计数据字体
+@property (nonatomic, strong) UIFont *numberFont;
+//中间描述数据字体
+@property (nonatomic, strong) UIFont *detailFont;
+//数字舍位类型
 @property (nonatomic, assign) CCPieChartNumberRoundType numberRoundType;
-
+//绘图起始位置
+@property (nonatomic, copy, readonly) NSArray<NSNumber *> *strokeStartArray;
+//绘图终点位置
+@property (nonatomic, copy, readonly) NSArray<NSNumber *> *strokeEndArray;
 @end
 
 NS_ASSUME_NONNULL_END
