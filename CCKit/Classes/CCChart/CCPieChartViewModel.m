@@ -38,6 +38,7 @@
         self.numberTextColor = UIColor.blackColor;
         self.detailTextColor = UIColor.lightGrayColor;
         self.numberRoundType = CCPieChartNumberRoundNone;
+        self.animationDuration = 2.f;
     }
     return self;
 }

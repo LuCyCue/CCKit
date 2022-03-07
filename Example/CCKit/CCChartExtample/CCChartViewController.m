@@ -20,6 +20,7 @@
     self.view.backgroundColor = UIColor.whiteColor;
     CCPieChartViewModel *viewModel = [[CCPieChartViewModel alloc] init];
     viewModel.enableAnimation = YES;
+    viewModel.animationDuration = 5;
     CCPieChartItem *item1 = [[CCPieChartItem alloc] initWithNum:55 color:UIColor.greenColor];
     CCPieChartItem *item2 = [[CCPieChartItem alloc] initWithNum:24 color:UIColor.blueColor];
     CCPieChartItem *item3 = [[CCPieChartItem alloc] initWithNum:17 color:UIColor.redColor];

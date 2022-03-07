@@ -19,6 +19,7 @@
     "ios": "9.0"
   },
   "source_files": "CCKit/Classes/**/*",
+  "frameworks": "UIKit",
   "subspecs": [
     {
       "name": "CCNumberScrollView",
@@ -43,6 +44,10 @@
     {
       "name": "CCCategories",
       "source_files": "CCKit/Classes/CCCategories/*"
+    },
+    {
+      "name": "CCScrollViewNest",
+      "source_files": "CCKit/Classes/CCScrollViewNest/*"
     }
   ]
 }

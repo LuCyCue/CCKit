@@ -57,11 +57,15 @@ Pod::Spec.new do |s|
     ss.source_files = 'CCKit/Classes/CCCategories/*'
   end
   
+  s.subspec 'CCScrollViewNest' do |ss|
+    ss.source_files = 'CCKit/Classes/CCScrollViewNest/*'
+  end
+  
+  s.frameworks = 'UIKit'
   # s.resource_bundles = {
   #   'CCKit' => ['CCKit/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end

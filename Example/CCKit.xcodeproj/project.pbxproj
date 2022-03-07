@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0461C8762754BF7000FDA509 /* CCTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0461C8752754BF7000FDA509 /* CCTestViewController.m */; };
 		04CBC6BF27C66D2D00F08879 /* CCLetterIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBC6BD27C66D2D00F08879 /* CCLetterIndexViewController.m */; };
+		04CBC6FF27CDCCAC00F08879 /* CCScrollViewNestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBC6FE27CDCCAC00F08879 /* CCScrollViewNestViewController.m */; };
 		3A162F9827CB334D00B0E551 /* CCChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A162F9727CB334D00B0E551 /* CCChartViewController.m */; };
 		41FD9FA4BF7C680CCAE59812 /* Pods_CCKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49786B260D052FE1C5FBAD58 /* Pods_CCKit_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -45,6 +46,8 @@
 		0461C8752754BF7000FDA509 /* CCTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTestViewController.m; sourceTree = "<group>"; };
 		04CBC6BD27C66D2D00F08879 /* CCLetterIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLetterIndexViewController.m; sourceTree = "<group>"; };
 		04CBC6BE27C66D2D00F08879 /* CCLetterIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLetterIndexViewController.h; sourceTree = "<group>"; };
+		04CBC6FD27CDCCAC00F08879 /* CCScrollViewNestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScrollViewNestViewController.h; sourceTree = "<group>"; };
+		04CBC6FE27CDCCAC00F08879 /* CCScrollViewNestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCScrollViewNestViewController.m; sourceTree = "<group>"; };
 		3A162F9627CB334D00B0E551 /* CCChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCChartViewController.h; sourceTree = "<group>"; };
 		3A162F9727CB334D00B0E551 /* CCChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCChartViewController.m; sourceTree = "<group>"; };
 		49786B260D052FE1C5FBAD58 /* Pods_CCKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +116,15 @@
 			path = CCLetterIndexViewExample;
 			sourceTree = "<group>";
 		};
+		04CBC6FC27CDCC8700F08879 /* CCSrollViewNestExample */ = {
+			isa = PBXGroup;
+			children = (
+				04CBC6FD27CDCCAC00F08879 /* CCScrollViewNestViewController.h */,
+				04CBC6FE27CDCCAC00F08879 /* CCScrollViewNestViewController.m */,
+			);
+			path = CCSrollViewNestExample;
+			sourceTree = "<group>";
+		};
 		3A162F9527CB331500B0E551 /* CCChartExtample */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +171,7 @@
 		6003F593195388D20070C39A /* Example for CCKit */ = {
 			isa = PBXGroup;
 			children = (
+				04CBC6FC27CDCC8700F08879 /* CCSrollViewNestExample */,
 				3A162F9527CB331500B0E551 /* CCChartExtample */,
 				04CBC6BC27C66D2D00F08879 /* CCLetterIndexViewExample */,
 				6003F59C195388D20070C39A /* CCAppDelegate.h */,
@@ -400,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* CCAppDelegate.m in Sources */,
+				04CBC6FF27CDCCAC00F08879 /* CCScrollViewNestViewController.m in Sources */,
 				3A162F9827CB334D00B0E551 /* CCChartViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* CCViewController.m in Sources */,
 				0461C8762754BF7000FDA509 /* CCTestViewController.m in Sources */,

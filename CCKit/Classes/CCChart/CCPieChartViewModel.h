@@ -37,6 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSArray<CCPieChartItem *> *dataItems;
 //是否通过加载动画绘制
 @property (nonatomic, assign) BOOL enableAnimation;
+//动画时长（默认为2s）
+@property (nonatomic, assign) CGFloat animationDuration;
 //内部空心圆所占比率（0-1）
 @property (nonatomic, assign) CGFloat innerRadius;
 //中间统计数据文本

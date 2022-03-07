@@ -82,20 +82,22 @@
     
     //绘制各个部分,添加到pieLayer上
     for (int i = 0; i < self.model.dataItems.count; i++) {
-        CAShapeLayer* layer = [self
+        CGFloat startPercentage = self.model.strokeStartArray[i].doubleValue;
+        CGFloat endPercentage = self.model.strokeEndArray[i].doubleValue;
+        CAShapeLayer *layer = [self
                                newCircleLayerWithRadius:((self.outerRadius - self.innerRadius) / 2 +
                                                          self.innerRadius)
                                borderWidth:(self.outerRadius - self.innerRadius)
                                fillColor:[UIColor clearColor]
                                borderColor:self.model.dataItems[i].color
-                               startPercentage:self.model.strokeStartArray[i].doubleValue
-                               endPercentage:self.model.strokeEndArray[i].doubleValue];
+                               startPercentage:startPercentage
+                               endPercentage:endPercentage];
         if (self.model.enableAnimation) {
             CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
             animation.fromValue = @0.0;
             animation.toValue = @1.0;
             layer.autoreverses = false;
-            animation.duration = 2.0;
+            animation.duration = self.model.animationDuration;
             [layer addAnimation:animation forKey:nil];
         }
         [self.pieLayer addSublayer:layer];
@@ -112,10 +114,9 @@
     if (self.model.enableAnimation) {
         self.numTitleLabel.alpha = 0;
         self.detailLabel.alpha = 0;
-        [UIView animateWithDuration:2 animations:^{
+        [UIView animateWithDuration:self.model.animationDuration animations:^{
             self.numTitleLabel.alpha = 1;
             self.detailLabel.alpha = 1;
-            
         }];
     }
 }
