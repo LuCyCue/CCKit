@@ -2,7 +2,7 @@
 //  CCNavigaitonEnablePopGestureInterface.h
 //  LCCKit
 //
-//  Created by HuanZheng on 2021/11/30.
+//  Created by lucc on 2021/11/30.
 //
 
 #import <Foundation/Foundation.h>

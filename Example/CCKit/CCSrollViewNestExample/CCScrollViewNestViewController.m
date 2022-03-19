@@ -2,7 +2,7 @@
 //  CCScrollViewNestViewController.m
 //  CCKit_Example
 //
-//  Created by HuanZheng on 2022/3/1.
+//  Created by lucc on 2022/3/1.
 //  Copyright © 2022 Lucyfa. All rights reserved.
 //
 

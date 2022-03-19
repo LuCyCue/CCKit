@@ -2,7 +2,7 @@
 //  NSObject+CCNest.m
 //  ScrollViewNestDemo
 //
-//  Created by HuanZheng on 2022/3/1.
+//  Created by lucc on 2022/3/1.
 //
 
 #import "NSObject+CCNest.h"
