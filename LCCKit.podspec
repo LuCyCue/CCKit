@@ -61,6 +61,10 @@ Pod::Spec.new do |s|
     ss.source_files = 'CCKit/Classes/CCScrollViewNest/*'
   end
   
+  s.subspec 'CCPageControl' do |ss|
+    ss.source_files = 'CCKit/Classes/CCPageControl/*'
+  end
+  
   s.frameworks = 'UIKit'
   # s.resource_bundles = {
   #   'CCKit' => ['CCKit/Assets/*.png']

@@ -48,6 +48,10 @@
     {
       "name": "CCScrollViewNest",
       "source_files": "CCKit/Classes/CCScrollViewNest/*"
+    },
+    {
+      "name": "CCPageControl",
+      "source_files": "CCKit/Classes/CCPageControl/*"
     }
   ]
 }

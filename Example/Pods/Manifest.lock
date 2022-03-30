@@ -5,6 +5,7 @@ PODS:
     - LCCKit/CCLetterIndexView (= 0.0.1)
     - LCCKit/CCNavigationController (= 0.0.1)
     - LCCKit/CCNumberScrollView (= 0.0.1)
+    - LCCKit/CCPageControl (= 0.0.1)
     - LCCKit/CCSafe (= 0.0.1)
     - LCCKit/CCScrollViewNest (= 0.0.1)
   - LCCKit/CCCategories (0.0.1)
@@ -12,6 +13,7 @@ PODS:
   - LCCKit/CCLetterIndexView (0.0.1)
   - LCCKit/CCNavigationController (0.0.1)
   - LCCKit/CCNumberScrollView (0.0.1)
+  - LCCKit/CCPageControl (0.0.1)
   - LCCKit/CCSafe (0.0.1)
   - LCCKit/CCScrollViewNest (0.0.1)
 
@@ -23,8 +25,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LCCKit: 7ff6a27b1b7e8b2899abf7fe6e3fec66736a2811
+  LCCKit: 088b3fa01ef5cfadfe020dc33eba6fd3e1a9de74
 
 PODFILE CHECKSUM: 8173988f32f5f97e8ad981d9ea9a2c39153c3f18
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
