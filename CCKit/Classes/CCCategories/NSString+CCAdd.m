@@ -244,4 +244,12 @@ static char firstLetterArray[CC_HANZI_COUNT] =
     return [result uppercaseString];
 }
 
+/// 生成唯一标识
++ (NSString *)cc_stringUUID {
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    CFStringRef string = CFUUIDCreateString(NULL, uuid);
+    CFRelease(uuid);
+    return (__bridge_transfer NSString *)string;
+}
+
 @end

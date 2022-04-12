@@ -11,21 +11,24 @@
 
 - (CCChainNode *(^)(CCChainNode *))addNextNode {
     return ^CCChainNode* (CCChainNode *nextNode) {
-        [self.nextNodes addObject:nextNode];
+        self.nextNode = nextNode;
         return self;
     };
 }
 
-- (void)doNext {
+- (void)sendNext:(id)sender {
     
 }
 
-
-- (NSMutableArray<CCChainNode *> *)nextNodes {
-    if (!_nextNodes) {
-        _nextNodes = [NSMutableArray array];
-    }
-    return _nextNodes;
+- (void)start {
+    self.status = CCChainNodeStatusDoing;
+    !self.doHandler ?: self.doHandler(self);
 }
+
+- (void)sendError:(NSError *)error {
+    self.status = CCChainNodeStatusError;
+    !self.errorHandler ?: self.errorHandler(error);
+}
+
 
 @end

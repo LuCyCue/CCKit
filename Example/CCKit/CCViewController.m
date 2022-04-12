@@ -13,6 +13,8 @@
 #import "CCTestViewController.h"
 #import "CCLetterIndexViewController.h"
 #import "CCChartViewController.h"
+#import "NSObject+CCAdd.h"
+#import "CCFileDownloadManager.h"
 
 @interface CCViewController ()
 @property (nonatomic, strong) CCNumberScrollView *numberScrollView;
@@ -23,7 +25,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self jump2ChatController];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
+    [btn setTitle:@"download" forState:UIControlStateNormal];
+    btn.backgroundColor = UIColor.redColor;
+    [btn addTarget:self action:@selector(resumeDownloadTest) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+}
+
+- (void)resumeDownloadTest {
+    [[CCFileDownloadManager manager] downloadFileWithUrl:@"http://qximg4.biaoliapp.cn/moment/0F349AD25126511B34A44DB877D9A881.mp4" progressHandler:^(CGFloat progress) {
+        CCLog(@"k1 progress = %lf", progress);
+    } completionHandler:^(NSString * _Nonnull url, NSError * _Nonnull err) {
+        CCLog(@"k1 download complete");
+    }];
+    [[CCFileDownloadManager manager] downloadFileWithUrl:@"http://qximg8.biaoliapp.cn/moment/17113d9a45825c76ead4b02fc0ee988b.mp4" progressHandler:^(CGFloat progress) {
+        CCLog(@"k2 progress = %lf", progress);
+    } completionHandler:^(NSString * _Nonnull url, NSError * _Nonnull err) {
+        CCLog(@"k2 download complete");
+    }];
+    [[CCFileDownloadManager manager] downloadFileWithUrl:@"http://qximg3.biaoliapp.cn/moment/1D4AC6DF4D95FA0DF8288392BBDC6818.mp4" progressHandler:^(CGFloat progress) {
+        CCLog(@"k3 progress = %lf", progress);
+    } completionHandler:^(NSString * _Nonnull url, NSError * _Nonnull err) {
+        CCLog(@"k3 download complete");
+    }];
+
 }
 
 - (void)macroTest {

@@ -65,7 +65,11 @@ Pod::Spec.new do |s|
     ss.source_files = 'CCKit/Classes/CCPageControl/*'
   end
   
-  s.frameworks = 'UIKit'
+  s.subspec 'CCFileDownload' do |ss|
+    ss.source_files = 'CCKit/Classes/CCFileDownload/*'
+  end
+  
+  s.frameworks = 'UIKit','Photos'
   # s.resource_bundles = {
   #   'CCKit' => ['CCKit/Assets/*.png']
   # }

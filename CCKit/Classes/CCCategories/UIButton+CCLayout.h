@@ -2,7 +2,7 @@
 //  UIButton+CCLayout.h
 //  LCCKit
 //
-//  Created by chengchanglu on 2021/7/6.
+//  Created by lucc on 2021/7/6.
 //
 
 #import <UIKit/UIKit.h>

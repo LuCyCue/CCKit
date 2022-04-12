@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "NSObject+CCAdd.h"
 #import "NSObject+CCDealloc.h"
 #import "NSObject+CCKVO.h"
 #import "NSObject+CCNotification.h"
@@ -20,6 +21,9 @@
 #import "CCChainNode.h"
 #import "CCPieChartView.h"
 #import "CCPieChartViewModel.h"
+#import "CCFileDownloadConfig.h"
+#import "CCFileDownloadManager.h"
+#import "CCFileDownloadTask.h"
 #import "CCKit.h"
 #import "CCLetterIndexView.h"
 #import "CCLetterSelectIndicatorView.h"
@@ -37,6 +41,8 @@
 #import "UIScrollView+CCNest.h"
 #import "CCCommonMacro.h"
 #import "CCFileTool.h"
+#import "CCUtil.h"
+#import "NSObject+CCAdd.h"
 #import "NSObject+CCDealloc.h"
 #import "NSObject+CCKVO.h"
 #import "NSObject+CCNotification.h"

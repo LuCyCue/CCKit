@@ -90,6 +90,10 @@ NS_ASSUME_NONNULL_BEGIN
                                red:(NSInteger)red
                              green:(NSInteger)green
                               blue:(NSInteger)blue;
+
+/// 图片压缩
+/// @param minimumSize 大于多少需要压缩（byte）
+- (NSData *)cc_compressWithMinimumSize:(NSInteger)minimumSize;
 @end
 
 NS_ASSUME_NONNULL_END

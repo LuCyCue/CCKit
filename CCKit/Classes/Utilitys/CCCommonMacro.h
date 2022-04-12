@@ -16,7 +16,10 @@
 #define CCHeightScale(h)       (SCREEN_HEIGHT/667.f*(h))
 //状态栏高度
 #define kUIStatusBarHeight      ([[UIApplication sharedApplication] statusBarFrame].size.height)
-
+//导航栏高度
+#define kUINavgationBarHeight   (kUIStatusBarHeight + 44.f)
+//底部安全区域
+#define KSafeBottomHeight       ((kUIStatusBarHeight == 20) ? 0.f : 34.f)
 //颜色RGB
 #define RGBA(r,g,b,a)           [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 #define RGB(r,g,b)              [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]

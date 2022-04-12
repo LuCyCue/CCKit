@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取中文首字母
 - (NSString *)cc_getFirstLetter;
 
+/// 生成唯一标识
++ (NSString *)cc_stringUUID;
+
 @end
 
 NS_ASSUME_NONNULL_END

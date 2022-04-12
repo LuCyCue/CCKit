@@ -17,5 +17,7 @@
 #import "UIButton+CCLayout.h"
 #import "CCCommonMacro.h"
 #import "UIImage+CCAdd.h"
+#import "CCFileTool.h"
+#import "CCUtil.h"
 
 #endif /* CCKit_h */
