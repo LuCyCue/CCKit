@@ -2,20 +2,26 @@ PODS:
   - LCCKit (0.0.2):
     - LCCKit/CCCategories (= 0.0.2)
     - LCCKit/CCChart (= 0.0.2)
+    - LCCKit/CCFileDownload (= 0.0.2)
     - LCCKit/CCLetterIndexView (= 0.0.2)
+    - LCCKit/CCMediaFormatFactory (= 0.0.2)
     - LCCKit/CCNavigationController (= 0.0.2)
     - LCCKit/CCNumberScrollView (= 0.0.2)
     - LCCKit/CCPageControl (= 0.0.2)
     - LCCKit/CCSafe (= 0.0.2)
     - LCCKit/CCScrollViewNest (= 0.0.2)
+    - LCCKit/CCStrokeLabel (= 0.0.2)
   - LCCKit/CCCategories (0.0.2)
   - LCCKit/CCChart (0.0.2)
+  - LCCKit/CCFileDownload (0.0.2)
   - LCCKit/CCLetterIndexView (0.0.2)
+  - LCCKit/CCMediaFormatFactory (0.0.2)
   - LCCKit/CCNavigationController (0.0.2)
   - LCCKit/CCNumberScrollView (0.0.2)
   - LCCKit/CCPageControl (0.0.2)
   - LCCKit/CCSafe (0.0.2)
   - LCCKit/CCScrollViewNest (0.0.2)
+  - LCCKit/CCStrokeLabel (0.0.2)
 
 DEPENDENCIES:
   - LCCKit (from `../`)
@@ -25,7 +31,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LCCKit: 49959c950720378d4a37b81c392455cd1912c68f
+  LCCKit: ce1cfc1769f6278388293367fb97f9aac17560d2
 
 PODFILE CHECKSUM: 8173988f32f5f97e8ad981d9ea9a2c39153c3f18
 

@@ -27,6 +27,8 @@
 #import "CCKit.h"
 #import "CCLetterIndexView.h"
 #import "CCLetterSelectIndicatorView.h"
+#import "CCGIF.h"
+#import "CCMediaFormatFactory.h"
 #import "CCNavigaitonEnablePopGestureInterface.h"
 #import "CCNavigationController.h"
 #import "CCNumberScrollCell.h"
@@ -39,6 +41,7 @@
 #import "NSString+CCSafe.h"
 #import "NSObject+CCNest.h"
 #import "UIScrollView+CCNest.h"
+#import "CCStrokeLabel.h"
 #import "CCCommonMacro.h"
 #import "CCFileTool.h"
 #import "CCUtil.h"
@@ -52,8 +55,13 @@
 #import "UITableView+CCBg.h"
 #import "CCPieChartView.h"
 #import "CCPieChartViewModel.h"
+#import "CCFileDownloadConfig.h"
+#import "CCFileDownloadManager.h"
+#import "CCFileDownloadTask.h"
 #import "CCLetterIndexView.h"
 #import "CCLetterSelectIndicatorView.h"
+#import "CCGIF.h"
+#import "CCMediaFormatFactory.h"
 #import "CCNavigaitonEnablePopGestureInterface.h"
 #import "CCNavigationController.h"
 #import "CCNumberScrollCell.h"
@@ -66,6 +74,7 @@
 #import "NSString+CCSafe.h"
 #import "NSObject+CCNest.h"
 #import "UIScrollView+CCNest.h"
+#import "CCStrokeLabel.h"
 
 FOUNDATION_EXPORT double LCCKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char LCCKitVersionString[];

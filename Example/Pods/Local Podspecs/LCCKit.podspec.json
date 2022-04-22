@@ -55,6 +55,18 @@
     {
       "name": "CCPageControl",
       "source_files": "CCKit/Classes/CCPageControl/*"
+    },
+    {
+      "name": "CCFileDownload",
+      "source_files": "CCKit/Classes/CCFileDownload/*"
+    },
+    {
+      "name": "CCStrokeLabel",
+      "source_files": "CCKit/Classes/CCStrokeLabel/*"
+    },
+    {
+      "name": "CCMediaFormatFactory",
+      "source_files": "CCKit/Classes/CCMediaFormatFactory/*"
     }
   ]
 }

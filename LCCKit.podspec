@@ -69,7 +69,17 @@ Pod::Spec.new do |s|
     ss.source_files = 'CCKit/Classes/CCFileDownload/*'
   end
   
+  s.subspec 'CCStrokeLabel' do |ss|
+    ss.source_files = 'CCKit/Classes/CCStrokeLabel/*'
+  end
+  
+  s.subspec 'CCMediaFormatFactory' do |ss|
+    ss.source_files = 'CCKit/Classes/CCMediaFormatFactory/*'
+  end
+  
   s.frameworks = 'UIKit','Photos'
+  
+  
   # s.resource_bundles = {
   #   'CCKit' => ['CCKit/Assets/*.png']
   # }
