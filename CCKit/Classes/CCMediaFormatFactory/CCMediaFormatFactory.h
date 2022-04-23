@@ -80,6 +80,18 @@ API_AVAILABLE_BEGIN(macos(10.15), ios(9.1), tvos(10))
                    toGif:(NSString *)outputUrl
               completion:(void(^)(NSString *, NSError *))completion;
 
+/// live photo 转成 gif
+/// @param livePhoto live photo 实例
+/// @param outputUrl gif输出路径
+/// @param scale 像素缩放比（0.0-1.0）
+/// @param framesPerSecond 帧率
+/// @param completion 回调
++ (void)convertLivePhoto:(PHLivePhoto *)livePhoto
+                   toGif:(NSString *)outputUrl
+                   scale:(CGFloat)scale
+         framesPerSecond:(NSUInteger)framesPerSecond
+              completion:(void(^)(NSString *, NSError *))completion;
+
 @end
 
 API_AVAILABLE_END
