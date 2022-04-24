@@ -55,41 +55,55 @@
      framesPerSecond:(NSUInteger)framesPerSecond
           completion:(void(^)(NSString *, NSError *))completion {
     if (videoUrl.length == 0) {
-        !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}]);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}]);
+        });
         return;
     }
     if (outputUrl.length == 0) {
         outputUrl = [CCMediaFormatTool randPathWithExtendName:@"gif"];
     }
-    AVURLAsset *asset = [AVURLAsset assetWithURL:[NSURL URLWithString:videoUrl]];
+    BOOL ret = [NSFileManager.defaultManager fileExistsAtPath:videoUrl];
+    if (!ret) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:408 userInfo:@{NSLocalizedDescriptionKey:@"video is not exist"}]);
+        });
+        return;
+    }
+    AVURLAsset *asset = [AVURLAsset assetWithURL:[[NSURL alloc] initFileURLWithPath:videoUrl]];
     CCGIF *gif = [[CCGIF alloc] init];
     gif.outputUrl = outputUrl;
     gif.loopCount = loopCount;
     gif.delayTime = delayTime;
     gif.scale = scale;
     gif.framesPerSecond = framesPerSecond;
-    __weak typeof(self) weakSelf = self;
-    __weak typeof(gif) weakGif = gif;
     gif.completionHandler = ^(NSString * _Nullable outputUrl, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             !completion ?: completion(outputUrl, error);
         });
-        objc_setAssociatedObject(weakSelf, &weakGif, nil, OBJC_ASSOCIATION_RETAIN);
     };
     [gif createFileWithAVAsset:asset];
-    objc_setAssociatedObject(self, &gif, gif, OBJC_ASSOCIATION_RETAIN);
 }
 
 #pragma mark - gif->video
 
+/// gif 转 mp4
+/// @param gifData gif数据
+/// @param outputUrl 输出mp4路径（可以传空，内部生成输出路径）
+/// @param speed 视频播放速度（1和gif一致，大于1, 加快， 小于1，变慢）
+/// @param size 视频宽高
+/// @param repeat 获取gif图片次数
+/// @param completion 回调
 + (void)convertGif:(NSData *)gifData
-           toVideo:(NSString *)outputUrl
+           toVideo:(NSString * _Nullable)outputUrl
              speed:(CGFloat)speed
               size:(CGSize)size
             repeat:(int)repeat
         completion:(void(^)(NSString *, NSError *))completion {
     if (!gifData) {
-        !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}]);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}]);
+        });
         return;
     }
     if (outputUrl.length == 0) {
@@ -114,7 +128,9 @@
 /// @param completion callback
 + (void)convertLivePhoto:(PHLivePhoto *)livePhoto toStaticPhoto:(NSString *)outputUrl completion:(void(^)(NSString *, NSError *))completion {
     if (!livePhoto) {
-        !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}]);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}]);
+        });
         return;
     }
     if (outputUrl.length == 0) {
@@ -127,8 +143,10 @@
     if ([NSFileManager.defaultManager fileExistsAtPath:outputUrl]) {
         [[NSFileManager defaultManager] removeItemAtPath:outputUrl error:nil];
     }
-    [resourceManager writeDataForAssetResource:assetResource toFile:[NSURL URLWithString:outputUrl] options:nil completionHandler:^(NSError * _Nullable error) {
-        !completion ?: completion(error ? nil : outputUrl, error);
+    [resourceManager writeDataForAssetResource:assetResource toFile:[[NSURL alloc] initFileURLWithPath:outputUrl] options:nil completionHandler:^(NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !completion ?: completion(error ? nil : outputUrl, error);
+        });
     }];
 }
 
@@ -138,7 +156,9 @@
 /// @param completion callback
 + (void)convertLivePhoto:(PHLivePhoto *)livePhoto toVideo:(NSString *)outputUrl completion:(void(^)(NSString *, NSError *))completion {
     if (!livePhoto) {
-        !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}]);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}]);
+        });
         return;
     }
     if (outputUrl.length == 0) {
@@ -151,8 +171,10 @@
     if ([NSFileManager.defaultManager fileExistsAtPath:outputUrl]) {
         [[NSFileManager defaultManager] removeItemAtPath:outputUrl error:nil];
     }
-    [resourceManager writeDataForAssetResource:assetResource toFile:[NSURL URLWithString:outputUrl] options:nil completionHandler:^(NSError * _Nullable error) {
-        !completion ?: completion(error ? nil : outputUrl, error);
+    [resourceManager writeDataForAssetResource:assetResource toFile: [[NSURL alloc] initFileURLWithPath:outputUrl] options:nil completionHandler:^(NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !completion ?: completion(error ? nil : outputUrl, error);
+        });
     }];
 }
 
@@ -161,7 +183,7 @@
 /// @param outputUrl gif输出路径
 /// @param completion 回调
 + (void)convertLivePhoto:(PHLivePhoto *)livePhoto toGif:(NSString *)outputUrl completion:(void(^)(NSString *, NSError *))completion {
-    [self convertLivePhoto:livePhoto toGif:outputUrl scale:1.0 framesPerSecond:5 completion:completion];
+    [self convertLivePhoto:livePhoto toGif:outputUrl scale:1.0 framesPerSecond:4 completion:completion];
 }
 
 /// live photo 转成 gif
@@ -175,8 +197,10 @@
                    scale:(CGFloat)scale
          framesPerSecond:(NSUInteger)framesPerSecond
               completion:(void(^)(NSString *, NSError *))completion {
-    if (!livePhoto || outputUrl.length == 0) {
-        !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}]);
+    if (!livePhoto) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}]);
+        });
         return;
     }
     if (outputUrl.length == 0) {
@@ -185,7 +209,9 @@
     NSString *videoTmpUrl = [CCMediaFormatTool randPathWithExtendName:@"mov"];
     [self convertLivePhoto:livePhoto toVideo:videoTmpUrl completion:^(NSString * _Nonnull videoUrl, NSError * _Nonnull error) {
         if (error) {
-            !completion ?: completion(videoUrl, error);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                !completion ?: completion(videoUrl, error);
+            });
             return;
         }
         [self convertVideo:videoUrl toGif:outputUrl scale:scale framesPerSecond:framesPerSecond completion:completion];

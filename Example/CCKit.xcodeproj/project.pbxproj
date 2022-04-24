@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0449FBE92814FF060086D9AD /* CCMeidaFormatFactoryTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0449FBE82814FF060086D9AD /* CCMeidaFormatFactoryTestController.m */; };
 		0461C8762754BF7000FDA509 /* CCTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0461C8752754BF7000FDA509 /* CCTestViewController.m */; };
 		04CBC6BF27C66D2D00F08879 /* CCLetterIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBC6BD27C66D2D00F08879 /* CCLetterIndexViewController.m */; };
 		04CBC6FF27CDCCAC00F08879 /* CCScrollViewNestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBC6FE27CDCCAC00F08879 /* CCScrollViewNestViewController.m */; };
@@ -42,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		03496176EDB4ECD2EDE470A9 /* Pods-CCKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCKit_Example.release.xcconfig"; path = "Target Support Files/Pods-CCKit_Example/Pods-CCKit_Example.release.xcconfig"; sourceTree = "<group>"; };
+		0449FBE72814FF060086D9AD /* CCMeidaFormatFactoryTestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCMeidaFormatFactoryTestController.h; sourceTree = "<group>"; };
+		0449FBE82814FF060086D9AD /* CCMeidaFormatFactoryTestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMeidaFormatFactoryTestController.m; sourceTree = "<group>"; };
 		0461C8742754BF7000FDA509 /* CCTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTestViewController.h; sourceTree = "<group>"; };
 		0461C8752754BF7000FDA509 /* CCTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTestViewController.m; sourceTree = "<group>"; };
 		04CBC6BD27C66D2D00F08879 /* CCLetterIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLetterIndexViewController.m; sourceTree = "<group>"; };
@@ -107,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0449FBE62814FED00086D9AD /* CCMediaFormatFactoryExample */ = {
+			isa = PBXGroup;
+			children = (
+				0449FBE72814FF060086D9AD /* CCMeidaFormatFactoryTestController.h */,
+				0449FBE82814FF060086D9AD /* CCMeidaFormatFactoryTestController.m */,
+			);
+			path = CCMediaFormatFactoryExample;
+			sourceTree = "<group>";
+		};
 		04CBC6BC27C66D2D00F08879 /* CCLetterIndexViewExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +183,7 @@
 		6003F593195388D20070C39A /* Example for CCKit */ = {
 			isa = PBXGroup;
 			children = (
+				0449FBE62814FED00086D9AD /* CCMediaFormatFactoryExample */,
 				04CBC6FC27CDCC8700F08879 /* CCSrollViewNestExample */,
 				3A162F9527CB331500B0E551 /* CCChartExtample */,
 				04CBC6BC27C66D2D00F08879 /* CCLetterIndexViewExample */,
@@ -373,10 +386,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CCKit_Example/Pods-CCKit_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/LCCKit/LCCKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LCCKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -414,6 +431,7 @@
 			files = (
 				6003F59E195388D20070C39A /* CCAppDelegate.m in Sources */,
 				04CBC6FF27CDCCAC00F08879 /* CCScrollViewNestViewController.m in Sources */,
+				0449FBE92814FF060086D9AD /* CCMeidaFormatFactoryTestController.m in Sources */,
 				3A162F9827CB334D00B0E551 /* CCChartViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* CCViewController.m in Sources */,
 				0461C8762754BF7000FDA509 /* CCTestViewController.m in Sources */,

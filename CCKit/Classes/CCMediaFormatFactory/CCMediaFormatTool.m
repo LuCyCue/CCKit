@@ -24,7 +24,7 @@
 }
 
 + (NSString *)cacheFolder {
-    NSString *cachesPath = [NSString stringWithFormat:@"%@/CCMedia", NSTemporaryDirectory()];
+    NSString *cachesPath = [NSString stringWithFormat:@"%@CCMedia", NSTemporaryDirectory()];
     if (![[NSFileManager defaultManager] fileExistsAtPath:cachesPath]) {
         [NSFileManager.defaultManager createDirectoryAtPath:cachesPath withIntermediateDirectories:YES attributes:nil error:nil];
     }

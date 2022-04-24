@@ -37,7 +37,7 @@
         NSFileManager *fileManager = [NSFileManager defaultManager];
         if([fileManager fileExistsAtPath:path]) {
             dispatch_async(dispatch_get_main_queue(), ^(void){
-                completion([[NSError alloc] initWithDomain:@"com.cc.media" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Output file already exists"}]);
+                completion([[NSError alloc] initWithDomain:@"com.cc.media" code:405 userInfo:@{NSLocalizedDescriptionKey: @"Output file already exists"}]);
             });
             return;
         }
@@ -172,6 +172,9 @@
                     UIGraphicsBeginImageContext(size);
                     CGFloat width = CGImageGetWidth(img);
                     CGFloat height = CGImageGetHeight(img);
+                    if (CGSizeEqualToSize(size, CGSizeZero)) {
+                        size = CGSizeMake(width, height);
+                    }
                     int x = 0, y = 0;
                     if(height > width) {
                         CGFloat padding = size.height / height;

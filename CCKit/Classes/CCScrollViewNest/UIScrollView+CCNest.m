@@ -37,7 +37,7 @@
     dispatch_once(&onceToken, ^{
         set = [NSMutableSet set];
     });
-    if (![set containsObject:delegate.class]) {
+    if (delegate && ![set containsObject:delegate.class]) {
         SEL newSel = @selector(cc_scrollViewDidScroll:);
         SEL originalSel = @selector(scrollViewDidScroll:);
         if (class_getInstanceMethod(delegate.class, originalSel)) {

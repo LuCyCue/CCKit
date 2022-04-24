@@ -15,6 +15,10 @@
 
 @implementation CCGIF
 
+- (void)dealloc {
+    
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -50,7 +54,9 @@
 - (void)createForTimePoints:(NSArray *)timePoints fromAVURLAsset:(AVURLAsset *)asset frameCount:(int)frameCount {
     NSDictionary *fileProperties = [self fileProperties];
     NSDictionary *frameProperties = [self frameProperties];
-    CGImageDestinationRef destination = CGImageDestinationCreateWithURL((__bridge CFURLRef)self.outputUrl, kUTTypeGIF , frameCount, NULL);
+    NSURL *fileUrl = [NSURL fileURLWithPath:self.outputUrl];
+    CGImageDestinationRef destination = CGImageDestinationCreateWithURL((__bridge CFURLRef)fileUrl, kUTTypeGIF , frameCount, NULL);
+    CGImageDestinationSetProperties(destination, (CFDictionaryRef)fileProperties);
     AVAssetImageGenerator *generator = [AVAssetImageGenerator assetImageGeneratorWithAsset:asset];
     generator.appliesPreferredTrackTransform = YES;
     CMTime tol = CMTimeMakeWithSeconds([tolerance floatValue], [timeInterval intValue]);
@@ -79,7 +85,7 @@
     }
     CGImageRelease(previousImageRefCopy);
     
-    CGImageDestinationSetProperties(destination, (CFDictionaryRef)fileProperties);
+//    CGImageDestinationSetProperties(destination, (CFDictionaryRef)fileProperties);
     // Finalize the GIF
     if (!CGImageDestinationFinalize(destination)) {
         NSString *errStr = [NSString stringWithFormat:@"Failed to finalize GIF destination: %@", error];

@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class AVURLAsset;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CCGIF : NSObject

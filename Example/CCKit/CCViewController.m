@@ -16,6 +16,7 @@
 #import "NSObject+CCAdd.h"
 #import "CCFileDownloadManager.h"
 #import "CCStrokeLabel.h"
+#import "CCMeidaFormatFactoryTestController.h"
 
 @interface CCViewController ()
 @property (nonatomic, strong) CCNumberScrollView *numberScrollView;
@@ -29,22 +30,14 @@
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
     [btn setTitle:@"download" forState:UIControlStateNormal];
     btn.backgroundColor = UIColor.redColor;
-    [btn addTarget:self action:@selector(resumeDownloadTest) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(jump2MediaFormatFactoryController) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
-    for (int i = 0; i < 1; i++) {
-        CCStrokeLabel *label = [[CCStrokeLabel alloc] initWithFrame:CGRectMake(100, 200, 200, 20)];
-        label.strokeWidth = 6;
-        label.backgroundColor = UIColor.clearColor;
-        label.strokeColor = [UIColor colorWithRed:230/255.0 green:75/255.0 blue:248/255.0 alpha:0.7];
-        label.textColor = UIColor.whiteColor;
-        label.text = @"Do you like coding";
-        label.layer.shadowRadius = 10;
-        label.layer.shadowColor = [UIColor colorWithRed:230/255.0 green:75/255.0 blue:248/255.0 alpha:0.8].CGColor;
-        label.layer.shadowOffset = CGSizeMake(0, 0);
-        label.layer.shadowOpacity = 1.0;
-        [self.view addSubview:label];
-    }
+}
 
+- (void)jump2MediaFormatFactoryController {
+    CCMeidaFormatFactoryTestController *ctl = [[CCMeidaFormatFactoryTestController alloc] init];
+    ctl.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:ctl animated:YES completion:nil];
 }
 
 - (void)resumeDownloadTest {

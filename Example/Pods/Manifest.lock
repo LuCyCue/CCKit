@@ -22,9 +22,20 @@ PODS:
   - LCCKit/CCSafe (0.0.2)
   - LCCKit/CCScrollViewNest (0.0.2)
   - LCCKit/CCStrokeLabel (0.0.2)
+  - Masonry (1.1.0)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
 
 DEPENDENCIES:
   - LCCKit (from `../`)
+  - Masonry (= 1.1.0)
+  - YYImage (= 1.0.4)
+
+SPEC REPOS:
+  trunk:
+    - Masonry
+    - YYImage
 
 EXTERNAL SOURCES:
   LCCKit:
@@ -32,7 +43,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   LCCKit: ce1cfc1769f6278388293367fb97f9aac17560d2
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: 8173988f32f5f97e8ad981d9ea9a2c39153c3f18
+PODFILE CHECKSUM: 63128ad88b3a8f4686fdef2065084ca0af770d7d
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.3
