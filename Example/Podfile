@@ -7,6 +7,7 @@ target 'CCKit_Example' do
 #  pod 'LCCKit'
   pod 'Masonry', '1.1.0'
   pod 'YYImage', '1.0.4'
+  pod 'SJVideoPlayer', :git => 'https://gitee.com/changsanjiang/SJVideoPlayer.git'
 
   target 'CCKit_Tests' do
     inherit! :search_paths

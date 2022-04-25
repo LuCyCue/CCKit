@@ -41,7 +41,10 @@
 
 + (NSString *)randPathWithExtendName:(NSString *)extendName {
     int randNum = arc4random_uniform(1000);
-    NSString *randName = [NSString stringWithFormat:@"%@%d.%@", [CCMediaFormatTool md5String:@([NSDate date].timeIntervalSince1970).stringValue], randNum, extendName];
+    NSString *randName = [NSString stringWithFormat:@"%@%d", [CCMediaFormatTool md5String:@([NSDate date].timeIntervalSince1970).stringValue], randNum];
+    if (extendName.length) {
+        randName = [randName stringByAppendingFormat:@".%@", extendName];
+    }
     NSString *path = [CCMediaFormatTool tmpPathWithFileName:randName];
     return path;
 }

@@ -20,8 +20,9 @@
 @property (nonatomic, strong) UIButton *liveToVideoBtn;
 @property (nonatomic, strong) UIButton *gifToVideoBtn;
 @property (nonatomic, strong) UIButton *videoToGifBtn;
+@property (nonatomic, strong) UIButton *videoConverFormatBtn;
 @property (nonatomic, strong) PHLivePhoto *selectLivePhoto;
-@property (nonatomic, strong) NSString *selectVideoUrl;
+@property (nonatomic, strong) NSURL *videoUrl;
 @property (nonatomic, copy) NSString *selectGifUrl;
 @property (nonatomic, strong) YYAnimatedImageView *animationImageView;
 @end
@@ -34,33 +35,38 @@
     [self.view addSubview:self.animationImageView];
     [self.animationImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(40);
-        make.size.mas_equalTo(CGSizeMake(200, 200));
+        make.size.mas_equalTo(CGSizeMake(150, 150));
         make.centerX.mas_equalTo(0);
     }];
     [self.view addSubview:self.pickImgBtn];
     [self.pickImgBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(0);
-        make.bottom.mas_equalTo(-KSafeBottomHeight);
+        make.bottom.mas_equalTo(-KSafeBottomHeight-20);
     }];
     [self.view addSubview:self.liveToGifBtn];
     [self.liveToGifBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(0);
-        make.bottom.equalTo(self.pickImgBtn.mas_top).offset(-5);
+        make.bottom.equalTo(self.pickImgBtn.mas_top).offset(-10);
     }];
     [self.view addSubview:self.liveToVideoBtn];
     [self.liveToVideoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(0);
-        make.bottom.equalTo(self.liveToGifBtn.mas_top).offset(-5);
+        make.bottom.equalTo(self.liveToGifBtn.mas_top).offset(-10);
     }];
     [self.view addSubview:self.gifToVideoBtn];
     [self.gifToVideoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(0);
-        make.bottom.equalTo(self.liveToVideoBtn.mas_top).offset(-5);
+        make.bottom.equalTo(self.liveToVideoBtn.mas_top).offset(-10);
     }];
     [self.view addSubview:self.videoToGifBtn];
     [self.videoToGifBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(0);
-        make.bottom.equalTo(self.gifToVideoBtn.mas_top).offset(-5);
+        make.bottom.equalTo(self.gifToVideoBtn.mas_top).offset(-10);
+    }];
+    [self.view addSubview:self.videoConverFormatBtn];
+    [self.videoConverFormatBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(0);
+        make.bottom.equalTo(self.videoToGifBtn.mas_top).offset(-10);
     }];
 }
 
@@ -69,14 +75,15 @@
     imagePicker.delegate = self;
     imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     imagePicker.allowsEditing = NO;
-    NSArray *mediaTypes = @[(NSString *)kUTTypeImage, (NSString *)kUTTypeLivePhoto,(NSString *)kUTTypeGIF];
+    NSArray *mediaTypes = @[(NSString *)kUTTypeImage, (NSString *)kUTTypeLivePhoto,(NSString *)kUTTypeGIF, (NSString *)kUTTypeVideo, (NSString *)kUTTypeMovie];
     imagePicker.mediaTypes = mediaTypes;
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
 - (void)convertLivePhotoToGif {
     if (!self.selectLivePhoto) {
-        NSAssert(NO, @"You must select live photo first");
+        NSLog(@"You must select live photo first");
+        return;
     }
     [CCMediaFormatFactory convertLivePhoto:self.selectLivePhoto toGif:nil scale:0.5 framesPerSecond:4 completion:^(NSString *url, NSError *error) {
         if (error) {
@@ -89,25 +96,49 @@
 }
 
 - (void)convertLivePhotoToVideo {
+    if (!self.selectLivePhoto) {
+        NSLog(@"You must select live photo first");
+        return;
+    }
     [CCMediaFormatFactory convertLivePhoto:self.selectLivePhoto toVideo:nil completion:^(NSString * url, NSError *error) {
         NSLog(@"url = %@, error = %@", url, error);
     }];
 }
 
 - (void)convertVideoToGif {
-//    NSString *srcUrl = [NSString stringWithFormat:@"%@CCMedia/084b51afa327768695eeb825f5ee095b272.mp4", NSTemporaryDirectory()];
-//   
-    NSString *srcUrl = [NSString stringWithFormat:@"%@CCMedia/da8efe40e725c50e586ead4962af7aa7413.mov", NSTemporaryDirectory()];
-    [CCMediaFormatFactory convertVideo:srcUrl toGif:srcUrl completion:^(NSString *url, NSError *error) {
+    if (!self.videoUrl) {
+        NSLog(@"You must select video first");
+        return;
+    }
+    [CCMediaFormatFactory convertVideo:self.videoUrl toGif:nil completion:^(NSString *url, NSError *error) {
         NSLog(@"url = %@, error = %@", url, error);
+        if (error) {
+            NSLog(@"%@", error);
+            return;
+        }
+        YYImage *img = [YYImage imageWithContentsOfFile:url];
+        self.animationImageView.image = img;
     }];
 }
 
 - (void)convertGifToVideo {
-//    self.selectGifUrl = [NSString stringWithFormat:@"%@8D4B94CF-1F08-4009-9D49-E500219FD72E.gif", NSTemporaryDirectory()];
+    if (!self.selectGifUrl) {
+        NSLog(@"You must select gif first");
+        return;
+    }
     NSError *error;
     NSData *data = [NSData dataWithContentsOfFile:self.selectGifUrl options:NSDataReadingMappedIfSafe error:&error];
     [CCMediaFormatFactory convertGif:data toVideo:nil speed:1 size:CGSizeZero repeat:0 completion:^(NSString *url, NSError *error) {
+        NSLog(@"url = %@, error = %@", url, error);
+    }];
+}
+
+- (void)videoConverFormatAction {
+    if (!self.videoUrl) {
+        NSLog(@"You must select video first");
+        return;
+    }
+    [CCMediaFormatFactory convertVideo:self.videoUrl to:nil outputFileType:CCVideoFileTypeMp4 presetType:CCExportPresetTypeMediumQuality completion:^(NSString * _Nullable url, NSError * _Nullable error) {
         NSLog(@"url = %@, error = %@", url, error);
     }];
 }
@@ -124,7 +155,7 @@
         NSLog(@"Picked a movie at URL %@",  [info objectForKey:UIImagePickerControllerMediaURL]);
         NSURL *fileURL =  [info objectForKey:UIImagePickerControllerMediaURL];
         NSLog(@"> %@", [fileURL absoluteString]);
-        self.selectVideoUrl = fileURL.absoluteString;
+        self.videoUrl = fileURL;
     } else {
         PHLivePhoto *livePhoto = [info objectForKey:UIImagePickerControllerLivePhoto];
         if(livePhoto) {
@@ -216,6 +247,19 @@
         [_videoToGifBtn addTarget:self action:@selector(convertVideoToGif) forControlEvents:UIControlEventTouchUpInside];
     }
     return _videoToGifBtn;
+}
+
+- (UIButton *)videoConverFormatBtn {
+    if (!_videoConverFormatBtn) {
+        _videoConverFormatBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_videoConverFormatBtn setTitle:@"Video to video" forState:UIControlStateNormal];
+        [_videoConverFormatBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+        _videoConverFormatBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        _videoConverFormatBtn.backgroundColor = UIColor.blueColor;
+        _videoConverFormatBtn.layer.cornerRadius = 0.0f;
+        [_videoConverFormatBtn addTarget:self action:@selector(videoConverFormatAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _videoConverFormatBtn;
 }
 
 - (YYAnimatedImageView *)animationImageView {

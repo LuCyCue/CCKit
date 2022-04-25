@@ -6,8 +6,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CCMediaFormatDefine.h"
 
 @interface CCVideo : NSObject
+
+@property (nonatomic, copy) NSString *outputUrl;
+@property (nonatomic, assign) CCExportPresetType presetType;
+@property (nonatomic, assign) CCVideoFileType outputFileType;
+//源数据（可以为 PHAsset、NSURL、AVURLAsset）
+@property (nonatomic, strong) id sourceVideo;
+/// 结束回调
+@property (nonatomic, copy) void(^completionHandler)(NSString *outputUrl, NSError *error);
 
 /// gif 转成mp4格式
 /// @param gif gif data
@@ -22,6 +31,9 @@
                  repeat:(int)repeat
                  output:(NSString *)path
              completion:(void (^)(NSError *))completion;
+
+/// 开始转码
+- (void)startConvertFormat;
 
 @end
 

@@ -7,61 +7,80 @@
 
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
-
+#import "CCMediaFormatDefine.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CCMediaFormatFactory : NSObject
 
-/// 视频转成gif
-/// @param videoUrl 视频地址
-/// @param outputUrl gif输出路径
-/// @param completion 回调
-+ (void)convertVideo:(NSString *)videoUrl
-               toGif:(NSString * _Nullable)outputUrl
-          completion:(void(^)(NSString *, NSError *))completion;
+#pragma mark - 视频->GIF
 
 /// 视频转成gif
-/// @param videoUrl 视频地址
+/// @param videoUrl 视频地址(支持NSString(仅本地路径)、NSURL)
+/// @param outputUrl gif输出路径
+/// @param completion 回调
++ (void)convertVideo:(id)videoUrl
+               toGif:(NSString * _Nullable)outputUrl
+          completion:(CCMediaFormatCompletion)completion;
+
+/// 视频转成gif
+/// @param videoUrl 视频地址(支持NSString(仅本地路径)、NSURL)
 /// @param outputUrl gif输出路径
 /// @param scale 像素缩放比（0.0-1.0）
 /// @param framesPerSecond 帧率
 /// @param completion 回调
-+ (void)convertVideo:(NSString *)videoUrl
++ (void)convertVideo:(id)videoUrl
                toGif:(NSString * _Nullable)outputUrl
                scale:(CGFloat)scale
      framesPerSecond:(NSUInteger)framesPerSecond
-          completion:(void(^)(NSString *, NSError *))completion;
+          completion:(CCMediaFormatCompletion)completion;
 
 /// 视频转成gif
-/// @param videoUrl 视频地址
+/// @param videoUrl 视频地址(支持NSString(仅本地路径)、NSURL)
 /// @param outputUrl gif输出路径
 /// @param loopCount 动画循环次数
 /// @param delayTime 帧间隔延迟
 /// @param scale 像素缩放比（0.0-1.0）
 /// @param framesPerSecond 帧率
 /// @param completion 回调
-+ (void)convertVideo:(NSString *)videoUrl
-               toGif:(NSString * _Nullable)outputUrl
++ (void)convertVideo:(id)videoUrl
+               toGif:(NSString *)outputUrl
            loopCount:(int32_t)loopCount
            delayTime:(CGFloat)delayTime
                scale:(CGFloat)scale
      framesPerSecond:(NSUInteger)framesPerSecond
-          completion:(void(^)(NSString *, NSError *))completion;
+          completion:(CCMediaFormatCompletion)completion;
+
+#pragma mark - GIF->视频
 
 /// gif 转 mp4
-/// @param gifData gif数据
+/// @param gif gif数据(支持:NSData、NSURL、NSString(本地路径))
 /// @param outputUrl 输出mp4路径（可以传空，内部生成输出路径）
 /// @param speed 视频播放速度（1和gif一致，大于1, 加快， 小于1，变慢）
 /// @param size 视频宽高
 /// @param repeat 获取gif图片次数
 /// @param completion 回调
-+ (void)convertGif:(NSData *)gifData
+/// @discussion 使用远程URL作为源gif数据时，谨慎使用，因为会阻塞线程
++ (void)convertGif:(id)gif
            toVideo:(NSString * _Nullable)outputUrl
              speed:(CGFloat)speed
               size:(CGSize)size
             repeat:(int)repeat
         completion:(void(^)(NSString *, NSError *))completion;
+
+#pragma mark - 视频格式转换
+
+/// 视频格式转换
+/// @param srcVideo 视频数据（支持传入 PHAsset、NSURL、AVURLAsset 任意一种）
+/// @param outputUrl 输出文件路径
+/// @param outputFileType 输出文件格式
+/// @param presetType 输出文件质量类型
+/// @param completion 回调
++ (void)convertVideo:(id)srcVideo
+                  to:(NSString * _Nullable)outputUrl
+      outputFileType:(CCVideoFileType)outputFileType
+          presetType:(CCExportPresetType)presetType
+          completion:(CCMediaFormatCompletion)completion;
 
 @end
 
@@ -70,21 +89,21 @@ API_AVAILABLE_BEGIN(macos(10.15), ios(9.1), tvos(10))
 
 @interface CCMediaFormatFactory (LivePhoto)
 
-/// live photo convert to static photo
+/// live photo 转为静态图
 /// @param livePhoto livepho
 /// @param outputUrl static photo output url
 /// @param completion callback
 + (void)convertLivePhoto:(PHLivePhoto *)livePhoto
            toStaticPhoto:(NSString * _Nullable)outputUrl
-              completion:(void(^)(NSString *, NSError *))completion;
+              completion:(CCMediaFormatCompletion)completion;
 
-/// live photo convert to video
+/// live photo 转为视频
 /// @param livePhoto live photo
 /// @param outputUrl video output url
 /// @param completion callback
 + (void)convertLivePhoto:(PHLivePhoto *)livePhoto
                  toVideo:(NSString * _Nullable)outputUrl
-              completion:(void(^)(NSString *, NSError *))completion;
+              completion:(CCMediaFormatCompletion)completion;
 
 /// live photo 转成 gif
 /// @param livePhoto live photo 实例
@@ -92,7 +111,7 @@ API_AVAILABLE_BEGIN(macos(10.15), ios(9.1), tvos(10))
 /// @param completion 回调
 + (void)convertLivePhoto:(PHLivePhoto *)livePhoto
                    toGif:(NSString * _Nullable)outputUrl
-              completion:(void(^)(NSString *, NSError *))completion;
+              completion:(CCMediaFormatCompletion)completion;
 
 /// live photo 转成 gif
 /// @param livePhoto live photo 实例
@@ -104,7 +123,7 @@ API_AVAILABLE_BEGIN(macos(10.15), ios(9.1), tvos(10))
                    toGif:(NSString * _Nullable)outputUrl
                    scale:(CGFloat)scale
          framesPerSecond:(NSUInteger)framesPerSecond
-              completion:(void(^)(NSString *, NSError *))completion;
+              completion:(CCMediaFormatCompletion)completion;
 
 @end
 

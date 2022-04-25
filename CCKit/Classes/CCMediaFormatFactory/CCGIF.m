@@ -32,6 +32,11 @@
 
 /// 视频生成gif
 - (void)createFileWithAVAsset:(AVURLAsset *)asset {
+    if (!asset || asset.duration.value == 0) {
+        !self.completionHandler ?: self.completionHandler(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:503 userInfo:@{NSLocalizedDescriptionKey:@"input AVURLAsset invalid"}]);
+        return;
+    }
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // 视频时长
         float videoLength = (float)asset.duration.value / asset.duration.timescale;

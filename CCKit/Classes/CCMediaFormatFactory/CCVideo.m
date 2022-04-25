@@ -8,6 +8,7 @@
 #import "CCVideo.h"
 #import <ImageIO/ImageIO.h>
 #import <AVFoundation/AVFoundation.h>
+#import <Photos/Photos.h>
 
 @interface CCVideo ()
 @property (strong, nonatomic) AVAssetWriter *videoWriter;
@@ -213,6 +214,176 @@
     }
     
     return @{@"animationTime" : [NSNumber numberWithFloat:animationTime * repeat], @"frames":  frames};
+}
+
+#pragma mark -- Format Convert
+
+/// 获取导出质量
++ (NSString * const)getAVAssetExportPresetQuality:(CCExportPresetType)presetType{
+    switch (presetType) {
+        case CCExportPresetTypeLowQuality:
+            return AVAssetExportPresetLowQuality;
+        case CCExportPresetTypeMediumQuality:
+            return AVAssetExportPresetMediumQuality;
+        case CCExportPresetTypeHighestQuality:
+            return AVAssetExportPresetHighestQuality;
+        case CCExportPresetType640x480:
+            return AVAssetExportPreset640x480;
+        case CCExportPresetType960x540:
+            return AVAssetExportPreset960x540;
+        case CCExportPresetType1280x720:
+            return AVAssetExportPreset1280x720;
+        case CCExportPresetType1920x1080:
+            return AVAssetExportPreset1920x1080;
+        case CCExportPresetType3840x2160:
+            return AVAssetExportPreset3840x2160;
+        default:
+            return AVAssetExportPresetMediumQuality;
+    }
+}
+/// 获取导出格式
++ (NSString * const)getVideoFileType:(CCVideoFileType)videoType{
+    switch (videoType) {
+        case CCVideoFileTypeMov:
+            return AVFileTypeQuickTimeMovie;
+        case CCVideoFileTypeMp4:
+            return AVFileTypeMPEG4;
+        case CCVideoFileTypeM4v:
+            return AVFileTypeAppleM4V;
+        default:
+            return AVFileTypeMPEG4;
+    }
+}
+
+/// 开始转码
+- (void)startConvertFormat {
+    NSString *presetName = [CCVideo getAVAssetExportPresetQuality:self.presetType];
+    NSString *videoType  = [CCVideo getVideoFileType:self.outputFileType];
+    NSString *suffix = CCVideoFileTypeMap[self.outputFileType];
+    if (![self.outputUrl hasSuffix:suffix]) {
+        self.outputUrl = [self.outputUrl stringByAppendingString:suffix];
+    }
+    if (!self.sourceVideo) {
+        NSError *error = [CCVideo createError:1008 DescriptionKey:@"Lack of material"];
+        !self.completionHandler ?: self.completionHandler(nil, error);
+    } else if ([self.sourceVideo isKindOfClass:NSURL.class]) {
+        AVURLAsset *avAsset = [AVURLAsset URLAssetWithURL:self.sourceVideo options:nil];
+        [self convertAVURLAsset:avAsset outputPath:self.outputUrl fileType:videoType presetName:presetName];
+    } else if ([self.sourceVideo isKindOfClass:AVURLAsset.class]) {
+        [self convertAVURLAsset:self.sourceVideo outputPath:self.outputUrl fileType:videoType presetName:presetName];
+    } else if ([self.sourceVideo isKindOfClass:PHAsset.class]) {
+        PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
+        options.version = PHVideoRequestOptionsVersionCurrent;
+        options.deliveryMode = PHVideoRequestOptionsDeliveryModeAutomatic;
+        options.networkAccessAllowed = true;
+        PHImageManager *manager = [PHImageManager defaultManager];
+        [manager requestAVAssetForVideo:self.sourceVideo options:options resultHandler:^(AVAsset *asset, AVAudioMix *audioMix, NSDictionary *info) {
+            if ([asset isKindOfClass:[AVURLAsset class]]) {
+                [self convertAVURLAsset:(AVURLAsset *)asset outputPath:self.outputUrl fileType:videoType presetName:presetName];
+            } else{
+                NSError *error = [CCVideo createError:1008 DescriptionKey:@"PHAsset error"];
+                !self.completionHandler ?: self.completionHandler(nil, error);
+            }
+        }];
+    } else {
+        NSError *error = [CCVideo createError:1009 DescriptionKey:@"not support sourceVideo input"];
+        !self.completionHandler ?: self.completionHandler(nil, error);
+    }
+}
+
+#pragma mark - 转码
+
+- (void)convertAVURLAsset:(AVURLAsset*)asset
+               outputPath:(NSString *)outputPath
+                 fileType:(NSString*)fileType
+               presetName:(NSString*)presetName {
+    AVURLAsset *avAsset = [AVURLAsset URLAssetWithURL:asset.URL options:nil];
+    NSArray *compatiblePresets = [AVAssetExportSession exportPresetsCompatibleWithAsset:avAsset];
+    if ([compatiblePresets containsObject:presetName]) {
+        AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:avAsset presetName:presetName];
+        exportSession.outputURL = [NSURL fileURLWithPath:outputPath];
+        exportSession.shouldOptimizeForNetworkUse = YES;
+        NSArray *supportedTypeArray = exportSession.supportedFileTypes;
+        if (![supportedTypeArray containsObject:fileType]) {
+            NSError *error = [CCVideo createError:1010 DescriptionKey:@"AVAssetExportSession format is not support"];
+            !self.completionHandler ?: self.completionHandler(nil, error);
+            return;
+        }
+        exportSession.outputFileType = fileType;
+        [exportSession exportAsynchronouslyWithCompletionHandler:^(void) {
+            switch (exportSession.status) {
+                case AVAssetExportSessionStatusUnknown:
+                case AVAssetExportSessionStatusWaiting:
+                case AVAssetExportSessionStatusExporting:
+                case AVAssetExportSessionStatusFailed:
+                case AVAssetExportSessionStatusCancelled:{
+                    NSString *key  = [CCVideo getStatusDescriptionKey:exportSession.status];
+                    NSError *error = [CCVideo createError:exportSession.status+1001 DescriptionKey:key];
+                    !self.completionHandler ?: self.completionHandler(nil, error);
+                }
+                    break;
+                case AVAssetExportSessionStatusCompleted:
+                    !self.completionHandler ?: self.completionHandler(exportSession.outputURL.absoluteString, nil);
+                    break;
+            }
+        }];
+    } else{
+        NSError *error = [CCVideo createError:1007 DescriptionKey:@"AVAssetExportSessionStatusNoPreset"];
+        !self.completionHandler ?: self.completionHandler(nil, error);
+    }
+}
+
++ (NSString*)getStatusDescriptionKey:(AVAssetExportSessionStatus)status {
+    switch (status) {
+        case AVAssetExportSessionStatusUnknown:
+            return @"AVAssetExportSessionStatusUnknown";
+        case AVAssetExportSessionStatusWaiting:
+            return @"AVAssetExportSessionStatusWaiting";
+        case AVAssetExportSessionStatusExporting:
+            return @"AVAssetExportSessionStatusExporting";
+        case AVAssetExportSessionStatusCompleted:
+            return @"AVAssetExportSessionStatusCompleted";
+        case AVAssetExportSessionStatusFailed:
+            return @"AVAssetExportSessionStatusFailed";
+        case AVAssetExportSessionStatusCancelled:
+            return @"AVAssetExportSessionStatusCancelled";
+        default:
+            return @"AVAssetExportSessionStatusExceptionError";
+            
+    }
+}
+
++ (NSError*)createError:(NSInteger)code DescriptionKey:(NSString*)key{
+    return [NSError errorWithDomain:@"ConvertErrorDomain" code:code userInfo:@{NSLocalizedDescriptionKey:key}];
+}
+
++ (NSDictionary*)getVideoInfo:(PHAsset*)asset {
+    PHAssetResource * resource = [[PHAssetResource assetResourcesForAsset: asset] firstObject];
+    NSMutableArray *resourceArray = nil;
+    if (@available(iOS 13.0, *)) {
+        NSString *string1 = [resource.description stringByReplacingOccurrencesOfString:@" - " withString:@" "];
+        NSString *string2 = [string1 stringByReplacingOccurrencesOfString:@": " withString:@"="];
+        NSString *string3 = [string2 stringByReplacingOccurrencesOfString:@"{" withString:@""];
+        NSString *string4 = [string3 stringByReplacingOccurrencesOfString:@"}" withString:@""];
+        NSString *string5 = [string4 stringByReplacingOccurrencesOfString:@", " withString:@" "];
+        resourceArray = [NSMutableArray arrayWithArray:[string5 componentsSeparatedByString:@" "]];
+        [resourceArray removeObjectAtIndex:0];
+        [resourceArray removeObjectAtIndex:0];
+    }else {
+        NSString *string1 = [resource.description stringByReplacingOccurrencesOfString:@"{" withString:@""];
+        NSString *string2 = [string1 stringByReplacingOccurrencesOfString:@"}" withString:@""];
+        NSString *string3 = [string2 stringByReplacingOccurrencesOfString:@", " withString:@","];
+        resourceArray = [NSMutableArray arrayWithArray:[string3 componentsSeparatedByString:@" "]];
+        [resourceArray removeObjectAtIndex:0];
+        [resourceArray removeObjectAtIndex:0];
+    }
+    NSMutableDictionary *videoInfo = [[NSMutableDictionary alloc] init];
+    for (NSString *string in resourceArray) {
+        NSArray *array = [string componentsSeparatedByString:@"="];
+        videoInfo[array[0]] = array[1];
+    }
+    videoInfo[@"duration"] = @(asset.duration).description;
+    return videoInfo;
 }
 
 @end
