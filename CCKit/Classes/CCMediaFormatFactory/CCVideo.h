@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CCMediaFormatDefine.h"
+#import <CoreGraphics/CoreGraphics.h>
 
 @interface CCVideo : NSObject
 

@@ -13,6 +13,7 @@
 #import "CCMediaFormatFactory.h"
 #import "YYAnimatedImageView.h"
 #import <YYImage/YYImage.h>
+#import "SJVideoPlayer.h"
 
 @interface CCMeidaFormatFactoryTestController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic, strong) UIButton *pickImgBtn;
@@ -25,6 +26,7 @@
 @property (nonatomic, strong) NSURL *videoUrl;
 @property (nonatomic, copy) NSString *selectGifUrl;
 @property (nonatomic, strong) YYAnimatedImageView *animationImageView;
+@property (nonatomic, strong) SJVideoPlayer *player;
 @end
 
 @implementation CCMeidaFormatFactoryTestController
@@ -36,7 +38,13 @@
     [self.animationImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(40);
         make.size.mas_equalTo(CGSizeMake(150, 150));
-        make.centerX.mas_equalTo(0);
+        make.left.mas_equalTo(20);
+    }];
+    [self.view addSubview:self.player.view];
+    [self.player.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(40);
+        make.size.mas_equalTo(CGSizeMake(150, 150));
+        make.right.mas_equalTo(-20);
     }];
     [self.view addSubview:self.pickImgBtn];
     [self.pickImgBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -85,7 +93,7 @@
         NSLog(@"You must select live photo first");
         return;
     }
-    [CCMediaFormatFactory convertLivePhoto:self.selectLivePhoto toGif:nil scale:0.5 framesPerSecond:4 completion:^(NSString *url, NSError *error) {
+    [CCMediaFormatFactory convertLivePhoto:self.selectLivePhoto toGif:nil scale:0.5 framesPerSecond:4 frameRate:4 completion:^(NSString *url, NSError *error) {
         if (error) {
             NSLog(@"%@", error);
             return;
@@ -100,8 +108,13 @@
         NSLog(@"You must select live photo first");
         return;
     }
-    [CCMediaFormatFactory convertLivePhoto:self.selectLivePhoto toVideo:nil completion:^(NSString * url, NSError *error) {
+//    [CCMediaFormatFactory convertLivePhoto:self.selectLivePhoto toVideo:nil completion:^(NSString * url, NSError *error) {
+//        NSLog(@"url = %@, error = %@", url, error);
+//        [self.player playWithURL:[NSURL fileURLWithPath:url]];
+//    }];
+    [CCMediaFormatFactory convertLivePhoto:self.selectLivePhoto toMP4:nil completion:^(NSString * _Nullable url, NSError * _Nullable error) {
         NSLog(@"url = %@, error = %@", url, error);
+        [self.player playWithURL:[NSURL fileURLWithPath:url]];
     }];
 }
 
@@ -130,6 +143,7 @@
     NSData *data = [NSData dataWithContentsOfFile:self.selectGifUrl options:NSDataReadingMappedIfSafe error:&error];
     [CCMediaFormatFactory convertGif:data toVideo:nil speed:1 size:CGSizeZero repeat:0 completion:^(NSString *url, NSError *error) {
         NSLog(@"url = %@, error = %@", url, error);
+        [self.player playWithURL:[NSURL fileURLWithPath:url]];
     }];
 }
 
@@ -140,6 +154,7 @@
     }
     [CCMediaFormatFactory convertVideo:self.videoUrl to:nil outputFileType:CCVideoFileTypeMp4 presetType:CCExportPresetTypeMediumQuality completion:^(NSString * _Nullable url, NSError * _Nullable error) {
         NSLog(@"url = %@, error = %@", url, error);
+        [self.player playWithURL:[NSURL fileURLWithPath:url]];
     }];
 }
 
@@ -156,6 +171,7 @@
         NSURL *fileURL =  [info objectForKey:UIImagePickerControllerMediaURL];
         NSLog(@"> %@", [fileURL absoluteString]);
         self.videoUrl = fileURL;
+        [self.player playWithURL:fileURL];
     } else {
         PHLivePhoto *livePhoto = [info objectForKey:UIImagePickerControllerLivePhoto];
         if(livePhoto) {
@@ -270,4 +286,10 @@
     return _animationImageView;
 }
 
+- (SJVideoPlayer *)player {
+    if (!_player) {
+        _player = [[SJVideoPlayer alloc] init];
+    }
+    return _player;
+}
 @end

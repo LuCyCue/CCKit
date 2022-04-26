@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 @class AVURLAsset;
 NS_ASSUME_NONNULL_BEGIN
@@ -18,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat delayTime;
 /// 缩放率 （0.0-1.0）
 @property (nonatomic, assign) CGFloat scale;
-/// 每秒帧数
+/// 每秒截取帧数
 @property (nonatomic, assign) NSUInteger framesPerSecond;
 /// 输出地址
 @property (nonatomic, copy) NSString *outputUrl;

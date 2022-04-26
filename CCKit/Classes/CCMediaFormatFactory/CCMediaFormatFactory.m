@@ -22,35 +22,35 @@
 + (void)convertVideo:(id)videoUrl
                toGif:(NSString *)outputUrl
           completion:(void(^)(NSString *, NSError *))completion {
-    [self convertVideo:videoUrl toGif:outputUrl loopCount:0 delayTime:0 scale:1.0 framesPerSecond:4 completion:completion];
+    [self convertVideo:videoUrl toGif:outputUrl loopCount:0 frameRate:10 scale:1.0 framesPerSecond:10 completion:completion];
 }
 
 /// 视频转成gif
 /// @param videoUrl 视频地址(支持NSString(仅本地路径)、NSURL)
 /// @param outputUrl gif输出路径
 /// @param scale 像素缩放比（0.0-1.0）
-/// @param framesPerSecond 帧率
+/// @param framesPerSecond 视频每秒被截取帧数
 /// @param completion 回调
 + (void)convertVideo:(id)videoUrl
                toGif:(NSString *)outputUrl
                scale:(CGFloat)scale
      framesPerSecond:(NSUInteger)framesPerSecond
           completion:(void(^)(NSString *, NSError *))completion {
-    [self convertVideo:videoUrl toGif:outputUrl loopCount:0 delayTime:0 scale:scale framesPerSecond:framesPerSecond completion:completion];
+    [self convertVideo:videoUrl toGif:outputUrl loopCount:0 frameRate:10 scale:scale framesPerSecond:framesPerSecond completion:completion];
 }
 
 /// 视频转成gif
 /// @param videoUrl 视频地址(支持NSString(仅本地路径)、NSURL)
 /// @param outputUrl gif输出路径
 /// @param loopCount 动画循环次数
-/// @param delayTime 帧间隔延迟
-/// @param scale 像素缩放比（0.0-1.0）
-/// @param framesPerSecond 帧率
+/// @param frameRate gif帧率 （0.0-20.0）
+/// @param scale 像素缩放比（0.0-1.0]
+/// @param framesPerSecond 视频每秒被截取帧数
 /// @param completion 回调
 + (void)convertVideo:(id)videoUrl
-               toGif:(NSString *)outputUrl
+               toGif:(NSString *_Nullable)outputUrl
            loopCount:(int32_t)loopCount
-           delayTime:(CGFloat)delayTime
+           frameRate:(CGFloat)frameRate
                scale:(CGFloat)scale
      framesPerSecond:(NSUInteger)framesPerSecond
           completion:(void(^)(NSString *, NSError *))completion {
@@ -87,11 +87,14 @@
     if (outputUrl.length == 0) {
         outputUrl = [CCMediaFormatTool randPathWithExtendName:@"gif"];
     }
-  
+    CGFloat delayTime = 0;
+    if (frameRate > 0) {
+        delayTime = 1.0 / frameRate;
+    }
     CCGIF *gif = [[CCGIF alloc] init];
     gif.outputUrl = outputUrl;
     gif.loopCount = loopCount;
-    gif.delayTime = delayTime;
+    gif.delayTime = delayTime < 0.05 ? 0.051 : delayTime;
     gif.scale = scale;
     gif.framesPerSecond = framesPerSecond;
     gif.completionHandler = ^(NSString * _Nullable outputUrl, NSError * _Nullable error) {
@@ -238,24 +241,42 @@
     }];
 }
 
+/// live photo 转成 mp4
+/// @param livePhoto 实况图片实例
+/// @param outputUrl 输出路径
+/// @param completion 回调
++ (void)convertLivePhoto:(PHLivePhoto *)livePhoto toMP4:(NSString * _Nullable)outputUrl completion:(CCMediaFormatCompletion)completion {
+    [self convertLivePhoto:livePhoto toVideo:nil completion:^(NSString * _Nullable url, NSError * _Nullable error) {
+        if (error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                !completion ?: completion(nil, error);
+            });
+            return;
+        }
+        [self convertVideo:[NSURL fileURLWithPath:url] to:nil outputFileType:CCVideoFileTypeMp4 presetType:CCExportPresetTypeHighestQuality completion:completion];
+    }];
+}
+
 /// live photo 转成 gif
 /// @param livePhoto live photo 实例
 /// @param outputUrl gif输出路径
 /// @param completion 回调
 + (void)convertLivePhoto:(PHLivePhoto *)livePhoto toGif:(NSString *)outputUrl completion:(void(^)(NSString *, NSError *))completion {
-    [self convertLivePhoto:livePhoto toGif:outputUrl scale:1.0 framesPerSecond:4 completion:completion];
+    [self convertLivePhoto:livePhoto toGif:outputUrl scale:1.0 framesPerSecond:10 frameRate:10 completion:completion];
 }
 
 /// live photo 转成 gif
 /// @param livePhoto live photo 实例
 /// @param outputUrl gif输出路径
 /// @param scale 像素缩放比（0.0-1.0）
-/// @param framesPerSecond 帧率
+/// @param framesPerSecond 视频每秒被截取帧数
+/// @param frameRate gif帧率
 /// @param completion 回调
 + (void)convertLivePhoto:(PHLivePhoto *)livePhoto
-                   toGif:(NSString *)outputUrl
+                   toGif:(NSString * _Nullable)outputUrl
                    scale:(CGFloat)scale
          framesPerSecond:(NSUInteger)framesPerSecond
+               frameRate:(CGFloat)frameRate
               completion:(void(^)(NSString *, NSError *))completion {
     if (!livePhoto) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -274,7 +295,7 @@
             });
             return;
         }
-        [self convertVideo:videoUrl toGif:outputUrl scale:scale framesPerSecond:framesPerSecond completion:completion];
+        [self convertVideo:videoUrl toGif:outputUrl loopCount:0 frameRate:frameRate scale:scale framesPerSecond:framesPerSecond completion:completion];
     }];
 }
 

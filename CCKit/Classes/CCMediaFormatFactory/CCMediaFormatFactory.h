@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param videoUrl 视频地址(支持NSString(仅本地路径)、NSURL)
 /// @param outputUrl gif输出路径
 /// @param scale 像素缩放比（0.0-1.0）
-/// @param framesPerSecond 帧率
+/// @param framesPerSecond 视频每秒截取帧数
 /// @param completion 回调
 + (void)convertVideo:(id)videoUrl
                toGif:(NSString * _Nullable)outputUrl
@@ -39,17 +39,17 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param videoUrl 视频地址(支持NSString(仅本地路径)、NSURL)
 /// @param outputUrl gif输出路径
 /// @param loopCount 动画循环次数
-/// @param delayTime 帧间隔延迟
-/// @param scale 像素缩放比（0.0-1.0）
-/// @param framesPerSecond 帧率
+/// @param frameRate gif帧率 （0.0-20.0）
+/// @param scale 像素缩放比（0.0-1.0]
+/// @param framesPerSecond 视频每秒被截取帧数
 /// @param completion 回调
 + (void)convertVideo:(id)videoUrl
-               toGif:(NSString *)outputUrl
+               toGif:(NSString *_Nullable)outputUrl
            loopCount:(int32_t)loopCount
-           delayTime:(CGFloat)delayTime
+           frameRate:(CGFloat)frameRate
                scale:(CGFloat)scale
      framesPerSecond:(NSUInteger)framesPerSecond
-          completion:(CCMediaFormatCompletion)completion;
+          completion:(void(^)(NSString *, NSError *))completion;
 
 #pragma mark - GIF->视频
 
@@ -97,12 +97,20 @@ API_AVAILABLE_BEGIN(macos(10.15), ios(9.1), tvos(10))
            toStaticPhoto:(NSString * _Nullable)outputUrl
               completion:(CCMediaFormatCompletion)completion;
 
-/// live photo 转为视频
+/// live photo 转为MOV视频
 /// @param livePhoto live photo
 /// @param outputUrl video output url
 /// @param completion callback
 + (void)convertLivePhoto:(PHLivePhoto *)livePhoto
                  toVideo:(NSString * _Nullable)outputUrl
+              completion:(CCMediaFormatCompletion)completion;
+
+/// live photo 转成 mp4
+/// @param livePhoto 实况图片实例
+/// @param outputUrl 输出路径
+/// @param completion 回调
++ (void)convertLivePhoto:(PHLivePhoto *)livePhoto
+                   toMP4:(NSString * _Nullable)outputUrl
               completion:(CCMediaFormatCompletion)completion;
 
 /// live photo 转成 gif
@@ -117,13 +125,15 @@ API_AVAILABLE_BEGIN(macos(10.15), ios(9.1), tvos(10))
 /// @param livePhoto live photo 实例
 /// @param outputUrl gif输出路径
 /// @param scale 像素缩放比（0.0-1.0）
-/// @param framesPerSecond 帧率
+/// @param framesPerSecond 视频每秒被截取帧数
+/// @param frameRate gif帧率
 /// @param completion 回调
 + (void)convertLivePhoto:(PHLivePhoto *)livePhoto
                    toGif:(NSString * _Nullable)outputUrl
                    scale:(CGFloat)scale
          framesPerSecond:(NSUInteger)framesPerSecond
-              completion:(CCMediaFormatCompletion)completion;
+               frameRate:(CGFloat)frameRate
+              completion:(void(^)(NSString *, NSError *))completion;
 
 @end
 

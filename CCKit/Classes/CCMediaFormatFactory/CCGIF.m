@@ -7,8 +7,9 @@
 
 #import "CCGIF.h"
 #import <AVFoundation/AVFoundation.h>
-#import <CoreGraphics/CoreGraphics.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import <ImageIO/ImageIO.h>
+#import <UIKit/UIKit.h>
 
 #define timeInterval @(600)
 #define tolerance    @(0.01)
@@ -25,7 +26,7 @@
         self.loopCount = 0;
         self.delayTime = 0;
         self.scale = 1.0;
-        self.framesPerSecond = 4;
+        self.framesPerSecond = 10;
     }
     return self;
 }

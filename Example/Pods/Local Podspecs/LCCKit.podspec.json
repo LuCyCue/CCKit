@@ -66,7 +66,16 @@
     },
     {
       "name": "CCMediaFormatFactory",
-      "source_files": "CCKit/Classes/CCMediaFormatFactory/*"
+      "source_files": "CCKit/Classes/CCMediaFormatFactory/*",
+      "frameworks": [
+        "UIKit",
+        "Photos",
+        "ImageIO",
+        "AVFoundation",
+        "CoreGraphics",
+        "MobileCoreServices",
+        "Foundation"
+      ]
     }
   ]
 }

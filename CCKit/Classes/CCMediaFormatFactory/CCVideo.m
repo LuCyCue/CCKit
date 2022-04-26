@@ -9,6 +9,7 @@
 #import <ImageIO/ImageIO.h>
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/Photos.h>
+#import <UIKit/UIKit.h>
 
 @interface CCVideo ()
 @property (strong, nonatomic) AVAssetWriter *videoWriter;
