@@ -11,7 +11,7 @@
 #import <ImageIO/ImageIO.h>
 #import <UIKit/UIKit.h>
 
-#define timeInterval @(600)
+#define timeScale @(600)
 #define tolerance    @(0.01)
 
 @implementation CCGIF
@@ -49,7 +49,7 @@
         NSMutableArray *timePoints = [NSMutableArray array];
         for (int currentFrame = 0; currentFrame < frameCount; currentFrame++) {
             float seconds = (float)increment * currentFrame;
-            CMTime time = CMTimeMakeWithSeconds(seconds, [timeInterval intValue]);
+            CMTime time = CMTimeMakeWithSeconds(seconds, [timeScale intValue]);
             [timePoints addObject:[NSValue valueWithCMTime:time]];
         }
         //创建
@@ -65,12 +65,13 @@
     CGImageDestinationSetProperties(destination, (CFDictionaryRef)fileProperties);
     AVAssetImageGenerator *generator = [AVAssetImageGenerator assetImageGeneratorWithAsset:asset];
     generator.appliesPreferredTrackTransform = YES;
-    CMTime tol = CMTimeMakeWithSeconds([tolerance floatValue], [timeInterval intValue]);
+    CMTime tol = CMTimeMakeWithSeconds([tolerance floatValue], [timeScale intValue]);
     generator.requestedTimeToleranceBefore = tol;
     generator.requestedTimeToleranceAfter = tol;
     
     NSError *error = nil;
     CGImageRef previousImageRefCopy = nil;
+    CGFloat progress = 1.0;
     for (NSValue *time in timePoints) {
         CGImageRef imageRef = self.scale < 1 ? ImageWithScale([generator copyCGImageAtTime:[time CMTimeValue] actualTime:nil error:&error], self.scale) : [generator copyCGImageAtTime:[time CMTimeValue] actualTime:nil error:&error];
         if (error) {
@@ -88,6 +89,8 @@
         }
         CGImageDestinationAddImage(destination, imageRef, (CFDictionaryRef)frameProperties);
         CGImageRelease(imageRef);
+        !self.progressHandler ?: self.progressHandler(progress / (frameCount+1));
+        progress += 1;
     }
     CGImageRelease(previousImageRefCopy);
     
@@ -99,6 +102,7 @@
         return;
     }
     CFRelease(destination);
+    !self.progressHandler ?: self.progressHandler(1.0);
     !self.completionHandler ?: self.completionHandler(self.outputUrl, nil);
 }
 

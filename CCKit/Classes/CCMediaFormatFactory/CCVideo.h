@@ -18,6 +18,8 @@
 @property (nonatomic, strong) id sourceVideo;
 /// 结束回调
 @property (nonatomic, copy) void(^completionHandler)(NSString *outputUrl, NSError *error);
+/// 进度回调
+@property (nonatomic, copy) void(^progressHandler)(CGFloat progress);
 
 /// gif 转成mp4格式
 /// @param gif gif data
@@ -25,12 +27,14 @@
 /// @param size 视频宽高
 /// @param repeat 重复次数
 /// @param path 输出路径
+/// @param progress 进度回调
 /// @param completion 回调
 - (void)convertGIFToMP4:(NSData *)gif
                   speed:(float)speed
                    size:(CGSize)size
                  repeat:(int)repeat
                  output:(NSString *)path
+               progress:(void(^)(CGFloat))progress
              completion:(void (^)(NSError *))completion;
 
 /// 开始转码

@@ -15,9 +15,14 @@
 @property (strong, nonatomic) AVAssetWriter *videoWriter;
 
 @property(nonatomic, strong) dispatch_queue_t backgroundQueue;
+@property (nonatomic, weak) AVAssetExportSession *exportSession;
 @end
 
 @implementation CCVideo
+
+- (void)dealloc {
+
+}
 
 - (id)init {
     self = [super init];
@@ -27,7 +32,21 @@
     return self;
 }
 
-- (void)convertGIFToMP4:(NSData *)gif speed:(float)speed size:(CGSize)size repeat:(int)repeat output:(NSString *)path completion:(void (^)(NSError *))completion {
+/// gif 转成mp4格式
+/// @param gif gif data
+/// @param speed 视频播放速度（1和gif一致，大于1, 加快， 小于1，变慢）
+/// @param size 视频宽高
+/// @param repeat 重复次数
+/// @param path 输出路径
+/// @param progress 进度回调
+/// @param completion 回调
+- (void)convertGIFToMP4:(NSData *)gif
+                  speed:(float)speed
+                   size:(CGSize)size
+                 repeat:(int)repeat
+                 output:(NSString *)path
+               progress:(void(^)(CGFloat))progress
+             completion:(void (^)(NSError *))completion {
     
     repeat++;
     __block float movie_speed = speed;
@@ -39,14 +58,19 @@
         NSFileManager *fileManager = [NSFileManager defaultManager];
         if([fileManager fileExistsAtPath:path]) {
             dispatch_async(dispatch_get_main_queue(), ^(void){
-                completion([[NSError alloc] initWithDomain:@"com.cc.media" code:405 userInfo:@{NSLocalizedDescriptionKey: @"Output file already exists"}]);
+                !completion ?: completion([[NSError alloc] initWithDomain:@"com.cc.media" code:405 userInfo:@{NSLocalizedDescriptionKey: @"Output file already exists"}]);
             });
             return;
         }
         
         NSDictionary *gifData = [self loadGIFData:gif resize:size repeat:repeat];
+        NSArray<UIImage *> *frames = [gifData objectForKey:@"frames"];
+        if (frames.count == 0) {
+            !completion ?: completion([[NSError alloc] initWithDomain:@"com.cc.media" code:406 userInfo:@{NSLocalizedDescriptionKey: @"load gif file fail"}]);
+            return;
+        }
         
-        UIImage *first = [[gifData objectForKey:@"frames"] objectAtIndex:0];
+        UIImage *first = frames.firstObject;
         CGSize frameSize = first.size;
         frameSize.width = round(frameSize.width / 16) * 16;
         frameSize.height = round(frameSize.height / 16) * 16;
@@ -56,16 +80,16 @@
         
         if(error) {
             dispatch_async(dispatch_get_main_queue(), ^(void){
-                completion(error);
+                !completion ?: completion(error);
             });
             return;
         }
         
-        NSDictionary *videoSettings = [NSDictionary dictionaryWithObjectsAndKeys:
-                                       AVVideoCodecH264, AVVideoCodecKey,
-                                       [NSNumber numberWithInt:frameSize.width], AVVideoWidthKey,
-                                       [NSNumber numberWithInt:frameSize.height], AVVideoHeightKey,
-                                       nil];
+        NSDictionary *videoSettings = @{
+            AVVideoCodecKey: AVVideoCodecH264,
+            AVVideoWidthKey: [NSNumber numberWithInt:frameSize.width],
+            AVVideoHeightKey: [NSNumber numberWithInt:frameSize.height]
+        };
         
         AVAssetWriterInput *writerInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:videoSettings];
         
@@ -92,14 +116,14 @@
         if(buffer)
             CVBufferRelease(buffer);
         
-        int fps = ([[gifData objectForKey:@"frames"] count] / [[gifData valueForKey:@"animationTime"] floatValue]) * movie_speed;
-        NSLog(@"FPS: %d", fps);
+        NSUInteger framesCount = [[gifData objectForKey:@"frames"] count];
+        int fps = (framesCount / [[gifData valueForKey:@"animationTime"] floatValue]) * movie_speed;
+//        NSLog(@"FPS: %d", fps);
         
         int i = 0;
-        while(i < [[gifData objectForKey:@"frames"] count]) {
-            UIImage *image = [[gifData objectForKey:@"frames"] objectAtIndex:i];
+        while(i < framesCount) {
+            UIImage *image = [frames objectAtIndex:i];
             if(adaptor.assetWriterInput.readyForMoreMediaData) {
-                i++;
                 CMTime frameTime = CMTimeMake(1, fps);
                 CMTime lastTime = CMTimeMake(i, fps);
                 CMTime presentTime = CMTimeAdd(lastTime, frameTime);
@@ -113,11 +137,12 @@
                 if(buffer)
                     CVBufferRelease(buffer);
                 
-                [NSThread sleepForTimeInterval:0.1];
-                
+                [NSThread sleepForTimeInterval:0.05];
+                i++;
+                !progress ?: progress(i * 1.0/framesCount);
             } else {
                 NSLog(@"Error: Adaptor is not ready");
-                [NSThread sleepForTimeInterval:0.1];
+                [NSThread sleepForTimeInterval:0.05];
                 i--;
             }
         }
@@ -128,7 +153,7 @@
             CVPixelBufferPoolRelease(adaptor.pixelBufferPool);
             self.videoWriter = nil;
             dispatch_async(dispatch_get_main_queue(), ^(void){
-                completion(nil);
+                !completion ?: completion(nil);
             });
         }];
     });

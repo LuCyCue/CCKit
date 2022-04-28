@@ -93,11 +93,15 @@
         NSLog(@"You must select live photo first");
         return;
     }
-    [CCMediaFormatFactory convertLivePhoto:self.selectLivePhoto toGif:nil scale:0.5 framesPerSecond:4 frameRate:4 completion:^(NSString *url, NSError *error) {
+    NSLog(@"start video to gif");
+    [CCMediaFormatFactory convertLivePhoto:self.selectLivePhoto toGif:nil scale:0.5 framesPerSecond:10 frameRate:10 progress:^(CGFloat progress) {
+        NSLog(@"progress = %lf", progress);
+    } completion:^(NSString *url, NSError *error) {
         if (error) {
             NSLog(@"%@", error);
             return;
         }
+        NSLog(@"url = %@, error = %@", url, error);
         YYImage *img = [YYImage imageWithContentsOfFile:url];
         self.animationImageView.image = img;
     }];
@@ -108,10 +112,6 @@
         NSLog(@"You must select live photo first");
         return;
     }
-//    [CCMediaFormatFactory convertLivePhoto:self.selectLivePhoto toVideo:nil completion:^(NSString * url, NSError *error) {
-//        NSLog(@"url = %@, error = %@", url, error);
-//        [self.player playWithURL:[NSURL fileURLWithPath:url]];
-//    }];
     [CCMediaFormatFactory convertLivePhoto:self.selectLivePhoto toMP4:nil completion:^(NSString * _Nullable url, NSError * _Nullable error) {
         NSLog(@"url = %@, error = %@", url, error);
         [self.player playWithURL:[NSURL fileURLWithPath:url]];
@@ -123,7 +123,10 @@
         NSLog(@"You must select video first");
         return;
     }
-    [CCMediaFormatFactory convertVideo:self.videoUrl toGif:nil completion:^(NSString *url, NSError *error) {
+    NSLog(@"start video to gif");
+    [CCMediaFormatFactory convertVideo:self.videoUrl toGif:nil loopCount:0 frameRate:10 scale:0.5 framesPerSecond:10 progress:^(CGFloat progress) {
+        NSLog(@"progress = %lf", progress);
+    } completion:^(NSString *url, NSError *error) {
         NSLog(@"url = %@, error = %@", url, error);
         if (error) {
             NSLog(@"%@", error);
@@ -141,7 +144,10 @@
     }
     NSError *error;
     NSData *data = [NSData dataWithContentsOfFile:self.selectGifUrl options:NSDataReadingMappedIfSafe error:&error];
-    [CCMediaFormatFactory convertGif:data toVideo:nil speed:1 size:CGSizeZero repeat:0 completion:^(NSString *url, NSError *error) {
+    NSLog(@"start gif to video");
+    [CCMediaFormatFactory convertGif:data toVideo:nil speed:1 size:CGSizeZero repeat:0 progress:^(CGFloat progress) {
+        NSLog(@"progress = %lf", progress);
+    } completion:^(NSString *url, NSError *error) {
         NSLog(@"url = %@, error = %@", url, error);
         [self.player playWithURL:[NSURL fileURLWithPath:url]];
     }];
@@ -152,6 +158,7 @@
         NSLog(@"You must select video first");
         return;
     }
+    NSLog(@"start video to video");
     [CCMediaFormatFactory convertVideo:self.videoUrl to:nil outputFileType:CCVideoFileTypeMp4 presetType:CCExportPresetTypeMediumQuality completion:^(NSString * _Nullable url, NSError * _Nullable error) {
         NSLog(@"url = %@, error = %@", url, error);
         [self.player playWithURL:[NSURL fileURLWithPath:url]];

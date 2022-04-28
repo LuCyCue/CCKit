@@ -8,8 +8,11 @@
 
 #ifndef CCMediaFormatDefine_h
 #define CCMediaFormatDefine_h
+#import <CoreGraphics/CoreGraphics.h>
 
 typedef void(^CCMediaFormatCompletion)(NSString * _Nullable url, NSError * _Nullable error);
+typedef void(^CCMediaFormatProgress)(CGFloat progress);
+
 
 /// 导出视频质量
 typedef NS_ENUM(NSInteger, CCExportPresetType) {

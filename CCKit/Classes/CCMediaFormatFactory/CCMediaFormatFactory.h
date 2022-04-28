@@ -18,30 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 视频转成gif
 /// @param videoUrl 视频地址(支持NSString(仅本地路径)、NSURL)
 /// @param outputUrl gif输出路径
-/// @param completion 回调
-+ (void)convertVideo:(id)videoUrl
-               toGif:(NSString * _Nullable)outputUrl
-          completion:(CCMediaFormatCompletion)completion;
-
-/// 视频转成gif
-/// @param videoUrl 视频地址(支持NSString(仅本地路径)、NSURL)
-/// @param outputUrl gif输出路径
-/// @param scale 像素缩放比（0.0-1.0）
-/// @param framesPerSecond 视频每秒截取帧数
-/// @param completion 回调
-+ (void)convertVideo:(id)videoUrl
-               toGif:(NSString * _Nullable)outputUrl
-               scale:(CGFloat)scale
-     framesPerSecond:(NSUInteger)framesPerSecond
-          completion:(CCMediaFormatCompletion)completion;
-
-/// 视频转成gif
-/// @param videoUrl 视频地址(支持NSString(仅本地路径)、NSURL)
-/// @param outputUrl gif输出路径
 /// @param loopCount 动画循环次数
 /// @param frameRate gif帧率 （0.0-20.0）
 /// @param scale 像素缩放比（0.0-1.0]
 /// @param framesPerSecond 视频每秒被截取帧数
+/// @param progress 进度回调(0.0-1.0)
 /// @param completion 回调
 + (void)convertVideo:(id)videoUrl
                toGif:(NSString *_Nullable)outputUrl
@@ -49,7 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
            frameRate:(CGFloat)frameRate
                scale:(CGFloat)scale
      framesPerSecond:(NSUInteger)framesPerSecond
-          completion:(void(^)(NSString *, NSError *))completion;
+            progress:(CCMediaFormatProgress)progress
+          completion:(CCMediaFormatCompletion)completion;
 
 #pragma mark - GIF->视频
 
@@ -59,14 +41,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param speed 视频播放速度（1和gif一致，大于1, 加快， 小于1，变慢）
 /// @param size 视频宽高
 /// @param repeat 获取gif图片次数
+/// @param progress 进度回调
 /// @param completion 回调
-/// @discussion 使用远程URL作为源gif数据时，谨慎使用，因为会阻塞线程
 + (void)convertGif:(id)gif
            toVideo:(NSString * _Nullable)outputUrl
              speed:(CGFloat)speed
               size:(CGSize)size
             repeat:(int)repeat
-        completion:(void(^)(NSString *, NSError *))completion;
+          progress:(CCMediaFormatProgress)progress
+        completion:(CCMediaFormatCompletion)completion;
 
 #pragma mark - 视频格式转换
 
@@ -116,24 +99,18 @@ API_AVAILABLE_BEGIN(macos(10.15), ios(9.1), tvos(10))
 /// live photo 转成 gif
 /// @param livePhoto live photo 实例
 /// @param outputUrl gif输出路径
-/// @param completion 回调
-+ (void)convertLivePhoto:(PHLivePhoto *)livePhoto
-                   toGif:(NSString * _Nullable)outputUrl
-              completion:(CCMediaFormatCompletion)completion;
-
-/// live photo 转成 gif
-/// @param livePhoto live photo 实例
-/// @param outputUrl gif输出路径
 /// @param scale 像素缩放比（0.0-1.0）
 /// @param framesPerSecond 视频每秒被截取帧数
 /// @param frameRate gif帧率
+/// @param progress 进度回调
 /// @param completion 回调
 + (void)convertLivePhoto:(PHLivePhoto *)livePhoto
                    toGif:(NSString * _Nullable)outputUrl
                    scale:(CGFloat)scale
          framesPerSecond:(NSUInteger)framesPerSecond
                frameRate:(CGFloat)frameRate
-              completion:(void(^)(NSString *, NSError *))completion;
+                progress:(CCMediaFormatProgress)progress
+              completion:(CCMediaFormatCompletion)completion;
 
 @end
 

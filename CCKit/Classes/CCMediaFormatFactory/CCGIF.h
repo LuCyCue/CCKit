@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *outputUrl;
 /// 结束回调
 @property (nonatomic, copy) void(^completionHandler)(NSString * _Nullable outputUrl, NSError * _Nullable error);
+/// 进度回调
+@property (nonatomic, copy) void(^progressHandler)(CGFloat progress);
+
 
 /// 视频生成gif
 - (void)createFileWithAVAsset:(AVURLAsset *)asset;
