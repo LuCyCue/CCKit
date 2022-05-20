@@ -40,4 +40,10 @@ static NSString * _Nonnull const CCVideoFileTypeMap[] = {
     [CCVideoFileTypeM4v] = @".m4v",
 };
 
+/// 导出文件类型
+typedef NS_ENUM(NSInteger, CCGifQualityType) {
+    CCGifQualityTypeMedium = 0,
+    CCGifQualityTypeHigh,
+};
+
 #endif

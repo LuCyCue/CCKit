@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CCMediaFormatDefine.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)md5String:(NSString *)str;
 
 + (NSString *)randPathWithExtendName:(NSString *)extendName;
+
++ (BOOL)checkSDKValid:(CCMediaFormatCompletion)completion;
+
++ (BOOL)checkSDKValid;
 
 @end
 

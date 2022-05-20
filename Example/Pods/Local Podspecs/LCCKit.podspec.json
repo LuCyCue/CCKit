@@ -74,7 +74,8 @@
         "AVFoundation",
         "CoreGraphics",
         "MobileCoreServices",
-        "Foundation"
+        "Foundation",
+        "WebKit"
       ]
     }
   ]

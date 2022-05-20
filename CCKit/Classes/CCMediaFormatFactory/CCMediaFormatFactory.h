@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
 #import "CCMediaFormatDefine.h"
+#import "CCPDFConvertView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -51,6 +52,13 @@ NS_ASSUME_NONNULL_BEGIN
           progress:(CCMediaFormatProgress)progress
         completion:(CCMediaFormatCompletion)completion;
 
+#pragma mark - GIF->图片组
+
+/// gif -> 图片组
+/// @param gif gif数据(支持:NSData、NSURL、NSString(本地路径))
+/// @param error 错误
++ (NSArray<UIImage *> *)convertGifToImages:(id)gif error:(NSError *_Nullable * _Nullable)error;
+
 #pragma mark - 视频格式转换
 
 /// 视频格式转换
@@ -64,6 +72,32 @@ NS_ASSUME_NONNULL_BEGIN
       outputFileType:(CCVideoFileType)outputFileType
           presetType:(CCExportPresetType)presetType
           completion:(CCMediaFormatCompletion)completion;
+
+#pragma mark - PDF
+
+/// office 文档格式转化为pdf
+/// @param pdfConvertView pdf渲染view
+/// @param outputUrl 输出文件路径（可为空）
+/// @param error 错误
++ (NSString *)convertOfficeDocument:(CCPDFConvertView *)pdfConvertView
+                              toPdf:(NSString * _Nullable)outputUrl
+                              error:(NSError *_Nullable * _Nullable)error;
+
+/// office 文档格式转化为图片
+/// @param pdfConvertView pdf渲染view
+/// @param outputUrl 输出文件路径（可为空）
+/// @param error 错误
++ (NSString *)convertOfficeDocument:(CCPDFConvertView *)pdfConvertView
+                            toImage:(NSString * _Nullable)outputUrl
+                              error:(NSError *_Nullable * _Nullable)error;
+
+/// 图片数组转换为pdf格式
+/// @param images 图片数组
+/// @param outputUrl 输出路径（可为空）
+/// @param error 错误信息
++ (NSString *)convertImages:(NSArray<UIImage *> *)images
+                      toPdf:(NSString * _Nullable)outputUrl
+                      error:(NSError *_Nullable * _Nullable)error;
 
 @end
 

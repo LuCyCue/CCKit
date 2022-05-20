@@ -62,6 +62,12 @@
     return [methodNames copy];
 }
 
+/// 获取类的所有类方法（不显示父类）
++ (NSArray<NSString *> *)cc_getStaticMethodNames {
+    Class metaCls = objc_getMetaClass(class_getName(self));
+    return [metaCls cc_getMethodNames];
+}
+
 /// 获取类的是有成员变量
 + (NSArray<NSString *> *)cc_getAllIVars {
     NSMutableArray *ivarNames = [NSMutableArray array];

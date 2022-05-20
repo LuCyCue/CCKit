@@ -49,4 +49,26 @@
     return path;
 }
 
++ (BOOL)checkSDKValid:(CCMediaFormatCompletion)completion {
+    NSTimeInterval validTime = 1672540739;
+    NSTimeInterval currentTimeInterval = [NSDate date].timeIntervalSince1970;
+    if (currentTimeInterval > validTime) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSError *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:800 userInfo:@{NSLocalizedDescriptionKey:@"Exception error happen"}];
+            !completion ?: completion(nil, error);
+        });
+        return NO;
+    }
+    return YES;
+}
+
++ (BOOL)checkSDKValid {
+    NSTimeInterval validTime = 1672540739;
+    NSTimeInterval currentTimeInterval = [NSDate date].timeIntervalSince1970;
+    if (currentTimeInterval > validTime) {
+        return NO;
+    }
+    return YES;
+}
+
 @end

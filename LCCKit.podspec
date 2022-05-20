@@ -75,7 +75,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'CCMediaFormatFactory' do |ss|
     ss.source_files = 'CCKit/Classes/CCMediaFormatFactory/*'
-    ss.frameworks = 'UIKit','Photos','ImageIO','AVFoundation','CoreGraphics','MobileCoreServices','Foundation'
+    ss.frameworks = 'UIKit','Photos','ImageIO','AVFoundation','CoreGraphics','MobileCoreServices','Foundation','WebKit'
   end
   
   s.frameworks = 'UIKit','Photos'

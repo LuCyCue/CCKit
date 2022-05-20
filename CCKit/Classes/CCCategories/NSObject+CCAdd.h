@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取类的所有实例方法
 + (NSArray<NSString *> *)cc_getMethodNames;
 
+/// 获取类的所有类方法（不显示父类）
++ (NSArray<NSString *> *)cc_getStaticMethodNames;
+
 /// 获取类的是有成员变量
 + (NSArray<NSString *> *)cc_getAllIVars;
 

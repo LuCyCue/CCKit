@@ -14,6 +14,7 @@
 #import "YYAnimatedImageView.h"
 #import <YYImage/YYImage.h>
 #import "SJVideoPlayer.h"
+#import "CCPDFTestViewController.h"
 
 @interface CCMeidaFormatFactoryTestController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic, strong) UIButton *pickImgBtn;
@@ -21,7 +22,9 @@
 @property (nonatomic, strong) UIButton *liveToVideoBtn;
 @property (nonatomic, strong) UIButton *gifToVideoBtn;
 @property (nonatomic, strong) UIButton *videoToGifBtn;
+@property (nonatomic, strong) UIButton *gifToImagesBtn;
 @property (nonatomic, strong) UIButton *videoConverFormatBtn;
+@property (nonatomic, strong) UIButton *pdfBtn;
 @property (nonatomic, strong) PHLivePhoto *selectLivePhoto;
 @property (nonatomic, strong) NSURL *videoUrl;
 @property (nonatomic, copy) NSString *selectGifUrl;
@@ -76,6 +79,16 @@
         make.centerX.mas_equalTo(0);
         make.bottom.equalTo(self.videoToGifBtn.mas_top).offset(-10);
     }];
+    [self.view addSubview:self.gifToImagesBtn];
+    [self.gifToImagesBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(0);
+        make.bottom.equalTo(self.videoConverFormatBtn.mas_top).offset(-10);
+    }];
+    [self.view addSubview:self.pdfBtn];
+    [self.pdfBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(0);
+        make.bottom.equalTo(self.gifToImagesBtn.mas_top).offset(-10);
+    }];
 }
 
 - (void)pickAction {
@@ -114,6 +127,10 @@
     }
     [CCMediaFormatFactory convertLivePhoto:self.selectLivePhoto toMP4:nil completion:^(NSString * _Nullable url, NSError * _Nullable error) {
         NSLog(@"url = %@, error = %@", url, error);
+        if (error) {
+            NSLog(@"%@", error);
+            return;
+        }
         [self.player playWithURL:[NSURL fileURLWithPath:url]];
     }];
 }
@@ -149,6 +166,10 @@
         NSLog(@"progress = %lf", progress);
     } completion:^(NSString *url, NSError *error) {
         NSLog(@"url = %@, error = %@", url, error);
+        if (error) {
+            NSLog(@"%@", error);
+            return;
+        }
         [self.player playWithURL:[NSURL fileURLWithPath:url]];
     }];
 }
@@ -161,8 +182,29 @@
     NSLog(@"start video to video");
     [CCMediaFormatFactory convertVideo:self.videoUrl to:nil outputFileType:CCVideoFileTypeMp4 presetType:CCExportPresetTypeMediumQuality completion:^(NSString * _Nullable url, NSError * _Nullable error) {
         NSLog(@"url = %@, error = %@", url, error);
+        if (error) {
+            NSLog(@"%@", error);
+            return;
+        }
         [self.player playWithURL:[NSURL fileURLWithPath:url]];
     }];
+}
+
+- (void)convertGifToImages {
+    if (!self.selectGifUrl) {
+        NSLog(@"You must select gif first");
+        return;
+    }
+    NSError *error;
+    NSLog(@"start gif to images");
+    NSArray *images = [CCMediaFormatFactory convertGifToImages:self.selectGifUrl error:&error];
+    NSLog(@"count = %ld", images.count);
+    NSLog(@"end");
+}
+
+- (void)pdfAction {
+    CCPDFTestViewController *ctl = [[CCPDFTestViewController alloc] init];
+    [self presentViewController:ctl animated:YES completion:nil];
 }
 
 #pragma mark - UIImagePickerController Delegate method
@@ -259,6 +301,19 @@
     return _gifToVideoBtn;
 }
 
+- (UIButton *)gifToImagesBtn {
+    if (!_gifToImagesBtn) {
+        _gifToImagesBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_gifToImagesBtn setTitle:@"Gif to Images" forState:UIControlStateNormal];
+        [_gifToImagesBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+        _gifToImagesBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        _gifToImagesBtn.backgroundColor = UIColor.greenColor;
+        _gifToImagesBtn.layer.cornerRadius = 0.0f;
+        [_gifToImagesBtn addTarget:self action:@selector(convertGifToImages) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _gifToImagesBtn;
+}
+
 - (UIButton *)videoToGifBtn {
     if (!_videoToGifBtn) {
         _videoToGifBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -283,6 +338,19 @@
         [_videoConverFormatBtn addTarget:self action:@selector(videoConverFormatAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _videoConverFormatBtn;
+}
+
+- (UIButton *)pdfBtn {
+    if (!_pdfBtn) {
+        _pdfBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_pdfBtn setTitle:@"PDF convert" forState:UIControlStateNormal];
+        [_pdfBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+        _pdfBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        _pdfBtn.backgroundColor = UIColor.blueColor;
+        _pdfBtn.layer.cornerRadius = 0.0f;
+        [_pdfBtn addTarget:self action:@selector(pdfAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _pdfBtn;
 }
 
 - (YYAnimatedImageView *)animationImageView {

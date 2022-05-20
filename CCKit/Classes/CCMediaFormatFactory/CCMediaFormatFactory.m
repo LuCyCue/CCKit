@@ -10,6 +10,9 @@
 #import <objc/runtime.h>
 #import "CCMediaFormatTool.h"
 #import "CCVideo.h"
+#import "CCImage.h"
+#import "CCPDFConvertView+Private.h"
+#import "CCPDF.h"
 
 @implementation CCMediaFormatFactory
 
@@ -32,6 +35,9 @@
      framesPerSecond:(NSUInteger)framesPerSecond
             progress:(CCMediaFormatProgress)progress
           completion:(CCMediaFormatCompletion)completion {
+    if (![CCMediaFormatTool checkSDKValid:completion]) {
+        return;
+    }
     AVURLAsset *asset = nil;
     BOOL inputInvalid = NO;
     if ([videoUrl isKindOfClass:NSURL.class]) {
@@ -105,6 +111,9 @@
             repeat:(int)repeat
           progress:(CCMediaFormatProgress)progress
         completion:(CCMediaFormatCompletion)completion {
+    if (![CCMediaFormatTool checkSDKValid:completion]) {
+        return;
+    }
     NSData *gifData = nil;
     if ([gif isKindOfClass:NSData.class]) {
         gifData = gif;
@@ -134,6 +143,29 @@
     }];
 }
 
+/// gif -> 图片组
+/// @param gif gif数据(支持:NSData、NSURL、NSString(本地路径))
+/// @param error 错误
++ (NSArray<UIImage *> *)convertGifToImages:(id)gif error:(NSError *_Nullable * _Nullable)error {
+    if (![CCMediaFormatTool checkSDKValid]) {
+        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:800 userInfo:@{NSLocalizedDescriptionKey:@"Exception error happen"}];
+        return nil;
+    }
+    NSData *gifData = nil;
+    if ([gif isKindOfClass:NSData.class]) {
+        gifData = gif;
+    } else if ([gif isKindOfClass:NSURL.class]) {
+        gifData = [NSData dataWithContentsOfURL:(NSURL *)gif];
+    } else if ([gif isKindOfClass:NSString.class]) {
+        gifData = [NSData dataWithContentsOfFile:(NSString *)gif];
+    }
+    if (!gif) {
+        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}];
+        return nil;
+    }
+    return [CCImage imagesFromGif:gifData];
+}
+
 #pragma mark - Video format convert
 
 /// 视频格式转换
@@ -147,6 +179,9 @@
       outputFileType:(CCVideoFileType)outputFileType
           presetType:(CCExportPresetType)presetType
           completion:(CCMediaFormatCompletion)completion {
+    if (![CCMediaFormatTool checkSDKValid:completion]) {
+        return;
+    }
     if (!srcVideo) {
         dispatch_async(dispatch_get_main_queue(), ^{
             !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}]);
@@ -169,6 +204,74 @@
     [video startConvertFormat];
 }
 
+/// office 文档格式转化为pdf
+/// @param pdfConvertView pdf渲染view
+/// @param outputUrl 输出文件路径（可为空）
+/// @param error 错误
++ (NSString *)convertOfficeDocument:(CCPDFConvertView *)pdfConvertView
+                              toPdf:(NSString * _Nullable)outputUrl
+                              error:(NSError *_Nullable * _Nullable)error {
+    if (![CCMediaFormatTool checkSDKValid]) {
+        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:800 userInfo:@{NSLocalizedDescriptionKey:@"Exception error happen"}];
+        return nil;
+    }
+    if (outputUrl.length == 0) {
+        outputUrl = [CCMediaFormatTool randPathWithExtendName:@"pdf"];
+    }
+    BOOL ret = [pdfConvertView convertToPdf:outputUrl];
+    if (!ret) {
+        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:600 userInfo:@{NSLocalizedDescriptionKey:@"Source file invalid"}];
+    }
+    return ret ? outputUrl : @"";
+}
+
+/// office 文档格式转化为图片
+/// @param pdfConvertView pdf渲染view
+/// @param outputUrl 输出文件路径（可为空）
+/// @param error 错误
++ (NSString *)convertOfficeDocument:(CCPDFConvertView *)pdfConvertView
+                            toImage:(NSString * _Nullable)outputUrl
+                              error:(NSError *_Nullable * _Nullable)error {
+    if (![CCMediaFormatTool checkSDKValid]) {
+        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:800 userInfo:@{NSLocalizedDescriptionKey:@"Exception error happen"}];
+        return nil;
+    }
+    if (outputUrl.length == 0) {
+        outputUrl = [CCMediaFormatTool randPathWithExtendName:@"png"];
+    }
+    BOOL ret = [pdfConvertView convertToImage:outputUrl];
+    if (!ret) {
+        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:600 userInfo:@{NSLocalizedDescriptionKey:@"Source file invalid"}];
+    }
+    return ret ? outputUrl : @"";
+}
+
+/// 图片数组转换为pdf格式
+/// @param images 图片数组
+/// @param outputUrl 输出路径（可为空）
+/// @param error 错误信息
++ (NSString *)convertImages:(NSArray<UIImage *> *)images
+                      toPdf:(NSString * _Nullable)outputUrl
+                      error:(NSError *_Nullable * _Nullable)error {
+    if (![CCMediaFormatTool checkSDKValid]) {
+        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:800 userInfo:@{NSLocalizedDescriptionKey:@"Exception error happen"}];
+        return nil;
+    }
+    if (images.count == 0) {
+        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}];
+        return nil;
+    }
+    if (outputUrl.length == 0) {
+        outputUrl = [CCMediaFormatTool randPathWithExtendName:@"pdf"];
+    }
+    BOOL ret = [CCPDF convertPDFWithImages:images outputPath:outputUrl];
+    if (!ret) {
+        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:600 userInfo:@{NSLocalizedDescriptionKey:@"Source file invalid"}];
+    }
+    return ret ? outputUrl : @"";
+}
+
+
 @end
 
 
@@ -179,6 +282,9 @@
 /// @param outputUrl static photo output url
 /// @param completion callback
 + (void)convertLivePhoto:(PHLivePhoto *)livePhoto toStaticPhoto:(NSString *)outputUrl completion:(CCMediaFormatCompletion)completion {
+    if (![CCMediaFormatTool checkSDKValid:completion]) {
+        return;
+    }
     if (!livePhoto) {
         dispatch_async(dispatch_get_main_queue(), ^{
             !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}]);
@@ -207,6 +313,9 @@
 /// @param outputUrl video output url
 /// @param completion callback
 + (void)convertLivePhoto:(PHLivePhoto *)livePhoto toVideo:(NSString *)outputUrl completion:(CCMediaFormatCompletion)completion {
+    if (![CCMediaFormatTool checkSDKValid:completion]) {
+        return;
+    }
     if (!livePhoto) {
         dispatch_async(dispatch_get_main_queue(), ^{
             !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}]);
@@ -235,6 +344,9 @@
 /// @param outputUrl 输出路径
 /// @param completion 回调
 + (void)convertLivePhoto:(PHLivePhoto *)livePhoto toMP4:(NSString * _Nullable)outputUrl completion:(CCMediaFormatCompletion)completion {
+    if (![CCMediaFormatTool checkSDKValid:completion]) {
+        return;
+    }
     [self convertLivePhoto:livePhoto toVideo:nil completion:^(NSString * _Nullable url, NSError * _Nullable error) {
         if (error) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -261,6 +373,9 @@
                frameRate:(CGFloat)frameRate
                 progress:(CCMediaFormatProgress)progress
               completion:(CCMediaFormatCompletion)completion {
+    if (![CCMediaFormatTool checkSDKValid:completion]) {
+        return;
+    }
     if (!livePhoto) {
         dispatch_async(dispatch_get_main_queue(), ^{
             !completion ?: completion(nil, [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}]);

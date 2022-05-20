@@ -37,22 +37,22 @@
     dispatch_once(&onceToken, ^{
         set = [NSMutableSet set];
     });
-    if (delegate && ![set containsObject:delegate.class]) {
-        SEL newSel = @selector(cc_scrollViewDidScroll:);
-        SEL originalSel = @selector(scrollViewDidScroll:);
-        if (class_getInstanceMethod(delegate.class, originalSel)) {
-            [self.class swizzleInstanceMethod:originalSel with:newSel class:delegate.class];
-        } else {
-            void(^emptyBlock)(void) = ^{};
-            IMP emptyMethodImp = imp_implementationWithBlock(emptyBlock);
-            Method originalMethod = class_getInstanceMethod(delegate.class, originalSel);
-            Method newMethod = class_getInstanceMethod(delegate.class, newSel);
-            class_addMethod(delegate.class, originalSel, class_getMethodImplementation(delegate.class, newSel), method_getTypeEncoding(newMethod));
-            class_replaceMethod(delegate.class, newSel, emptyMethodImp, method_getTypeEncoding(originalMethod));
-        }
-        
-        [set addObject:delegate.class];
-    }
+//    if (delegate && ![set containsObject:delegate.class]) {
+//        SEL newSel = @selector(cc_scrollViewDidScroll:);
+//        SEL originalSel = @selector(scrollViewDidScroll:);
+//        if (class_getInstanceMethod(delegate.class, originalSel)) {
+//            [self.class swizzleInstanceMethod:originalSel with:newSel class:delegate.class];
+//        } else {
+//            void(^emptyBlock)(void) = ^{};
+//            IMP emptyMethodImp = imp_implementationWithBlock(emptyBlock);
+//            Method originalMethod = class_getInstanceMethod(delegate.class, originalSel);
+//            Method newMethod = class_getInstanceMethod(delegate.class, newSel);
+//            class_addMethod(delegate.class, originalSel, class_getMethodImplementation(delegate.class, newSel), method_getTypeEncoding(newMethod));
+//            class_replaceMethod(delegate.class, newSel, emptyMethodImp, method_getTypeEncoding(originalMethod));
+//        }
+//        
+//        [set addObject:delegate.class];
+//    }
     [self cc_setDelegate:delegate];
 }
 
