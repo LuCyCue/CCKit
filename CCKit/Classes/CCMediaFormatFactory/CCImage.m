@@ -26,149 +26,104 @@
     return imageArray;
 }
 
-+ (UIImage *)imageFromPdf:(NSURL *)pdfUrl {
+/// pdf生成图片组, 归档到沙盒
+/// @param pdfUrl pdf文件
+/// @param outputPath 输出文件夹（文件夹需唯一）
++ (NSArray<NSString *> * _Nullable)imagesFromPdf:(NSURL *)pdfUrl outputPath:(NSString *)outputPath {
     CFURLRef ref = (__bridge CFURLRef)pdfUrl;
     CGPDFDocumentRef pdf = CGPDFDocumentCreateWithURL(ref);
     CFRelease(ref);
-    CGImageRef imageRef = PDFPageToCGImage(1, pdf);
-    UIImage *image = [UIImage imageWithCGImage:imageRef];
-    CGImageRelease(imageRef);
-    return image;
+    size_t pageNum = CGPDFDocumentGetNumberOfPages(pdf);
+    if (pageNum == 0) {
+        return nil;
+    }
+    NSMutableArray *pathArray = [NSMutableArray array];
+    for (int i = 1; i <= pageNum; i++) {
+        CGImageRef imageRef = PDFPageToCGImage(i, pdf);
+        UIImage *image = [UIImage imageWithCGImage:imageRef];
+        NSString *path = [NSString stringWithFormat:@"%@/%@.png", outputPath, @(i)];
+        NSData *imgData = UIImagePNGRepresentation(image);
+        if ([imgData writeToFile:path atomically:YES]) {
+            [pathArray addObject:path];
+        }
+        CGImageRelease(imageRef);
+    }
+    return pathArray;
+}
+
++ (NSArray<UIImage *> *)imagesFromPdf:(NSURL *)pdfUrl {
+    CFURLRef ref = (__bridge CFURLRef)pdfUrl;
+    CGPDFDocumentRef pdf = CGPDFDocumentCreateWithURL(ref);
+    CFRelease(ref);
+    size_t pageNum = CGPDFDocumentGetNumberOfPages(pdf);
+    if (pageNum == 0) {
+        return @[];
+    }
+    NSMutableArray *imgArray = [NSMutableArray array];
+    for (int i = 1; i <= pageNum; i++) {
+        CGImageRef imageRef = PDFPageToCGImage(i, pdf);
+        UIImage *image = [UIImage imageWithCGImage:imageRef];
+        [imgArray addObject:image];
+        CGImageRelease(imageRef);
+    }
+    return [imgArray copy];
 }
 
 CGImageRef PDFPageToCGImage(size_t pageNumber, CGPDFDocumentRef document) {
-
-    CGPDFPageRef page = CGPDFDocumentGetPage (document, pageNumber);
-
-    if(page)
-
-    {
-
-        CGRect pageSize =CGPDFPageGetBoxRect(page,kCGPDFMediaBox);
-
-        CGContextRef outContext= CreateARGBBitmapContext (pageSize.size.width, pageSize.size.height);
-
-        if(outContext)
-
-        {
-
+    CGPDFPageRef page = CGPDFDocumentGetPage(document, pageNumber);
+    if(page) {
+        CGRect pageSize = CGPDFPageGetBoxRect(page, kCGPDFMediaBox);
+        CGContextRef outContext = CreateARGBBitmapContext(pageSize.size.width*2, pageSize.size.height*2);
+     
+        if(outContext) {
             CGContextDrawPDFPage(outContext, page);
-
-            CGImageRef ThePDFImage= CGBitmapContextCreateImage(outContext);
-
+            CGImageRef ThePDFImage = CGBitmapContextCreateImage(outContext);
+            char *data = CGBitmapContextGetData(outContext);
+            free(data);
             CFRelease(outContext);
-
             return ThePDFImage;
-
         }
-
     }
-
     return NULL;
-
 }
 
-CGContextRef CreateARGBBitmapContext (size_t pixelsWide, size_t pixelsHigh)
-
-{
-
+CGContextRef CreateARGBBitmapContext (size_t pixelsWide, size_t pixelsHigh) {
     CGContextRef    context = NULL;
-
     CGColorSpaceRef colorSpace;
-
     void *          bitmapData;
-
     unsigned long   bitmapByteCount;
-
     unsigned long   bitmapBytesPerRow;
-
-    // Get image width, height. We’ll use the entire image.
-
-    //  size_t pixelsWide = CGImageGetWidth(inImage);
-
-    //  size_t pixelsHigh = CGImageGetHeight(inImage);
-
-    // Declare the number of bytes per row. Each pixel in the bitmap in this
-
-    // example is represented by 4 bytes; 8 bits each of red, green, blue, and
-
-    // alpha.
-
-    bitmapBytesPerRow   = (pixelsWide * 4);
-
-    bitmapByteCount     = (bitmapBytesPerRow * pixelsHigh);
-
+    bitmapBytesPerRow = (pixelsWide * 4);
+    bitmapByteCount = (bitmapBytesPerRow * pixelsHigh);
     // Use the generic RGB color space.
+    colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
 
-    colorSpace =CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
-
-    if (colorSpace == NULL)
-
-    {
-
+    if (colorSpace == NULL) {
         fprintf(stderr, "Error allocating color space\n");
-
         return NULL;
-
     }
-
-    // Allocate memory for image data. This is the destination in memory
-
-    // where any drawing to the bitmap context will be rendered.
-
-    bitmapData = malloc( bitmapByteCount );
-
-    if (bitmapData == NULL)
-
-    {
-
+    bitmapData = malloc(bitmapByteCount);
+    if (bitmapData == NULL){
         fprintf (stderr, "Memory not allocated!");
-
         CGColorSpaceRelease( colorSpace );
-
         return NULL;
-
     }
-
-    // Create the bitmap context. We want pre-multiplied ARGB, 8-bits
-
-    // per component. Regardless of what the source image format is
-
-    // (CMYK, Grayscale, and so on) it will be converted over to the format
-
-    // specified here by CGBitmapContextCreate.
-
     context = CGBitmapContextCreate (bitmapData,
-
                                      pixelsWide,
-
                                      pixelsHigh,
-
                                      8,      // bits per component
-
                                      bitmapBytesPerRow,
-
                                      colorSpace,
-
                                      kCGImageAlphaPremultipliedFirst);
 
-    if (context == NULL)
-
-    {
-
+    if (context == NULL){
         free (bitmapData);
-
         fprintf (stderr, "Context not created!");
-
     }
-
-    // Make sure and release colorspace before returning
-
-    CGColorSpaceRelease( colorSpace );
-
+    CGColorSpaceRelease(colorSpace);
+    CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
+    CGContextScaleCTM(context, 2, 2);
     return context;
-
 }
-
 
 @end

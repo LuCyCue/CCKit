@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)convertToImage:(NSString *)outputPath;
 
+- (BOOL)convertToPdf:(NSString *)outputPath pageRect:(CGRect)pageRect pageInset:(UIEdgeInsets)pageInset;
+
 @end
 
 NS_ASSUME_NONNULL_END

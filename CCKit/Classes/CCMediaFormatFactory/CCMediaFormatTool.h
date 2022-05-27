@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)randPathWithExtendName:(NSString *)extendName;
 
++ (NSString *)randFolderPath;
+
 + (BOOL)checkSDKValid:(CCMediaFormatCompletion)completion;
 
 + (BOOL)checkSDKValid;

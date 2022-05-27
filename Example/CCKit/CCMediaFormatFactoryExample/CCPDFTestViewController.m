@@ -39,13 +39,14 @@
     }
     [self selectDocumentWithIndex:0];
     
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 3; i++) {
         UIButton *btn = [[UIButton alloc] init];
-        [btn setTitle:@[@"转pdf",@"转图片"][i] forState:UIControlStateNormal];
+        [btn setTitle:@[@"转pdf",@"转单图片",@"转多图片"][i] forState:UIControlStateNormal];
         [btn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
         btn.backgroundColor = UIColor.blueColor;
+        btn.titleLabel.font = [UIFont systemFontOfSize:12];
         btn.tag = 200+i;
-        btn.frame = CGRectMake(UIScreen.mainScreen.bounds.size.width - 80, 60+i*40, 50, 30);
+        btn.frame = CGRectMake(UIScreen.mainScreen.bounds.size.width - 80, 60+i*40, 60, 30);
         [btn addTarget:self action:@selector(startConvert:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:btn];
     }
@@ -53,19 +54,28 @@
 }
 
 - (void)startConvert:(UIButton *)sender {
-    NSError *error = nil;
+
     if (sender.tag == 200) {
-        NSString *filePath = [CCMediaFormatFactory convertOfficeDocument:self.pdfConvertView toPdf:nil error:&error];
-        if (!error && filePath.length) {
-            self.docVC.URL = [NSURL fileURLWithPath:filePath];
-            [self.docVC presentPreviewAnimated:YES];
-        }
+       [CCMediaFormatFactory convertOfficeDocument:self.pdfConvertView toPdf:nil completion:^(NSString * _Nullable url, NSError * _Nullable error) {
+            if (!error && url.length) {
+                self.docVC.URL = [NSURL fileURLWithPath:url];
+                [self.docVC presentPreviewAnimated:YES];
+            }
+        }];
+
     } else if (sender.tag == 201) {
-        NSString *filePath = [CCMediaFormatFactory convertOfficeDocument:self.pdfConvertView toImage:nil error:&error];
-        if (!error && filePath.length) {
-            self.docVC.URL = [NSURL fileURLWithPath:filePath];
-            [self.docVC presentPreviewAnimated:YES];
-        }
+//        UIImage *img = [CCMediaFormatFactory convertOfficeDocumentToSingleImage:self.pdfConvertView error:&error];
+        [CCMediaFormatFactory convertOfficeDocument:self.pdfConvertView toSingleImage:nil comletion:^(NSString * _Nullable url, NSError * _Nullable error) {
+            if (!error && url.length) {
+                self.docVC.URL = [NSURL fileURLWithPath:url];
+                [self.docVC presentPreviewAnimated:YES];
+            }
+        }];
+        NSLog(@"");
+    } else if (sender.tag == 202) {
+        [CCMediaFormatFactory convertOfficeDocument:self.pdfConvertView toImages:nil completion:^(NSString * _Nullable outputFolder, NSArray * _Nullable outputPaths, NSError * _Nullable error) {
+                    
+        }];
     }
 }
 

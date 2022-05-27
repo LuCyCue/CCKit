@@ -207,43 +207,175 @@
 /// office 文档格式转化为pdf
 /// @param pdfConvertView pdf渲染view
 /// @param outputUrl 输出文件路径（可为空）
-/// @param error 错误
-+ (NSString *)convertOfficeDocument:(CCPDFConvertView *)pdfConvertView
-                              toPdf:(NSString * _Nullable)outputUrl
-                              error:(NSError *_Nullable * _Nullable)error {
-    if (![CCMediaFormatTool checkSDKValid]) {
-        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:800 userInfo:@{NSLocalizedDescriptionKey:@"Exception error happen"}];
-        return nil;
+/// @param completion 回调
++ (void)convertOfficeDocument:(CCPDFConvertView *)pdfConvertView
+                        toPdf:(NSString * _Nullable)outputUrl
+                   completion:(CCMediaFormatCompletion)completion {
+    if (![CCMediaFormatTool checkSDKValid:completion]) {
+        return;
     }
     if (outputUrl.length == 0) {
         outputUrl = [CCMediaFormatTool randPathWithExtendName:@"pdf"];
     }
-    BOOL ret = [pdfConvertView convertToPdf:outputUrl];
-    if (!ret) {
-        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:600 userInfo:@{NSLocalizedDescriptionKey:@"Source file invalid"}];
-    }
-    return ret ? outputUrl : @"";
+    dispatch_async(dispatch_get_main_queue(), ^{
+        BOOL isPPT = [pdfConvertView.fileUrl.pathExtension isEqualToString:@"ppt"];
+        BOOL ret = NO;
+        NSError *error = nil;
+        if (isPPT) {
+            CGRect pageRect = CGRectMake(0, 0, 425, 340);
+            ret = [pdfConvertView convertToPdf:outputUrl pageRect:pageRect pageInset:UIEdgeInsetsMake(10, 10, 10, 10)];
+        } else {
+            ret = [pdfConvertView convertToPdf:outputUrl];
+        }
+        if (!ret) {
+            error = [NSError errorWithDomain:@"cc.mediaformat.com" code:600 userInfo:@{NSLocalizedDescriptionKey:@"Source file invalid"}];
+        }
+        !completion ?: completion(outputUrl, error);
+    });
 }
 
 /// office 文档格式转化为图片
 /// @param pdfConvertView pdf渲染view
-/// @param outputUrl 输出文件路径（可为空）
 /// @param error 错误
-+ (NSString *)convertOfficeDocument:(CCPDFConvertView *)pdfConvertView
-                            toImage:(NSString * _Nullable)outputUrl
-                              error:(NSError *_Nullable * _Nullable)error {
++ (NSArray<UIImage *> * _Nullable)convertOfficeDocumentToImages:(CCPDFConvertView *)pdfConvertView
+                                                          error:(NSError *_Nullable * _Nullable)error {
     if (![CCMediaFormatTool checkSDKValid]) {
         *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:800 userInfo:@{NSLocalizedDescriptionKey:@"Exception error happen"}];
         return nil;
     }
+    NSString *tmpUrl = [CCMediaFormatTool randPathWithExtendName:@"pdf"];
+    
+    BOOL isPPT = [pdfConvertView.fileUrl.pathExtension isEqualToString:@"ppt"];
+    BOOL ret = NO;
+    if (isPPT) {
+        CGRect pageRect = CGRectMake(0, 0, 425, 340);
+        ret = [pdfConvertView convertToPdf:tmpUrl pageRect:pageRect pageInset:UIEdgeInsetsMake(10, 10, 10, 10)];
+    } else {
+        ret = [pdfConvertView convertToPdf:tmpUrl];
+    }
+    if (!ret) {
+        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:600 userInfo:@{NSLocalizedDescriptionKey:@"Source file invalid"}];
+        return nil;
+    }
+    NSArray<UIImage *> *imgArray = [CCImage imagesFromPdf:[NSURL fileURLWithPath:tmpUrl]];
+    if (imgArray.count == 0) {
+        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:601 userInfo:@{NSLocalizedDescriptionKey:@"Generate image fail"}];
+        return nil;
+    }
+    return imgArray;
+}
+
+/// office文档转成图片数组
+/// @param pdfConvertView pdf渲染view
+/// @param outputPath 输出文件夹，请确认里面没有其他图片，避免文字相同无法得到正确结果（可空）
+/// @param completion 回调
++ (void)convertOfficeDocument:(CCPDFConvertView *)pdfConvertView
+                     toImages:(NSString * _Nullable)outputPath
+                   completion:(void(^)(NSString *_Nullable outputFolder, NSArray *_Nullable outputPaths, NSError * _Nullable error))completion {
+    if (outputPath.length == 0) {
+        outputPath = [CCMediaFormatTool randFolderPath];
+    }
+    __block NSError *error = nil;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (![CCMediaFormatTool checkSDKValid]) {
+            error = [NSError errorWithDomain:@"cc.mediaformat.com" code:800 userInfo:@{NSLocalizedDescriptionKey:@"Exception error happen"}];
+            !completion ?: completion(nil, nil, error);
+            return;
+        }
+        NSString *tmpUrl = [CCMediaFormatTool randPathWithExtendName:@"pdf"];
+        BOOL isPPT = [pdfConvertView.fileUrl.pathExtension isEqualToString:@"ppt"];
+        BOOL ret = NO;
+        if (isPPT) {
+            CGRect pageRect = CGRectMake(0, 0, 425, 340);
+            ret = [pdfConvertView convertToPdf:tmpUrl pageRect:pageRect pageInset:UIEdgeInsetsMake(10, 10, 10, 10)];
+        } else {
+            ret = [pdfConvertView convertToPdf:tmpUrl];
+        }
+        if (!ret) {
+            error = [NSError errorWithDomain:@"cc.mediaformat.com" code:600 userInfo:@{NSLocalizedDescriptionKey:@"Source file invalid"}];
+            !completion ?: completion(nil, nil, error);
+            return;
+        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            NSArray<NSString *> *imgArray = [CCImage imagesFromPdf:[NSURL fileURLWithPath:tmpUrl] outputPath:outputPath];
+            if (imgArray.count == 0) {
+                error = [NSError errorWithDomain:@"cc.mediaformat.com" code:601 userInfo:@{NSLocalizedDescriptionKey:@"Generate image fail"}];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                !completion ?: completion(outputPath, imgArray, error);
+            });
+        });
+    });
+}
+
+/// office 文档格式转化为单张图片
+/// @param pdfConvertView pdf渲染view
+/// @param error 错误
++ (UIImage * _Nullable)convertOfficeDocumentToSingleImage:(CCPDFConvertView *)pdfConvertView
+                                                    error:(NSError *_Nullable * _Nullable)error {
+    if (![CCMediaFormatTool checkSDKValid]) {
+        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:800 userInfo:@{NSLocalizedDescriptionKey:@"Exception error happen"}];
+        return nil;
+    }
+    NSString *tmpUrl = [CCMediaFormatTool randPathWithExtendName:@"pdf"];
+    BOOL ret = [pdfConvertView convertToPdf:tmpUrl pageRect:CGRectZero pageInset:UIEdgeInsetsZero];
+    if (!ret) {
+        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:600 userInfo:@{NSLocalizedDescriptionKey:@"Source file invalid"}];
+        return nil;
+    }
+    NSArray<UIImage *> *imgArray = [CCImage imagesFromPdf:[NSURL fileURLWithPath:tmpUrl]];
+    if (imgArray.count == 0) {
+        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:601 userInfo:@{NSLocalizedDescriptionKey:@"Generate image fail"}];
+        return nil;
+    }
+    return imgArray.firstObject;
+}
+
+/// office 文档格式转化为单张图片
+/// @param pdfConvertView pdf渲染view
+/// @param outputUrl 图片存储路径
+/// @param completion 回调
++ (void)convertOfficeDocument:(CCPDFConvertView *)pdfConvertView
+                toSingleImage:(NSString * _Nullable)outputUrl
+                    comletion:(CCMediaFormatCompletion)completion {
+    if (![CCMediaFormatTool checkSDKValid:completion]) {
+        return;
+    }
+    NSString *tmpUrl = [CCMediaFormatTool randPathWithExtendName:@"pdf"];
+    __block BOOL ret = [pdfConvertView convertToPdf:tmpUrl pageRect:CGRectZero pageInset:UIEdgeInsetsZero];
+    if (!ret) {
+        NSError *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:600 userInfo:@{NSLocalizedDescriptionKey:@"Source file invalid"}];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !completion ?: completion(nil, error);
+        });
+        return;
+    }
     if (outputUrl.length == 0) {
         outputUrl = [CCMediaFormatTool randPathWithExtendName:@"png"];
     }
-    BOOL ret = [pdfConvertView convertToImage:outputUrl];
-    if (!ret) {
-        *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:600 userInfo:@{NSLocalizedDescriptionKey:@"Source file invalid"}];
-    }
-    return ret ? outputUrl : @"";
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSArray<UIImage *> *imgArray = [CCImage imagesFromPdf:[NSURL fileURLWithPath:tmpUrl]];
+        if (imgArray.count == 0) {
+            NSError *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:601 userInfo:@{NSLocalizedDescriptionKey:@"Generate image fail"}];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                !completion ?: completion(nil, error);
+            });
+            return;
+        }
+        NSData *imgData = UIImagePNGRepresentation(imgArray.firstObject);
+        ret = [imgData writeToFile:outputUrl atomically:YES];
+        if (!ret) {
+            NSError *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:602 userInfo:@{NSLocalizedDescriptionKey:@"Output fail"}];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                !completion ?: completion(nil, error);
+            });
+            return;
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !completion ?: completion(outputUrl, nil);
+        });
+    });
 }
 
 /// 图片数组转换为pdf格式

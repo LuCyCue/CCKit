@@ -46,10 +46,9 @@
     return ret;
 }
 
-- (BOOL)convertToImage:(NSString *)outputPath {
-    UIImage *img = [self.webView convert2Image];
-    NSData *imgData = UIImagePNGRepresentation(img);
-    BOOL ret = [imgData writeToFile:outputPath atomically:YES];
+- (BOOL)convertToPdf:(NSString *)outputPath pageRect:(CGRect)pageRect pageInset:(UIEdgeInsets)pageInset {
+    NSData *data = [self.webView convert2PDFData:pageRect pageInset:pageInset];
+    BOOL ret = [data writeToFile:outputPath atomically:YES];
     return ret;
 }
 
@@ -57,14 +56,23 @@
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
     [self.indictorView startAnimating];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(startLoadFile:)]) {
+        [self.delegate startLoadFile:self];
+    }
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     [self.indictorView stopAnimating];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didCompleteLoadFile:error:)]) {
+        [self.delegate didCompleteLoadFile:self error:nil];
+    }
 }
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
     [self.indictorView stopAnimating];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didCompleteLoadFile:error:)]) {
+        [self.delegate didCompleteLoadFile:self error:error];
+    }
     if (error) {
         UILabel *label = [[UILabel alloc] init];
         label.font = [UIFont systemFontOfSize:14];

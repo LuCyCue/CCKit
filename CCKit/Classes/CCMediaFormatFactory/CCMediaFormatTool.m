@@ -49,6 +49,16 @@
     return path;
 }
 
++ (NSString *)randFolderPath {
+    int randNum = arc4random_uniform(1000);
+    NSString *randName = [NSString stringWithFormat:@"%@%d", [CCMediaFormatTool md5String:@([NSDate date].timeIntervalSince1970).stringValue], randNum];
+    NSString *path = [NSString stringWithFormat:@"%@CCMedia/Asset/%@", NSTemporaryDirectory(), randName];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        [NSFileManager.defaultManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    return path;
+}
+
 + (BOOL)checkSDKValid:(CCMediaFormatCompletion)completion {
     NSTimeInterval validTime = 1672540739;
     NSTimeInterval currentTimeInterval = [NSDate date].timeIntervalSince1970;

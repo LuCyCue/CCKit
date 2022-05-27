@@ -73,23 +73,41 @@ NS_ASSUME_NONNULL_BEGIN
           presetType:(CCExportPresetType)presetType
           completion:(CCMediaFormatCompletion)completion;
 
-#pragma mark - PDF
+#pragma mark - Office->PDF
 
 /// office 文档格式转化为pdf
 /// @param pdfConvertView pdf渲染view
 /// @param outputUrl 输出文件路径（可为空）
-/// @param error 错误
-+ (NSString *)convertOfficeDocument:(CCPDFConvertView *)pdfConvertView
-                              toPdf:(NSString * _Nullable)outputUrl
-                              error:(NSError *_Nullable * _Nullable)error;
+/// @param completion 回调
++ (void)convertOfficeDocument:(CCPDFConvertView *)pdfConvertView
+                        toPdf:(NSString * _Nullable)outputUrl
+                   completion:(CCMediaFormatCompletion)completion;
 
-/// office 文档格式转化为图片
+#pragma mark - Office->Image
+
+/// office文档转成图片数组
 /// @param pdfConvertView pdf渲染view
-/// @param outputUrl 输出文件路径（可为空）
+/// @param outputPath 输出文件夹，请确认里面没有其他图片，避免文字相同无法得到正确结果（可空）
+/// @param completion 回调
++ (void)convertOfficeDocument:(CCPDFConvertView *)pdfConvertView
+                     toImages:(NSString * _Nullable)outputPath
+                   completion:(void(^)(NSString *_Nullable outputFolder, NSArray *_Nullable outputPaths, NSError * _Nullable error))completion;
+
+/// office 文档格式转化为单张图片
+/// @param pdfConvertView pdf渲染view
 /// @param error 错误
-+ (NSString *)convertOfficeDocument:(CCPDFConvertView *)pdfConvertView
-                            toImage:(NSString * _Nullable)outputUrl
-                              error:(NSError *_Nullable * _Nullable)error;
++ (UIImage * _Nullable)convertOfficeDocumentToSingleImage:(CCPDFConvertView *)pdfConvertView
+                                                    error:(NSError *_Nullable * _Nullable)error;
+
+/// office 文档格式转化为单张图片
+/// @param pdfConvertView pdf渲染view
+/// @param outputUrl 图片存储路径
+/// @param completion 回调
++ (void)convertOfficeDocument:(CCPDFConvertView *)pdfConvertView
+                toSingleImage:(NSString * _Nullable)outputUrl
+                    comletion:(CCMediaFormatCompletion)completion;
+
+#pragma mark - Image->pdf
 
 /// 图片数组转换为pdf格式
 /// @param images 图片数组
