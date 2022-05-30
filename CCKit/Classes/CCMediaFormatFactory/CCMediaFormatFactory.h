@@ -7,8 +7,8 @@
 
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
-#import "CCMediaFormatDefine.h"
-#import "CCPDFConvertView.h"
+#import <CCMediaFormatFactory/CCMediaFormatDefine.h>
+#import <CCMediaFormatFactory/CCPDFConvertView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

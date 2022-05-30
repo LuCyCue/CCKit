@@ -5,6 +5,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 @class CCPDFConvertView;
 NS_ASSUME_NONNULL_BEGIN
