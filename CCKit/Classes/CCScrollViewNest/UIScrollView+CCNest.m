@@ -12,7 +12,10 @@
 @implementation UIScrollView (CCNest)
 
 + (void)load {
-//    [self swizzleInstanceMethod:@selector(setDelegate:) with:@selector(cc_setDelegate:) class:self];
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        [self swizzleInstanceMethod:@selector(setDelegate:) with:@selector(cc_setDelegate:) class:self];
+    });
 }
 
 + (BOOL)swizzleInstanceMethod:(SEL)originalSel with:(SEL)newSel class:(Class)aClass {
@@ -23,7 +26,7 @@
                                 class_getMethodImplementation(aClass, newSel),
                                 method_getTypeEncoding(newMethod));
     if (added) {
-        class_replaceMethod(aClass, newSel, class_getMethodImplementation(aClass, originalSel), method_getTypeEncoding(originalMethod));
+        class_replaceMethod(aClass, newSel, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
     } else {
         method_exchangeImplementations(originalMethod,
                                        newMethod);

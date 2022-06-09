@@ -28,7 +28,10 @@
     CGFloat width = [self dotsWidth];
     CGFloat x = MAX((self.frame.size.width - width) / 2, 0);
     CGFloat y = MAX((self.frame.size.height - self.dotSize.height) / 2, 0);
-    [self.dotsArray enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    if (self.alignment == CCPageControlAlignmentRight) {
+        x = MAX((self.frame.size.width - width), 0);
+    }
+    [self.dotsArray enumerateObjectsUsingBlock:^(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.frame = CGRectMake(x + idx * (self.dotSize.width + self.spacing), y, self.dotSize.width, self.dotSize.height);
     }];
 }
@@ -55,16 +58,31 @@
     [self.dotsArray enumerateObjectsUsingBlock:^(UIView *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj removeFromSuperview];
     }];
+    [self.dotsArray removeAllObjects];
     CGFloat width = [self dotsWidth];
     CGFloat x = MAX((self.frame.size.width - width) / 2, 0);
     CGFloat y = MAX((self.frame.size.height - self.dotSize.height) / 2, 0);
+    if (self.alignment == CCPageControlAlignmentRight) {
+        x = MAX((self.frame.size.width - width), 0);
+    }
     for (int i = 0; i < numberOfPages; i++) {
         UIButton *btn = [[UIButton alloc] init];
         btn.frame = CGRectMake(x + i * (self.dotSize.width + self.spacing), y, self.dotSize.width, self.dotSize.height);
-        btn.layer.masksToBounds = YES;
-        btn.layer.cornerRadius = self.dotSize.width / 2;
-        btn.backgroundColor = (i == self.currentPage ? self.currentPageIndicatorTintColor : self.pageIndicatorTintColor);
-        [btn setImage:(i == self.currentPage ? self.currentPageIndicatorImage : self.pageIndicatorImage) forState:UIControlStateNormal];
+        if (!self.useImage) {
+            btn.layer.masksToBounds = YES;
+            btn.layer.cornerRadius = self.dotSize.width / 2;
+            if (i == self.currentPage) {
+                btn.backgroundColor = self.currentPageIndicatorTintColor;
+            } else {
+                btn.backgroundColor = self.pageIndicatorTintColor;
+            }
+        } else {
+            btn.backgroundColor = UIColor.clearColor;
+            btn.imageView.contentMode = UIViewContentModeCenter;
+            [btn setImage:self.currentDotImage forState:UIControlStateSelected];
+            [btn setImage:self.dotImage forState:UIControlStateNormal];
+            btn.selected = i == self.currentPage;
+        }
         [self addSubview:btn];
         [self.dotsArray addObject:btn];
     }
@@ -73,8 +91,11 @@
 - (void)setCurrentPage:(NSInteger)currentPage {
     _currentPage = currentPage;
     [self.dotsArray enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.backgroundColor = (idx == self.currentPage ? self.currentPageIndicatorTintColor : self.pageIndicatorTintColor);
-        [obj setImage:(idx == self.currentPage ? self.currentPageIndicatorImage : self.pageIndicatorImage) forState:UIControlStateNormal];
+        if (self.useImage) {
+            obj.selected = idx == currentPage;
+        } else {
+            obj.backgroundColor = idx == currentPage ? self.currentPageIndicatorTintColor : self.pageIndicatorTintColor;
+        }
     }];
 }
 

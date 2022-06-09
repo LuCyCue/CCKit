@@ -1,5 +1,6 @@
 PODS:
   - LCCKit (0.0.2):
+    - LCCKit/CCAuthorization (= 0.0.2)
     - LCCKit/CCCategories (= 0.0.2)
     - LCCKit/CCChart (= 0.0.2)
     - LCCKit/CCFileDownload (= 0.0.2)
@@ -11,6 +12,7 @@ PODS:
     - LCCKit/CCSafe (= 0.0.2)
     - LCCKit/CCScrollViewNest (= 0.0.2)
     - LCCKit/CCStrokeLabel (= 0.0.2)
+  - LCCKit/CCAuthorization (0.0.2)
   - LCCKit/CCCategories (0.0.2)
   - LCCKit/CCChart (0.0.2)
   - LCCKit/CCFileDownload (0.0.2)
@@ -113,7 +115,7 @@ CHECKOUT OPTIONS:
     :git: https://gitee.com/changsanjiang/SJVideoPlayer.git
 
 SPEC CHECKSUMS:
-  LCCKit: 2195f339f923ed5612204fb55be14695661f8ab5
+  LCCKit: a732dc297843187b2af248ecc35fe6126f2a198b
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SJBaseVideoPlayer: 52ab45c54521c9988cb5a4d9abad444152248800
   SJUIKit: 86d5b16f8b8b17274ef8805acf965e4014629e15

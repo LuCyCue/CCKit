@@ -7,6 +7,12 @@
 
 #import <UIKit/UIKit.h>
 
+/// 对齐方式
+typedef NS_ENUM(NSUInteger, CCPageControlAlignment) {
+    CCPageControlAlignmentCenter, //居中
+    CCPageControlAlignmentRight,  //居右
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CCPageControl : UIView
@@ -28,6 +34,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIImage *pageIndicatorImage;
 /// 选中点图片
 @property (nonatomic, strong) UIImage *currentPageIndicatorImage;
+/// 是否使用自定义图片
+@property (nonatomic, assign) BOOL useImage;
+/// 圆点图片
+@property (nonatomic, strong) UIImage *dotImage;
+/// 当前圆点图片
+@property (nonatomic, strong) UIImage *currentDotImage;
+/// 对齐方式
+@property (nonatomic, assign) CCPageControlAlignment alignment;
+
 @end
 
 NS_ASSUME_NONNULL_END
