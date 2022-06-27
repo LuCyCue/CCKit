@@ -64,6 +64,35 @@
     return keyWindow;
 }
 
+/// 获取当前window rootViewController
++ (UIViewController *)rootViewControllerForKeyWindow {
+    UIWindow *keyWindow = [self getKeyWindow];
+    return [keyWindow rootViewController];
+}
+
+
+/// 获取当前viewController
++ (UIViewController *)topViewControllerForKeyWindow {
+    UIViewController *resultVC;
+    UIWindow *keyWindow = [self getKeyWindow];
+    resultVC = [self _topViewController:[keyWindow rootViewController]];
+    while (resultVC.presentedViewController) {
+        resultVC = [self _topViewController:resultVC.presentedViewController];
+    }
+    return resultVC;
+}
+
++ (UIViewController *)_topViewController:(UIViewController *)vc {
+    if ([vc isKindOfClass:[UINavigationController class]]) {
+        return [self _topViewController:[(UINavigationController *)vc topViewController]];
+    } else if ([vc isKindOfClass:[UITabBarController class]]) {
+        return [self _topViewController:[(UITabBarController *)vc selectedViewController]];
+    } else {
+        return vc;
+    }
+    return nil;
+}
+
 /// 获取cpu使用情况
 + (CGFloat)cpuUsageForApp {
     kern_return_t kr;
