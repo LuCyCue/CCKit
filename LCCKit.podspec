@@ -73,10 +73,14 @@ Pod::Spec.new do |s|
     ss.source_files = 'CCKit/Classes/CCStrokeLabel/*'
   end
   
-  s.subspec 'CCAuthorization' do |ss|
-    ss.source_files = 'CCKit/Classes/CCAuthorization/*'
-    ss.frameworks = 'UIKit','Photos','CoreLocation','AVFoundation','MediaPlayer','UserNotifications','AdSupport','AppTrackingTransparency'
+  s.subspec 'CCAlert' do |ss|
+    ss.source_files = 'CCKit/Classes/CCAlert/*'
   end
+  
+#  s.subspec 'CCAuthorization' do |ss|
+#    ss.source_files = 'CCKit/Classes/CCAuthorization/*'
+#    ss.frameworks = 'UIKit','Photos','CoreLocation','AVFoundation','MediaPlayer','UserNotifications','AdSupport','AppTrackingTransparency'
+#  end
   
   s.subspec 'CCMediaFormatFactory' do |ss|
     ss.source_files = 'CCKit/Classes/CCMediaFormatFactory/*'

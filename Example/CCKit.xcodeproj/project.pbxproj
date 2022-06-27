@@ -16,7 +16,7 @@
 		04CBC6BF27C66D2D00F08879 /* CCLetterIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBC6BD27C66D2D00F08879 /* CCLetterIndexViewController.m */; };
 		04CBC6FF27CDCCAC00F08879 /* CCScrollViewNestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBC6FE27CDCCAC00F08879 /* CCScrollViewNestViewController.m */; };
 		3A162F9827CB334D00B0E551 /* CCChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A162F9727CB334D00B0E551 /* CCChartViewController.m */; };
-		41FD9FA4BF7C680CCAE59812 /* Pods_CCKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49786B260D052FE1C5FBAD58 /* Pods_CCKit_Example.framework */; };
+		41FD9FA4BF7C680CCAE59812 /* Pods_CCKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49786B260D052FE1C5FBAD58 /* Pods_CCKit_Example.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };

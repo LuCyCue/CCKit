@@ -17,6 +17,7 @@
 #import "CCFileDownloadManager.h"
 #import "CCStrokeLabel.h"
 #import "CCMeidaFormatFactoryTestController.h"
+#import "CCAlert.h"
 
 @interface CCViewController ()
 @property (nonatomic, strong) CCNumberScrollView *numberScrollView;
@@ -30,8 +31,15 @@
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
     [btn setTitle:@"download" forState:UIControlStateNormal];
     btn.backgroundColor = UIColor.redColor;
-    [btn addTarget:self action:@selector(jump2MediaFormatFactoryController) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(alertTest) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+}
+
+- (void)alertTest {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 10, 100, 100)];
+    view.backgroundColor = UIColor.greenColor;
+    CCAlertConfiguration *configuration = CCAlertConfiguration.new.configPosition(CCAlertPositionTop);
+    [CCAlert alertCustomView:view configuration:configuration];
 }
 
 - (void)jump2MediaFormatFactoryController {

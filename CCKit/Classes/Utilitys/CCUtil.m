@@ -6,6 +6,7 @@
 //
 
 #import "CCUtil.h"
+#import <mach/mach.h>
 
 @implementation CCUtil
 
@@ -61,6 +62,65 @@
         }
     }
     return keyWindow;
+}
+
+/// 获取cpu使用情况
++ (CGFloat)cpuUsageForApp {
+    kern_return_t kr;
+    thread_array_t         thread_list;
+    mach_msg_type_number_t thread_count;
+    thread_info_data_t     thinfo;
+    mach_msg_type_number_t thread_info_count;
+    thread_basic_info_t basic_info_th;
+    float tot_cpu = 0;
+    
+    //  获取当前进程中 线程列表
+    kr = task_threads(mach_task_self(), &thread_list, &thread_count);
+    if (kr != KERN_SUCCESS)
+        return -1;
+
+    for (int j = 0; j < thread_count; j++) {
+        thread_info_count = THREAD_INFO_MAX;
+        //获取每一个线程信息
+        kr = thread_info(thread_list[j], THREAD_BASIC_INFO, (thread_info_t)thinfo, &thread_info_count);
+        if (kr != KERN_SUCCESS)
+            return -1;
+        
+        basic_info_th = (thread_basic_info_t)thinfo;
+        if (!(basic_info_th->flags & TH_FLAGS_IDLE)) {
+            // cpu_usage : Scaled cpu usage percentage. The scale factor is TH_USAGE_SCALE.
+            //宏定义TH_USAGE_SCALE返回CPU处理总频率：
+            tot_cpu += basic_info_th->cpu_usage / (float)TH_USAGE_SCALE;
+        }
+    } // for each thread
+    
+    // 注意方法最后要调用 vm_deallocate，防止出现内存泄漏
+    kr = vm_deallocate(mach_task_self(), (vm_offset_t)thread_list, thread_count * sizeof(thread_t));
+    assert(kr == KERN_SUCCESS);
+    
+    if (tot_cpu < 0) {
+        tot_cpu = 0.;
+    }
+    
+    return tot_cpu;
+}
+
+/// 当前app占用内容量（单位:M）
++ (NSInteger)useMemoryForApp {
+    task_vm_info_data_t vmInfo;
+    mach_msg_type_number_t count = TASK_VM_INFO_COUNT;
+    kern_return_t kernelReturn = task_info(mach_task_self(), TASK_VM_INFO, (task_info_t) &vmInfo, &count);
+    if(kernelReturn == KERN_SUCCESS) {
+        int64_t memoryUsageInByte = (int64_t) vmInfo.phys_footprint;
+        return (NSInteger)(memoryUsageInByte/1024/1024);
+    } else {
+        return -1;
+    }
+}
+
+//当前设备总的内存 （单位：M）
++ (NSInteger)totalMemoryForDevice {
+    return (NSInteger)([NSProcessInfo processInfo].physicalMemory/1024/1024);
 }
 
 @end

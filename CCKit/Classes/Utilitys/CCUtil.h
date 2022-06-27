@@ -27,6 +27,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param completion 回调
 + (void)makeACallWithPhoneNumber:(NSString *)phone completion:(void (^)(BOOL success))completion;
 
+/// 获取cpu使用情况
++ (CGFloat)cpuUsageForApp;
+
+/// 当前app占用内容量（单位:M）
++ (NSInteger)useMemoryForApp;
+
+//当前设备总的内存 （单位：M）
++ (NSInteger)totalMemoryForDevice;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -65,18 +65,8 @@
       "source_files": "CCKit/Classes/CCStrokeLabel/*"
     },
     {
-      "name": "CCAuthorization",
-      "source_files": "CCKit/Classes/CCAuthorization/*",
-      "frameworks": [
-        "UIKit",
-        "Photos",
-        "CoreLocation",
-        "AVFoundation",
-        "MediaPlayer",
-        "UserNotifications",
-        "AdSupport",
-        "AppTrackingTransparency"
-      ]
+      "name": "CCAlert",
+      "source_files": "CCKit/Classes/CCAlert/*"
     },
     {
       "name": "CCMediaFormatFactory",
