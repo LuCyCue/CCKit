@@ -84,6 +84,25 @@
     return fileSize;
 }
 
+/// 遍历某个文件夹文件名（不做递归处理）
++ (NSArray *_Nullable)listFileNamesWithDirPath:(NSString *)path {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isDir = NO;
+    BOOL isExist = [fileManager fileExistsAtPath:path isDirectory:&isDir];
+    if (isExist && isDir) {
+        NSArray *filePaths = [fileManager contentsOfDirectoryAtPath:path error:nil];
+        NSMutableArray *retArray = [NSMutableArray array];
+        for (NSString *fp in filePaths) {
+            NSString *name = [fp lastPathComponent];
+            if (name.length) {
+                [retArray addObject:name];
+            }
+        }
+        return retArray;
+    }
+    return nil;
+}
+
 #pragma mark - Get Video
 
 /// 获取视频

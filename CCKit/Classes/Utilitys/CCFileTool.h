@@ -28,6 +28,9 @@
 /// @param path 路径
 + (NSInteger)getFileSizeWithPath:(NSString *)path;
 
+/// 遍历某个文件夹文件名（不做递归处理）
++ (NSArray *)listFileNamesWithDirPath:(NSString *)path;
+
 #pragma mark - Get Video
 
 /// 获取视频

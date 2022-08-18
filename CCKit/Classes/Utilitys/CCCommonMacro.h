@@ -98,4 +98,5 @@
 #endif
 
 
+#define CCSafeString(str) (str.length == 0 ? @"" : str)
 #endif /* CCCommonMacro_h */
