@@ -31,7 +31,7 @@
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
     [btn setTitle:@"download" forState:UIControlStateNormal];
     btn.backgroundColor = UIColor.redColor;
-    [btn addTarget:self action:@selector(alertTest) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(jump2MediaFormatFactoryController) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
 }
 

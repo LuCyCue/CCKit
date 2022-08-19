@@ -52,6 +52,23 @@
     return ret;
 }
 
+- (void)convertToPdf:(NSString *)outputPath pageRect:(CGRect)pageRect pageInset:(UIEdgeInsets)pageInset completion:(void(^)(BOOL finished))completion {
+    [self.webView convert2PDFData:CGRectMake(0, 0, 420, 594) pageInset:UIEdgeInsetsMake(10, 10, 10, 10) completion:^(NSData * _Nonnull data) {
+        [data writeToFile:outputPath atomically:YES];
+        !completion ?: completion(YES);
+    }];
+}
+
+/// 获取内容
+- (CGSize)getContentSize {
+    return self.webView.scrollView.contentSize;
+}
+
+/// 获取偏移
+- (CGPoint)getContentOffset {
+    return self.webView.scrollView.contentOffset;
+}
+
 #pragma mark - WKNavigationDelegate
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {

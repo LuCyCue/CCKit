@@ -41,6 +41,43 @@
     return pdfData;
 }
 
+- (void)convert2PDFData:(CGRect)pageRect pageInset:(UIEdgeInsets)pageInset completion:(void(^)(NSData *data))completion {
+    //设置PDF文件每页的尺寸
+    if (CGRectEqualToRect(pageRect, CGRectZero)) {
+        pageRect = CGRectMake(0, 0, self.scrollView.contentSize.width, self.scrollView.contentSize.height);
+    }
+    if (UIEdgeInsetsEqualToEdgeInsets(pageInset, UIEdgeInsetsZero)) {
+        pageInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    }
+    UIViewPrintFormatter *format = [self viewPrintFormatter];
+    //返回视图的打印格式化
+   
+    UIPrintPageRenderer *render = [[UIPrintPageRenderer alloc] init];
+    [render addPrintFormatter:format startingAtPageAtIndex:0];
+
+    //呈现每个页面的上下文的尺寸大小
+    CGRect printableRect = CGRectMake(pageInset.left, pageInset.top, pageRect.size.width-pageInset.left-pageInset.right, pageRect.size.height-pageInset.top-pageInset.bottom);
+    [render setValue:[NSValue valueWithCGRect:pageRect] forKey:@"paperRect"];
+    [render setValue:[NSValue valueWithCGRect:printableRect] forKey:@"printableRect"];
+    
+    NSMutableData *pdfData = [NSMutableData data];
+    UIGraphicsBeginPDFContextToData(pdfData, pageRect, NULL);
+    dispatch_group_t group = dispatch_group_create();
+    for (NSInteger i = 0; i < [render numberOfPages]; i++) {
+        dispatch_group_enter(group);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((0.03 * i) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            UIGraphicsBeginPDFPage();
+            CGRect bounds = UIGraphicsGetPDFContextBounds();
+            [render drawPageAtIndex:i inRect:bounds];
+            dispatch_group_leave(group);
+        });
+
+    }
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        UIGraphicsEndPDFContext();
+        !completion ?: completion(pdfData);
+    });
+}
 //- (UIImage *)convert2Image {
 //    /*
 //     将 UIWebView 分屏截取，然后将截取的图片拼接成一张图片

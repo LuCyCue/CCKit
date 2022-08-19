@@ -77,6 +77,10 @@ Pod::Spec.new do |s|
     ss.source_files = 'CCKit/Classes/CCAlert/*'
   end
   
+  s.subspec 'CCCircleProgressView' do |ss|
+    ss.source_files = 'CCKit/Classes/CCCircleProgressView/*'
+  end
+  
 #  s.subspec 'CCAuthorization' do |ss|
 #    ss.source_files = 'CCKit/Classes/CCAuthorization/*'
 #    ss.frameworks = 'UIKit','Photos','CoreLocation','AVFoundation','MediaPlayer','UserNotifications','AdSupport','AppTrackingTransparency'

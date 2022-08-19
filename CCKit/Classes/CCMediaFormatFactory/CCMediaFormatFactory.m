@@ -234,6 +234,35 @@
     });
 }
 
+/// office 异步文档格式转化为pdf
+/// @param pdfConvertView pdf渲染view
+/// @param outputUrl 输出文件路径（可为空）
+/// @param completion 回调
++ (void)asyncConvertOfficeDocument:(CCPDFConvertView *)pdfConvertView
+                             toPdf:(NSString * _Nullable)outputUrl
+                        completion:(CCMediaFormatCompletion)completion {
+    if (![CCMediaFormatTool checkSDKValid:completion]) {
+        return;
+    }
+    if (outputUrl.length == 0) {
+        outputUrl = [CCMediaFormatTool randPathWithExtendName:@"pdf"];
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        BOOL isPPT = [pdfConvertView.fileUrl.pathExtension isEqualToString:@"ppt"];
+        if (isPPT) {
+            CGSize size = [pdfConvertView getContentSize];
+            CGRect pageRect = CGRectMake(0, 0, size.width, size.height);
+            [pdfConvertView convertToPdf:outputUrl pageRect:pageRect pageInset:UIEdgeInsetsMake(10, 10, 10, 10) completion:^(BOOL finished) {
+                !completion ?: completion(outputUrl, nil);
+            }];
+        } else {
+            [pdfConvertView convertToPdf:outputUrl pageRect:CGRectMake(0, 0, 420, 594) pageInset:UIEdgeInsetsMake(10, 10, 10, 10) completion:^(BOOL finished) {
+                !completion ?: completion(outputUrl, nil);
+            }];
+        }
+    });
+}
+
 /// office 文档格式转化为图片
 /// @param pdfConvertView pdf渲染view
 /// @param error 错误

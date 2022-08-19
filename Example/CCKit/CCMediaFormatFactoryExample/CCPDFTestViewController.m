@@ -50,6 +50,9 @@
         [btn addTarget:self action:@selector(startConvert:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:btn];
     }
+    [NSTimer scheduledTimerWithTimeInterval:0.05 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        NSLog(@"=======timer runing======");
+    }];
    
 }
 
@@ -57,6 +60,13 @@
 
     if (sender.tag == 200) {
        [CCMediaFormatFactory convertOfficeDocument:self.pdfConvertView toPdf:nil completion:^(NSString * _Nullable url, NSError * _Nullable error) {
+            if (!error && url.length) {
+                self.docVC.URL = [NSURL fileURLWithPath:url];
+                [self.docVC presentPreviewAnimated:YES];
+            }
+        }];
+        
+        [CCMediaFormatFactory asyncConvertOfficeDocument:self.pdfConvertView toPdf:nil completion:^(NSString * _Nullable url, NSError * _Nullable error) {
             if (!error && url.length) {
                 self.docVC.URL = [NSURL fileURLWithPath:url];
                 [self.docVC presentPreviewAnimated:YES];

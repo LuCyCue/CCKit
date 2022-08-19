@@ -32,6 +32,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param fileUrl 文件地址
 - (instancetype)initWithFrame:(CGRect)frame fileUrl:(NSURL *)fileUrl;
 
+/// 获取内容
+- (CGSize)getContentSize;
+
+/// 获取偏移
+- (CGPoint)getContentOffset;
+
 @end
 
 NS_ASSUME_NONNULL_END

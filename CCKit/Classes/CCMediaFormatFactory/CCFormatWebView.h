@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSData *)convert2PDFData:(CGRect)pageRect pageInset:(UIEdgeInsets)pageInset;
 
+- (void)convert2PDFData:(CGRect)pageRect pageInset:(UIEdgeInsets)pageInset completion:(void(^)(NSData *data))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

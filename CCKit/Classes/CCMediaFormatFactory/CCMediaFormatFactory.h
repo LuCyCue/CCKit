@@ -86,6 +86,14 @@ NS_ASSUME_NONNULL_BEGIN
                         toPdf:(NSString * _Nullable)outputUrl
                    completion:(CCMediaFormatCompletion)completion;
 
+/// office 异步文档格式转化为pdf
+/// @param pdfConvertView pdf渲染view
+/// @param outputUrl 输出文件路径（可为空）
+/// @param completion 回调
++ (void)asyncConvertOfficeDocument:(CCPDFConvertView *)pdfConvertView
+                             toPdf:(NSString * _Nullable)outputUrl
+                        completion:(CCMediaFormatCompletion)completion;
+
 #pragma mark - Office->Image
 
 /// office文档转成图片数组
