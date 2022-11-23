@@ -3,6 +3,7 @@ PODS:
     - LCCKit/CCAlert (= 0.0.2)
     - LCCKit/CCCategories (= 0.0.2)
     - LCCKit/CCChart (= 0.0.2)
+    - LCCKit/CCCircleProgressView (= 0.0.2)
     - LCCKit/CCFileDownload (= 0.0.2)
     - LCCKit/CCLetterIndexView (= 0.0.2)
     - LCCKit/CCMediaFormatFactory (= 0.0.2)
@@ -12,9 +13,11 @@ PODS:
     - LCCKit/CCSafe (= 0.0.2)
     - LCCKit/CCScrollViewNest (= 0.0.2)
     - LCCKit/CCStrokeLabel (= 0.0.2)
+    - LCCKit/CCTimer (= 0.0.2)
   - LCCKit/CCAlert (0.0.2)
   - LCCKit/CCCategories (0.0.2)
   - LCCKit/CCChart (0.0.2)
+  - LCCKit/CCCircleProgressView (0.0.2)
   - LCCKit/CCFileDownload (0.0.2)
   - LCCKit/CCLetterIndexView (0.0.2)
   - LCCKit/CCMediaFormatFactory (0.0.2)
@@ -24,6 +27,7 @@ PODS:
   - LCCKit/CCSafe (0.0.2)
   - LCCKit/CCScrollViewNest (0.0.2)
   - LCCKit/CCStrokeLabel (0.0.2)
+  - LCCKit/CCTimer (0.0.2)
   - Masonry (1.1.0)
   - SJBaseVideoPlayer (3.6.7):
     - Masonry
@@ -115,7 +119,7 @@ CHECKOUT OPTIONS:
     :git: https://gitee.com/changsanjiang/SJVideoPlayer.git
 
 SPEC CHECKSUMS:
-  LCCKit: 1e06baf33c91bcd234051890489d16502c75d71b
+  LCCKit: 22bb25bf690edc868ee978b210e64ee594c783be
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SJBaseVideoPlayer: 52ab45c54521c9988cb5a4d9abad444152248800
   SJUIKit: 86d5b16f8b8b17274ef8805acf965e4014629e15

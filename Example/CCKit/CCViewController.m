@@ -44,7 +44,7 @@
 
 - (void)jump2MediaFormatFactoryController {
     CCMeidaFormatFactoryTestController *ctl = [[CCMeidaFormatFactoryTestController alloc] init];
-    ctl.modalPresentationStyle = UIModalPresentationFullScreen;
+//    ctl.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:ctl animated:YES completion:nil];
 }
 

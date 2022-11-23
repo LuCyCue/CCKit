@@ -35,6 +35,7 @@
 #import "CCChainNode.h"
 #import "CCPieChartView.h"
 #import "CCPieChartViewModel.h"
+#import "CCCircleProgressView.h"
 #import "CCFileDownloadConfig.h"
 #import "CCFileDownloadManager.h"
 #import "CCFileDownloadTask.h"
@@ -64,6 +65,8 @@
 #import "NSObject+CCNest.h"
 #import "UIScrollView+CCNest.h"
 #import "CCStrokeLabel.h"
+#import "CCGCDTimer.h"
+#import "CCTimer.h"
 #import "CCCommonMacro.h"
 #import "CCFileTool.h"
 #import "CCFPSTool.h"
@@ -82,6 +85,7 @@
 #import "UITableView+CCBg.h"
 #import "CCPieChartView.h"
 #import "CCPieChartViewModel.h"
+#import "CCCircleProgressView.h"
 #import "CCFileDownloadConfig.h"
 #import "CCFileDownloadManager.h"
 #import "CCFileDownloadTask.h"
@@ -110,6 +114,8 @@
 #import "NSObject+CCNest.h"
 #import "UIScrollView+CCNest.h"
 #import "CCStrokeLabel.h"
+#import "CCGCDTimer.h"
+#import "CCTimer.h"
 
 FOUNDATION_EXPORT double LCCKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char LCCKitVersionString[];

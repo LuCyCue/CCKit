@@ -91,6 +91,10 @@ Pod::Spec.new do |s|
     ss.frameworks = 'UIKit','Photos','ImageIO','AVFoundation','CoreGraphics','MobileCoreServices','Foundation','WebKit'
   end
   
+  s.subspec 'CCTimer' do |ss|
+    ss.source_files = 'CCKit/Classes/CCTimer/*'
+  end
+  
   s.frameworks = 'UIKit','Photos'
   
   

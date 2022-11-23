@@ -69,6 +69,10 @@
       "source_files": "CCKit/Classes/CCAlert/*"
     },
     {
+      "name": "CCCircleProgressView",
+      "source_files": "CCKit/Classes/CCCircleProgressView/*"
+    },
+    {
       "name": "CCMediaFormatFactory",
       "source_files": "CCKit/Classes/CCMediaFormatFactory/*",
       "frameworks": [
@@ -81,6 +85,10 @@
         "Foundation",
         "WebKit"
       ]
+    },
+    {
+      "name": "CCTimer",
+      "source_files": "CCKit/Classes/CCTimer/*"
     }
   ]
 }
