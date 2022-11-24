@@ -18,6 +18,7 @@
 #import "CCStrokeLabel.h"
 #import "CCMeidaFormatFactoryTestController.h"
 #import "CCAlert.h"
+#import <Masonry/Masonry.h>
 
 @interface CCViewController ()
 @property (nonatomic, strong) CCNumberScrollView *numberScrollView;
@@ -31,14 +32,42 @@
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
     [btn setTitle:@"download" forState:UIControlStateNormal];
     btn.backgroundColor = UIColor.redColor;
-    [btn addTarget:self action:@selector(jump2MediaFormatFactoryController) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(alertTest) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    
+    UIButton *testBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 100, 50)];
+    [testBtn setTitle:@"Test" forState:UIControlStateNormal];
+    testBtn.backgroundColor = UIColor.redColor;
+    [testBtn addTarget:self action:@selector(testAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:testBtn];
+}
+
+- (void)testAction {
+
 }
 
 - (void)alertTest {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 10, 100, 100)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
     view.backgroundColor = UIColor.greenColor;
-    CCAlertConfiguration *configuration = CCAlertConfiguration.new.configPosition(CCAlertPositionTop);
+    UILabel *lab = [[UILabel alloc] init];
+    lab.text = @"中华人湄公河看到房价乐山大佛的点点滴滴打断点,中华人湄公河看到房价乐山大佛的点点滴滴打断点";
+    lab.font = [UIFont systemFontOfSize:18];
+    lab.textColor = UIColor.blackColor;
+    lab.numberOfLines = 0;
+    lab.lineBreakMode = NSLineBreakByTruncatingTail;
+    [view addSubview:lab];
+    [lab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.mas_equalTo(16);
+        make.right.bottom.mas_equalTo(-16);
+        make.width.mas_equalTo(SCREEN_WIDTH-50);
+    }];
+    CCAlertAnimation type = arc4random_uniform(5);
+    CCAlertConfiguration *configuration = CCAlertConfiguration.new
+                                                              .configPosition(CCAlertPositionCenter)
+                                                              .configCornerRadiusArray(@[@16,@0,@0,@16])
+                                                              .configAlertId(1000)
+                                                              .configMaskColor([UIColor colorWithWhite:0.0 alpha:0.2])
+                                                              .configAnimationType(type);
     [CCAlert alertCustomView:view configuration:configuration];
 }
 

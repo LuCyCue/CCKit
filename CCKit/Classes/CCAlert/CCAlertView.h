@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UIView *maskView;
 @property (nonatomic, strong) UIView *customView;
-@property (nonatomic, copy) void(^viewDidAppearHandler)(void);
-@property (nonatomic, copy) void(^viewDidDisappearHandler)(void);
+@property (nonatomic, copy) void(^viewDidAppearHandler)(CCAlertView *alertView);
+@property (nonatomic, copy) void(^viewDidDisappearHandler)(CCAlertView *alertView);
 
 
 

@@ -63,5 +63,26 @@
     };
 }
 
+- (CCAlertConfiguration *(^)(NSArray<NSNumber *> *))configCornerRadiusArray {
+    return ^CCAlertConfiguration* (NSArray<NSNumber *> *array) {
+        self.cornerRadiusArray = array;
+        return self;
+    };
+}
+
+- (CCAlertConfiguration *(^)(int64_t))configAlertId {
+    return ^CCAlertConfiguration* (int64_t alertId) {
+        self.alertId = alertId;
+        return self;
+    };
+}
+
+- (CCAlertConfiguration *(^)(CCAlertAnimation))configAnimationType {
+    return ^CCAlertConfiguration* (CCAlertAnimation animation) {
+        self.animationType = animation;
+        return self;
+    };
+}
+
 
 @end

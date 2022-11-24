@@ -18,6 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (CCAlertView *)alertCustomView:(UIView *)customView superView:(UIView *_Nullable)superView configuration:(CCAlertConfiguration *)configuration;
 
+/// 清除所有弹窗
++ (void)clearAll;
+
+/// 获取指定id的alertView
++ (CCAlertView *)getAlertView:(int64_t)alertId;
+
 @end
 
 NS_ASSUME_NONNULL_END

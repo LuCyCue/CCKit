@@ -31,6 +31,9 @@
 
 - (void)setCustomView:(UIView *)customView {
     _customView = customView;
+    CGSize size = [customView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    CGFloat height = size.height;
+    customView.frame = CGRectMake(0, 0, customView.bounds.size.width, height);
     _customView.frame = customView.bounds;
     [self.contentView addSubview:customView];
     CGFloat x = (self.bounds.size.width - customView.bounds.size.width) / 2;
@@ -48,11 +51,38 @@
         default:
             break;
     }
-//    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.customView attribute:(NSLayoutAttributeTop) relatedBy:(NSLayoutRelationEqual) toItem:self.contentView attribute:(NSLayoutAttributeBottom) multiplier:1 constant:0];
-//     NSLayoutConstraint *constraint1 = [NSLayoutConstraint constraintWithItem:self.customView attribute:(NSLayoutAttributeLeft) relatedBy:(NSLayoutRelationEqual) toItem:self.contentView attribute:(NSLayoutAttributeLeft) multiplier:1 constant:0];
-//     NSLayoutConstraint *constraint2 = [NSLayoutConstraint constraintWithItem:self.customView attribute:(NSLayoutAttributeRight) relatedBy:(NSLayoutRelationEqual) toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
-//     NSLayoutConstraint *constraint3 = [NSLayoutConstraint constraintWithItem:self.customView attribute:(NSLayoutAttributeBottom) relatedBy:(NSLayoutRelationEqual) toItem:self.contentView attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:0];
-//    [self.contentView addConstraints:@[constraint, constraint1, constraint2, constraint3]];
+    if (self.configuration.cornerRadiusArray.count > 0) {
+        UIBezierPath *path = [self bezierPathWithRoundedRect:CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height) cornerRadiusArray:self.configuration.cornerRadiusArray lineWidth:0];
+        [path addClip];
+        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+        maskLayer.frame = self.contentView.bounds;
+        maskLayer.path = path.CGPath;
+        self.contentView.layer.mask = maskLayer;
+    } else if (self.configuration.cornerRadius > 0) {
+        self.customView.layer.masksToBounds = YES;
+        self.customView.layer.cornerRadius = self.configuration.cornerRadius;
+    }
+}
+
+- (UIBezierPath *)bezierPathWithRoundedRect:(CGRect)rect cornerRadiusArray:(NSArray<NSNumber *> *)cornerRadius lineWidth:(CGFloat)lineWidth {
+    CGFloat topLeftCornerRadius = cornerRadius[0].floatValue;
+    CGFloat bottomLeftCornerRadius = cornerRadius[1].floatValue;
+    CGFloat bottomRightCornerRadius = cornerRadius[2].floatValue;
+    CGFloat topRightCornerRadius = cornerRadius[3].floatValue;
+    CGFloat lineCenter = lineWidth / 2.0;
+    
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(topLeftCornerRadius, lineCenter)];
+    [path addArcWithCenter:CGPointMake(topLeftCornerRadius, topLeftCornerRadius) radius:topLeftCornerRadius - lineCenter startAngle:M_PI * 1.5 endAngle:M_PI clockwise:NO];
+    [path addLineToPoint:CGPointMake(lineCenter, CGRectGetHeight(rect) - bottomLeftCornerRadius)];
+    [path addArcWithCenter:CGPointMake(bottomLeftCornerRadius, CGRectGetHeight(rect) - bottomLeftCornerRadius) radius:bottomLeftCornerRadius - lineCenter startAngle:M_PI endAngle:M_PI * 0.5 clockwise:NO];
+    [path addLineToPoint:CGPointMake(CGRectGetWidth(rect) - bottomRightCornerRadius, CGRectGetHeight(rect) - lineCenter)];
+    [path addArcWithCenter:CGPointMake(CGRectGetWidth(rect) - bottomRightCornerRadius, CGRectGetHeight(rect) - bottomRightCornerRadius) radius:bottomRightCornerRadius - lineCenter startAngle:M_PI * 0.5 endAngle:0.0 clockwise:NO];
+    [path addLineToPoint:CGPointMake(CGRectGetWidth(rect) - lineCenter, topRightCornerRadius)];
+    [path addArcWithCenter:CGPointMake(CGRectGetWidth(rect) - topRightCornerRadius, topRightCornerRadius) radius:topRightCornerRadius - lineCenter startAngle:0.0 endAngle:M_PI * 1.5 clockwise:NO];
+    [path closePath];
+    
+    return path;
 }
 
 - (void)tapAction {
@@ -60,22 +90,86 @@
 }
 
 - (void)show {
-    self.alpha = 0.0;
-    [UIView animateWithDuration:0.3 animations:^{
-        self.alpha = 1.0;
-    } completion:^(BOOL finished) {
-        !self.viewDidAppearHandler ?: self.viewDidAppearHandler();
-    }];
+    if (self.configuration.animationType == CCAlertAnimationFade) {
+        self.alpha = 0.0;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.alpha = 1.0;
+        } completion:^(BOOL finished) {
+           
+        }];
+    } else {
+        CGRect originRect = self.contentView.frame;
+        CGRect targetRect = CGRectZero;
+        switch (self.configuration.animationType) {
+            case CCAlertAnimationBottom:
+                targetRect = CGRectMake(originRect.origin.x, self.bounds.size.height, originRect.size.width, originRect.size.height);
+                break;
+            case CCAlertAnimationTop:
+                targetRect = CGRectMake(originRect.origin.x, -originRect.size.height, originRect.size.width, originRect.size.height);
+                break;
+            case CCAlertAnimationLeft:
+                targetRect = CGRectMake(-originRect.size.width, originRect.origin.y, originRect.size.width, originRect.size.height);
+                break;
+            case CCAlertAnimationRight:
+                targetRect = CGRectMake(originRect.size.width+self.bounds.size.width, originRect.origin.y, originRect.size.width, originRect.size.height);
+                break;
+
+            default:
+                break;
+        }
+        self.contentView.frame = targetRect;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.contentView.frame = originRect;
+        } completion:^(BOOL finished) {
+           
+        }];
+    }
+
 }
 
 - (void)hide {
-    self.alpha = 1.0;
-    [UIView animateWithDuration:0.3 animations:^{
-        self.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        !self.viewDidDisappearHandler ?: self.viewDidDisappearHandler();
-        [self removeFromSuperview];
-    }];
+    if (self.configuration.animationType == CCAlertAnimationFade) {
+        self.alpha = 1.0;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            [self removeFromSuperview];
+            
+        }];
+    } else {
+        CGRect originRect = self.contentView.frame;
+        CGRect targetRect = CGRectZero;
+        switch (self.configuration.animationType) {
+            case CCAlertAnimationBottom:
+                targetRect = CGRectMake(originRect.origin.x, self.bounds.size.height, originRect.size.width, originRect.size.height);
+                break;
+            case CCAlertAnimationTop:
+                targetRect = CGRectMake(originRect.origin.x, -originRect.size.height, originRect.size.width, originRect.size.height);
+                break;
+            case CCAlertAnimationLeft:
+                targetRect = CGRectMake(-originRect.size.width, originRect.origin.y, originRect.size.width, originRect.size.height);
+                break;
+            case CCAlertAnimationRight:
+                targetRect = CGRectMake(originRect.size.width+self.bounds.size.width, originRect.origin.y, originRect.size.width, originRect.size.height);
+                break;
+
+            default:
+                break;
+        }
+        [UIView animateWithDuration:0.3 animations:^{
+            self.contentView.frame = targetRect;
+        } completion:^(BOOL finished) {
+            [self removeFromSuperview];
+        }];
+    }
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    if (newSuperview) {
+        !self.viewDidAppearHandler ?: self.viewDidAppearHandler(self);
+    } else {
+        !self.viewDidDisappearHandler ?: self.viewDidDisappearHandler(self);
+    }
 }
 
 #pragma mark - Getter
