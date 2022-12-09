@@ -126,4 +126,41 @@ CGContextRef CreateARGBBitmapContext (size_t pixelsWide, size_t pixelsHigh) {
     return context;
 }
 
+//同时获取图片组最大宽度及拼接高度
++ (void)getImagesMaxWidthAndTotleHeight:(NSArray *)images callBack:(void(^)(NSUInteger maxWith,NSUInteger totleHeight))callBack {
+    CGFloat maxWidth = 0;
+    CGFloat allImageHeight = 0;
+    for (UIImage * image in images) {
+        CGFloat currentImageWidth = image.size.width;
+        maxWidth = maxWidth < currentImageWidth ? currentImageWidth : maxWidth;
+        allImageHeight += image.size.height;
+    }
+    callBack(maxWidth,allImageHeight);
+}
+
+//拼接长图
++ (void)combineImages:(NSArray *)images callBack:(void(^)(UIImage *_Nullable resultImage))callBack {
+    [self getImagesMaxWidthAndTotleHeight:images callBack:^(NSUInteger imageWidth, NSUInteger imageHeight) {
+        if (imageWidth == 0 || imageHeight == 0) {
+            callBack(nil);
+            return;
+        }
+        UIGraphicsBeginImageContext(CGSizeMake(imageWidth, imageHeight));
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetFillColorWithColor(context, [UIColor.blackColor CGColor]);
+        CGContextFillRect(context, CGRectMake(0, 0, imageWidth, imageHeight));
+        NSUInteger x = 0;
+        NSUInteger y = 0;
+        for (UIImage *image in images) {
+            x = (imageWidth-image.size.width)/2;
+            [image drawInRect:CGRectMake(x, y, image.size.width, image.size.height)];
+            y += image.size.height;
+        }
+        CGImageRef resultImgRef = CGImageCreateWithImageInRect(UIGraphicsGetImageFromCurrentImageContext().CGImage, CGRectMake(0, 0, imageWidth, imageHeight));
+        UIGraphicsEndImageContext();
+        UIImage *resultImage = [UIImage imageWithCGImage:resultImgRef scale:[UIScreen mainScreen].scale orientation:UIImageOrientationUp];
+        callBack(resultImage);
+    }];
+}
+
 @end

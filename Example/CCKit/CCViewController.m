@@ -18,6 +18,7 @@
 #import "CCStrokeLabel.h"
 #import "CCMeidaFormatFactoryTestController.h"
 #import "CCAlert.h"
+#import "CCSortTableViewController.h"
 #import <Masonry/Masonry.h>
 
 @interface CCViewController ()
@@ -32,9 +33,9 @@
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
     [btn setTitle:@"download" forState:UIControlStateNormal];
     btn.backgroundColor = UIColor.redColor;
-    [btn addTarget:self action:@selector(alertTest) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(jump2MediaFormatFactoryController) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
-    
+
     UIButton *testBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 100, 50)];
     [testBtn setTitle:@"Test" forState:UIControlStateNormal];
     testBtn.backgroundColor = UIColor.redColor;
@@ -43,7 +44,8 @@
 }
 
 - (void)testAction {
-
+    CCSortTableViewController *ctl = CCSortTableViewController.new;
+    [self presentViewController:ctl animated:YES completion:nil];
 }
 
 - (void)alertTest {

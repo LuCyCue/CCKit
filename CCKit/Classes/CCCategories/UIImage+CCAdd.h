@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param gradientType 渐变色方向
  @param imgSize 生成图片大小
  */
-+ (UIImage *)cc_gradientColorImageFromColors:(NSArray*)colors gradientType:(CCImageGradientType)gradientType imgSize:(CGSize)imgSize;
++ (UIImage *)cc_gradientColorImageFromColors:(NSArray*)colors gradientType:(CCImageGradientType)gradientType imgSize:(CGSize)imgSize locations:(NSArray<NSNumber *> *)locations;
 
 /**
  放大图片到指定尺寸

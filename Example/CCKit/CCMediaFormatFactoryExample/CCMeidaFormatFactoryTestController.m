@@ -25,6 +25,7 @@
 @property (nonatomic, strong) UIButton *gifToImagesBtn;
 @property (nonatomic, strong) UIButton *videoConverFormatBtn;
 @property (nonatomic, strong) UIButton *pdfBtn;
+@property (nonatomic, strong) UIButton *imagesToSingle;
 @property (nonatomic, strong) PHLivePhoto *selectLivePhoto;
 @property (nonatomic, strong) NSURL *videoUrl;
 @property (nonatomic, copy) NSString *selectGifUrl;
@@ -88,6 +89,11 @@
     [self.pdfBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(0);
         make.bottom.equalTo(self.gifToImagesBtn.mas_top).offset(-10);
+    }];
+    [self.view addSubview:self.imagesToSingle];
+    [self.imagesToSingle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(0);
+        make.bottom.equalTo(self.pdfBtn.mas_top).offset(-10);
     }];
 }
 
@@ -205,6 +211,14 @@
 - (void)pdfAction {
     CCPDFTestViewController *ctl = [[CCPDFTestViewController alloc] init];
     [self presentViewController:ctl animated:YES completion:nil];
+}
+
+- (void)imagesToSingleAction {
+    UIImage *image1 = [UIImage imageNamed:@"icon1"];
+    UIImage *image2 = [UIImage imageNamed:@"icon2"];
+    [CCMediaFormatFactory convertImages:@[image1, image2] toSingleImage:nil comletion:^(NSString * _Nullable url, NSError * _Nullable error) {
+            
+    }];
 }
 
 #pragma mark - UIImagePickerController Delegate method
@@ -351,6 +365,19 @@
         [_pdfBtn addTarget:self action:@selector(pdfAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _pdfBtn;
+}
+
+- (UIButton *)imagesToSingle {
+    if (!_imagesToSingle) {
+        _imagesToSingle = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_imagesToSingle setTitle:@"Images to Single" forState:UIControlStateNormal];
+        [_imagesToSingle setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+        _imagesToSingle.titleLabel.font = [UIFont systemFontOfSize:14];
+        _imagesToSingle.backgroundColor = UIColor.blueColor;
+        _imagesToSingle.layer.cornerRadius = 0.0f;
+        [_imagesToSingle addTarget:self action:@selector(imagesToSingleAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _imagesToSingle;
 }
 
 - (YYAnimatedImageView *)animationImageView {

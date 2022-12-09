@@ -128,6 +128,15 @@ NS_ASSUME_NONNULL_BEGIN
                       toPdf:(NSString * _Nullable)outputUrl
                       error:(NSError *_Nullable * _Nullable)error;
 
+
+/// 图片数组转换为单张图片
+/// @param images 图片数组
+/// @param outputUrl 输出路径（可为空）
+/// @param completion 回调
++ (void)convertImages:(NSArray<UIImage *> *)images
+        toSingleImage:(NSString * _Nullable)outputUrl
+            comletion:(CCMediaFormatCompletion)completion;
+
 @end
 
 

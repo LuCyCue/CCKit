@@ -73,6 +73,10 @@
       "source_files": "CCKit/Classes/CCCircleProgressView/*"
     },
     {
+      "name": "CCSortTableView",
+      "source_files": "CCKit/Classes/CCSortTableView/*"
+    },
+    {
       "name": "CCMediaFormatFactory",
       "source_files": "CCKit/Classes/CCMediaFormatFactory/*",
       "frameworks": [

@@ -19,16 +19,24 @@
     return image;
 }
 
-+ (UIImage *)cc_gradientColorImageFromColors:(NSArray*)colors gradientType:(CCImageGradientType)gradientType imgSize:(CGSize)imgSize {
++ (UIImage *)cc_gradientColorImageFromColors:(NSArray*)colors gradientType:(CCImageGradientType)gradientType imgSize:(CGSize)imgSize locations:(NSArray<NSNumber *> *)locations {
     NSMutableArray *ar = [NSMutableArray array];
     for(UIColor *c in colors) {
         [ar addObject:(id)c.CGColor];
     }
+    if (!locations) {
+        locations = @[@0,@1];
+    }
+    CGFloat cLocations[locations.count];
+    for (NSInteger i = 0; i < locations.count; i++) {
+        cLocations[i] = locations[i].doubleValue;
+    }
+
     UIGraphicsBeginImageContextWithOptions(imgSize, YES, 1);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSaveGState(context);
     CGColorSpaceRef colorSpace = CGColorGetColorSpace([[colors lastObject] CGColor]);
-    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef)ar, NULL);
+    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef)ar, cLocations);
     CGPoint start;
     CGPoint end;
     switch (gradientType) {

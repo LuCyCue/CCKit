@@ -12,6 +12,7 @@ PODS:
     - LCCKit/CCPageControl (= 0.0.2)
     - LCCKit/CCSafe (= 0.0.2)
     - LCCKit/CCScrollViewNest (= 0.0.2)
+    - LCCKit/CCSortTableView (= 0.0.2)
     - LCCKit/CCStrokeLabel (= 0.0.2)
     - LCCKit/CCTimer (= 0.0.2)
   - LCCKit/CCAlert (0.0.2)
@@ -26,6 +27,7 @@ PODS:
   - LCCKit/CCPageControl (0.0.2)
   - LCCKit/CCSafe (0.0.2)
   - LCCKit/CCScrollViewNest (0.0.2)
+  - LCCKit/CCSortTableView (0.0.2)
   - LCCKit/CCStrokeLabel (0.0.2)
   - LCCKit/CCTimer (0.0.2)
   - Masonry (1.1.0)
@@ -119,7 +121,7 @@ CHECKOUT OPTIONS:
     :git: https://gitee.com/changsanjiang/SJVideoPlayer.git
 
 SPEC CHECKSUMS:
-  LCCKit: 22bb25bf690edc868ee978b210e64ee594c783be
+  LCCKit: 16ce2afa939f622501998c9aff89f1e197378861
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SJBaseVideoPlayer: 52ab45c54521c9988cb5a4d9abad444152248800
   SJUIKit: 86d5b16f8b8b17274ef8805acf965e4014629e15

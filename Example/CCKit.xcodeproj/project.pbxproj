@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0449FBE92814FF060086D9AD /* CCMeidaFormatFactoryTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0449FBE82814FF060086D9AD /* CCMeidaFormatFactoryTestController.m */; };
+		045335632936233200FC073C /* CCSortTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045335622936233200FC073C /* CCSortTableViewController.m */; };
 		0461C8762754BF7000FDA509 /* CCTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0461C8752754BF7000FDA509 /* CCTestViewController.m */; };
 		046AF5BA2835E17600E8D66C /* CCPDFTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046AF5B92835E17600E8D66C /* CCPDFTestViewController.m */; };
 		046AF5BF2835E69400E8D66C /* excel操作大全.doc in Resources */ = {isa = PBXBuildFile; fileRef = 046AF5BC2835E69400E8D66C /* excel操作大全.doc */; };
@@ -49,6 +50,8 @@
 		03496176EDB4ECD2EDE470A9 /* Pods-CCKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCKit_Example.release.xcconfig"; path = "Target Support Files/Pods-CCKit_Example/Pods-CCKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		0449FBE72814FF060086D9AD /* CCMeidaFormatFactoryTestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCMeidaFormatFactoryTestController.h; sourceTree = "<group>"; };
 		0449FBE82814FF060086D9AD /* CCMeidaFormatFactoryTestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMeidaFormatFactoryTestController.m; sourceTree = "<group>"; };
+		045335612936233200FC073C /* CCSortTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSortTableViewController.h; sourceTree = "<group>"; };
+		045335622936233200FC073C /* CCSortTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSortTableViewController.m; sourceTree = "<group>"; };
 		0461C8742754BF7000FDA509 /* CCTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTestViewController.h; sourceTree = "<group>"; };
 		0461C8752754BF7000FDA509 /* CCTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTestViewController.m; sourceTree = "<group>"; };
 		046AF5B82835E17600E8D66C /* CCPDFTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCPDFTestViewController.h; sourceTree = "<group>"; };
@@ -131,6 +134,15 @@
 			path = CCMediaFormatFactoryExample;
 			sourceTree = "<group>";
 		};
+		045335602936230A00FC073C /* CCSortTableViewExample */ = {
+			isa = PBXGroup;
+			children = (
+				045335612936233200FC073C /* CCSortTableViewController.h */,
+				045335622936233200FC073C /* CCSortTableViewController.m */,
+			);
+			path = CCSortTableViewExample;
+			sourceTree = "<group>";
+		};
 		046AF5BB2835E64B00E8D66C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +217,7 @@
 		6003F593195388D20070C39A /* Example for CCKit */ = {
 			isa = PBXGroup;
 			children = (
+				045335602936230A00FC073C /* CCSortTableViewExample */,
 				0449FBE62814FED00086D9AD /* CCMediaFormatFactoryExample */,
 				04CBC6FC27CDCC8700F08879 /* CCSrollViewNestExample */,
 				3A162F9527CB331500B0E551 /* CCChartExtample */,
@@ -471,6 +484,7 @@
 				04CBC6BF27C66D2D00F08879 /* CCLetterIndexViewController.m in Sources */,
 				046AF5BA2835E17600E8D66C /* CCPDFTestViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				045335632936233200FC073C /* CCSortTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

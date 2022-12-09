@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param outputPath 输出文件夹（文件夹需唯一）
 + (NSArray<NSString *> * _Nullable)imagesFromPdf:(NSURL *)pdfUrl outputPath:(NSString *)outputPath;
 
+//拼接长图
++ (void)combineImages:(NSArray *)images callBack:(void(^)(UIImage *_Nullable resultImage))callBack;
+
 @end
 
 NS_ASSUME_NONNULL_END

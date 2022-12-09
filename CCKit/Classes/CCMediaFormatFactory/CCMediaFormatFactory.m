@@ -432,6 +432,50 @@
     return ret ? outputUrl : @"";
 }
 
+/// 图片数组转换为单张图片
+/// @param images 图片数组
+/// @param outputUrl 输出路径（可为空）
+/// @param completion 回调
++ (void)convertImages:(NSArray<UIImage *> *)images
+        toSingleImage:(NSString * _Nullable)outputUrl
+            comletion:(CCMediaFormatCompletion)completion {
+    if (![CCMediaFormatTool checkSDKValid:completion]) {
+        return;
+    }
+    if (images.count == 0) {
+        NSError *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:400 userInfo:@{NSLocalizedDescriptionKey:@"input invalid"}];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !completion ?: completion(nil, error);
+        });
+        return;
+    }
+    if (outputUrl.length == 0) {
+        outputUrl = [CCMediaFormatTool randPathWithExtendName:@"png"];
+    }
+  
+    [CCImage combineImages:images callBack:^(UIImage * _Nonnull resultImage) {
+        if (!resultImage) {
+            NSError *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:601 userInfo:@{NSLocalizedDescriptionKey:@"Generate image fail"}];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                !completion ?: completion(nil, error);
+            });
+            return;
+        }
+        NSData *imgData = UIImagePNGRepresentation(resultImage);
+        BOOL ret = [imgData writeToFile:outputUrl atomically:YES];
+        if (!ret) {
+            NSError *error = [NSError errorWithDomain:@"cc.mediaformat.com" code:602 userInfo:@{NSLocalizedDescriptionKey:@"Output fail"}];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                !completion ?: completion(nil, error);
+            });
+            return;
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !completion ?: completion(outputUrl, nil);
+        });
+    }];
+}
+
 
 @end
 
