@@ -20,9 +20,12 @@
 #import "CCAlert.h"
 #import "CCSortTableViewController.h"
 #import <Masonry/Masonry.h>
+#import "CCChainNode.h"
+#import "UIView+CCAdd.h"
 
 @interface CCViewController ()
 @property (nonatomic, strong) CCNumberScrollView *numberScrollView;
+@property (nonatomic, strong) UIButton *btn;
 @end
 
 @implementation CCViewController
@@ -30,22 +33,87 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
     [btn setTitle:@"download" forState:UIControlStateNormal];
-    btn.backgroundColor = UIColor.redColor;
+    [btn setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(jump2MediaFormatFactoryController) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.offset(0);
+        make.size.mas_equalTo(CGSizeMake(100, 50));
+        make.top.mas_equalTo(100);
+    }];
+    self.btn = btn;
+    
 
     UIButton *testBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 100, 50)];
     [testBtn setTitle:@"Test" forState:UIControlStateNormal];
-    testBtn.backgroundColor = UIColor.redColor;
     [testBtn addTarget:self action:@selector(testAction) forControlEvents:UIControlEventTouchUpInside];
+    testBtn.backgroundColor = UIColor.redColor;
     [self.view addSubview:testBtn];
+    [testBtn cc_setGradientBolder:@[UIColor.yellowColor, UIColor.greenColor] locations:@[@0,@1] startPoint:CGPointMake(0, 0.5) endPoint:CGPointMake(1, 0.5) cornerRadius:8 borderWidth:2];
+    
+    UILabel *lab = [[UILabel alloc] init];
+    lab.text = @"dkdkkdjkfkdfjkdj";
+    lab.font = [UIFont systemFontOfSize:13];
+    lab.textColor = UIColor.blueColor;
+    lab.frame = CGRectMake(100, 200, 100, 30);
+    [self.view addSubview:lab];
+    [lab cc_setGradientBolder:@[UIColor.yellowColor, UIColor.greenColor] locations:@[@0,@1] startPoint:CGPointMake(0, 0.5) endPoint:CGPointMake(1, 0.5) cornerRadius:8 borderWidth:0.5];
+    
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    [self.btn cc_setGradientBgColor:@[UIColor.yellowColor, UIColor.greenColor] locations:@[@0,@1] startPoint:CGPointMake(0, 0.5) endPoint:CGPointMake(1, 0.5)];
 }
 
 - (void)testAction {
-    CCSortTableViewController *ctl = CCSortTableViewController.new;
-    [self presentViewController:ctl animated:YES completion:nil];
+//    CCSortTableViewController *ctl = CCSortTableViewController.new;
+//    [self presentViewController:ctl animated:YES completion:nil];
+    CCChainNode *rootNode = [[CCChainNode alloc] init];
+    rootNode.doHandler = ^(CCChainNode*  _Nonnull sender) {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            sleep(2);
+            NSLog(@"root done");
+            sender.data = @"root";
+            [sender sendNext:sender];
+        });
+    };
+    rootNode.completionHandler = ^(id  _Nonnull sender) {
+        NSLog(@"root completion");
+    };
+    rootNode.errorHandler = ^(NSError * _Nonnull error) {
+        
+    };
+    CCChainNode *secondNode = CCChainNode.new;
+    secondNode.doHandler = ^(id  _Nonnull sender) {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            sleep(3);
+            NSLog(@"second done");
+            [sender sendNext:sender];
+        });
+    };
+    secondNode.completionHandler = ^(id  _Nonnull sender) {
+        NSLog(@"second completion");
+    };
+    secondNode.errorHandler = ^(NSError * _Nonnull error) {
+        
+    };
+    CCChainNode *thirdNode = CCChainNode.new;
+    thirdNode.doHandler = ^(id  _Nonnull sender) {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            sleep(4);
+            NSLog(@"third done");
+            [sender sendNext:sender];
+        });
+    };
+    thirdNode.completionHandler = ^(id  _Nonnull sender) {
+        NSLog(@"third completion");
+    };
+    rootNode.addNextNode(secondNode);
+    secondNode.addNextNode(thirdNode);
+    [rootNode start:nil];
 }
 
 - (void)alertTest {

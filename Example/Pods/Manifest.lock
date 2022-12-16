@@ -4,6 +4,7 @@ PODS:
     - LCCKit/CCCategories (= 0.0.2)
     - LCCKit/CCChart (= 0.0.2)
     - LCCKit/CCCircleProgressView (= 0.0.2)
+    - LCCKit/CCDatePicker (= 0.0.2)
     - LCCKit/CCFileDownload (= 0.0.2)
     - LCCKit/CCLetterIndexView (= 0.0.2)
     - LCCKit/CCMediaFormatFactory (= 0.0.2)
@@ -19,6 +20,8 @@ PODS:
   - LCCKit/CCCategories (0.0.2)
   - LCCKit/CCChart (0.0.2)
   - LCCKit/CCCircleProgressView (0.0.2)
+  - LCCKit/CCDatePicker (0.0.2):
+    - Masonry
   - LCCKit/CCFileDownload (0.0.2)
   - LCCKit/CCLetterIndexView (0.0.2)
   - LCCKit/CCMediaFormatFactory (0.0.2)
@@ -121,7 +124,7 @@ CHECKOUT OPTIONS:
     :git: https://gitee.com/changsanjiang/SJVideoPlayer.git
 
 SPEC CHECKSUMS:
-  LCCKit: 16ce2afa939f622501998c9aff89f1e197378861
+  LCCKit: 51ec70ecae4ea5843723fee839b674379f5ba93e
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SJBaseVideoPlayer: 52ab45c54521c9988cb5a4d9abad444152248800
   SJUIKit: 86d5b16f8b8b17274ef8805acf965e4014629e15

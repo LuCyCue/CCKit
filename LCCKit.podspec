@@ -99,6 +99,11 @@ Pod::Spec.new do |s|
     ss.source_files = 'CCKit/Classes/CCTimer/*'
   end
   
+  s.subspec 'CCDatePicker' do |ss|
+    ss.source_files = 'CCKit/Classes/CCDatePicker/*'
+    ss.dependency 'Masonry'
+  end
+  
   s.frameworks = 'UIKit','Photos'
   
   

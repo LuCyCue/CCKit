@@ -93,6 +93,15 @@
     {
       "name": "CCTimer",
       "source_files": "CCKit/Classes/CCTimer/*"
+    },
+    {
+      "name": "CCDatePicker",
+      "source_files": "CCKit/Classes/CCDatePicker/*",
+      "dependencies": {
+        "Masonry": [
+
+        ]
+      }
     }
   ]
 }

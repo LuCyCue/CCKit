@@ -13,21 +13,28 @@ typedef NS_ENUM(NSUInteger, CCChainNodeStatus) {
     CCChainNodeStatusDoing,
     CCChainNodeStatusCompletion,
     CCChainNodeStatusError,
+    CCChainNodeStatusCancel,
 };
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CCChainNode : NSObject
 @property (nonatomic, assign) CCChainNodeStatus status;
-@property (nonatomic, strong) NSMutableArray<CCChainNode *> *subNodes;
-@property (nonatomic, strong) CCChainNode *nextNode;
-@property (nonatomic, copy) void(^doHandler)(id sender);
-@property (nonatomic, copy) void(^completionHandler)(id sender);
+@property (nonatomic, strong) NSMutableArray<CCChainNode *> *nextNodes;
+@property (nonatomic, strong) NSMutableArray<CCChainNode *> *preNodes;
+@property (nonatomic, strong) id data;
+@property (nonatomic, copy) void(^doHandler)(CCChainNode *sender);
+@property (nonatomic, copy) void(^completionHandler)(CCChainNode *sender);
 @property (nonatomic, copy) void(^errorHandler)(NSError *error);
+@property (nonatomic, copy) void(^cancelHandler)(void);
 
-- (void)start;
+
+- (void)start:(id _Nullable)sender;
 - (void)cancel;
-- (void)stop;
+
+- (CCChainNode *(^)(CCChainNode *))addNextNode;
+
+- (void)sendNext:(id)sender;
 
 @end
 

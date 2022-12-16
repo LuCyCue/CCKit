@@ -8,6 +8,7 @@
 
 #import "CCSortTableViewController.h"
 #import "CCSortTableView.h"
+#import "CCSortTableViewCell.h"
 
 @interface CCSortTableViewController ()<UITableViewDelegate, UITableViewDataSource, CCSortTableViewDataSource>
 @property (nonatomic, strong) CCSortTableView *tableView;
@@ -23,7 +24,8 @@
     self.tableView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-150);
     self.dataSource = [NSMutableArray array];
     for (int i = 0; i < 40; i++) {
-        [self.dataSource addObject:@(i)];
+        NSInteger data = arc4random_uniform(10000);
+        [self.dataSource addObject:@(data)];
     }
     [self.tableView reloadData];
     
@@ -36,13 +38,8 @@
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *reuseId = @"CCSortTableViewControllerCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", self.dataSource[indexPath.row]];
+    CCSortTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(CCSortTableViewCell.class)];
+    cell.title = [NSString stringWithFormat:@"%@", self.dataSource[indexPath.row]];
     return cell;
 }
 
@@ -71,6 +68,7 @@
             }
         }
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [_tableView registerClass:CCSortTableViewCell.class forCellReuseIdentifier:NSStringFromClass(CCSortTableViewCell.class)];
     }
     return _tableView;
 }
