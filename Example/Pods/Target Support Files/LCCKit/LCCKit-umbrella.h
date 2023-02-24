@@ -70,6 +70,7 @@
 #import "CCSortTableView.h"
 #import "CCStrokeLabel.h"
 #import "CCGCDTimer.h"
+#import "CCRefreshTimer.h"
 #import "CCTimer.h"
 #import "CCCommonMacro.h"
 #import "CCFileTool.h"
@@ -123,6 +124,7 @@
 #import "CCSortTableView.h"
 #import "CCStrokeLabel.h"
 #import "CCGCDTimer.h"
+#import "CCRefreshTimer.h"
 #import "CCTimer.h"
 
 FOUNDATION_EXPORT double LCCKitVersionNumber;

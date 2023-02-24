@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 描边大小
 @property (nonatomic, assign) CGFloat strokeWidth;
 
+/// 文字显示内边距
+@property (nonatomic, assign) UIEdgeInsets textInset;
+
 
 /// 开启动画
 /// @param flowingLightColor 流光颜色

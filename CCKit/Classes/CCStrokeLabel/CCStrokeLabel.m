@@ -44,6 +44,15 @@
     }
 }
 
+- (CGRect)textRectForBounds:(CGRect)bounds limitedToNumberOfLines:(NSInteger)numberOfLines {
+    CGRect rect = [super textRectForBounds:bounds limitedToNumberOfLines:numberOfLines];
+    if (!UIEdgeInsetsEqualToEdgeInsets(self.textInset, UIEdgeInsetsZero)) {
+        rect.size.width = self.textInset.left+rect.size.width+self.textInset.right;
+        rect.size.height = self.textInset.top+rect.size.height+self.textInset.bottom;
+    }
+    return rect;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.animationLayer.frame = self.bounds;

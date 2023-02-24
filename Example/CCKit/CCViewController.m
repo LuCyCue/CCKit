@@ -22,10 +22,12 @@
 #import <Masonry/Masonry.h>
 #import "CCChainNode.h"
 #import "UIView+CCAdd.h"
+#import "CCRefreshTimer.h"
 
 @interface CCViewController ()
 @property (nonatomic, strong) CCNumberScrollView *numberScrollView;
 @property (nonatomic, strong) UIButton *btn;
+@property (nonatomic, strong) CCRefreshTimer *refreshTimer;
 @end
 
 @implementation CCViewController
@@ -53,24 +55,23 @@
     [self.view addSubview:testBtn];
     [testBtn cc_setGradientBolder:@[UIColor.yellowColor, UIColor.greenColor] locations:@[@0,@1] startPoint:CGPointMake(0, 0.5) endPoint:CGPointMake(1, 0.5) cornerRadius:8 borderWidth:2];
     
-    UILabel *lab = [[UILabel alloc] init];
-    lab.text = @"dkdkkdjkfkdfjkdj";
-    lab.font = [UIFont systemFontOfSize:13];
-    lab.textColor = UIColor.blueColor;
-    lab.frame = CGRectMake(100, 200, 100, 30);
-    [self.view addSubview:lab];
-    [lab cc_setGradientBolder:@[UIColor.yellowColor, UIColor.greenColor] locations:@[@0,@1] startPoint:CGPointMake(0, 0.5) endPoint:CGPointMake(1, 0.5) cornerRadius:8 borderWidth:0.5];
+    self.refreshTimer = CCRefreshTimer.new;
+    self.refreshTimer.refreshInterval = 0.4;
+    [self.refreshTimer addRefreshHandler:^{
+        NSLog(@"refresh done");
+    }];
     
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    [self.btn cc_setGradientBgColor:@[UIColor.yellowColor, UIColor.greenColor] locations:@[@0,@1] startPoint:CGPointMake(0, 0.5) endPoint:CGPointMake(1, 0.5)];
-}
-
 - (void)testAction {
-//    CCSortTableViewController *ctl = CCSortTableViewController.new;
-//    [self presentViewController:ctl animated:YES completion:nil];
+    for (int i = 0; i < 10; i++) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(i * 0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"send task %d", i);
+            [self.refreshTimer refresh];
+        });
+        
+    }
+    return;
     CCChainNode *rootNode = [[CCChainNode alloc] init];
     rootNode.doHandler = ^(CCChainNode*  _Nonnull sender) {
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
